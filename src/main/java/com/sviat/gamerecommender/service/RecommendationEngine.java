@@ -50,4 +50,15 @@ public class RecommendationEngine {
                 .limit(limit)
                 .collect(Collectors.toList());
     }
+
+    public List<Game> getRecommendationsByPlatform(String platform, int limit) {
+        return gameDatabase.getAllGames().stream()
+                // keep only games by the specified platform
+                .filter(g -> g.getPlatforms().contains(platform))
+                // sort by metacritic score (desc)
+                .sorted(Comparator.comparingInt(Game::getMetacriticScore).reversed())
+                // cap the result list
+                .limit(limit)
+                .collect(Collectors.toList());
+    }
 }

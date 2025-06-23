@@ -10,24 +10,72 @@ public class TestGameData {
             .id("game1")
             .title("RPG Action Game")
             .genres(Set.of("RPG", "Action"))
+            .metacriticScore(85)
+            .developer("GameStudio A")
+            .platforms(Set.of("PC", "PlayStation"))
             .build();
 
     public static final Game RPG_ACTION_STRATEGY = Game.builder()
             .id("game2")
             .title("RPG Action Strategy")
             .genres(Set.of("RPG", "Action", "Strategy"))
+            .metacriticScore(92)
+            .developer("GameStudio B")
+            .platforms(Set.of("PC", "Xbox", "PlayStation"))
             .build();
 
     public static final Game ACTION_ONLY = Game.builder()
             .id("game3")
             .title("Pure Action")
             .genres(Set.of("Action"))
+            .metacriticScore(78)
+            .developer("GameStudio A")
+            .platforms(Set.of("Xbox"))
             .build();
 
     public static final Game STRATEGY_ONLY = Game.builder()
             .id("game4")
             .title("Pure Strategy")
             .genres(Set.of("Strategy"))
+            .metacriticScore(88)
+            .developer("GameStudio C")
+            .platforms(Set.of("PC"))
+            .build();
+
+    public static final Game HIGH_SCORE_GAME = Game.builder()
+            .id("game5")
+            .title("Masterpiece Game")
+            .genres(Set.of("Adventure"))
+            .metacriticScore(96)
+            .developer("Elite Studios")
+            .platforms(Set.of("PC", "PlayStation", "Xbox", "Nintendo Switch"))
+            .build();
+
+    public static final Game LOW_SCORE_GAME = Game.builder()
+            .id("game6")
+            .title("Budget Game")
+            .genres(Set.of("Casual"))
+            .metacriticScore(65)
+            .developer("Indie Dev")
+            .platforms(Set.of("PC"))
+            .build();
+
+    public static final Game MULTI_PLATFORM_GAME = Game.builder()
+            .id("game7")
+            .title("Cross Platform Hit")
+            .genres(Set.of("Sports"))
+            .metacriticScore(82)
+            .developer("GameStudio A")
+            .platforms(Set.of("PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile"))
+            .build();
+
+    public static final Game EXCLUSIVE_GAME = Game.builder()
+            .id("game8")
+            .title("Console Exclusive")
+            .genres(Set.of("Racing"))
+            .metacriticScore(89)
+            .developer("Console Studios")
+            .platforms(Set.of("PlayStation"))
             .build();
 
     public static final Game SERIALIZATION_TEST_1 = Game.builder()
@@ -58,7 +106,10 @@ public class TestGameData {
             .build();
 
     public static List<Game> getAllTestGames() {
-        return Arrays.asList(RPG_ACTION, RPG_ACTION_STRATEGY, ACTION_ONLY, STRATEGY_ONLY);
+        return Arrays.asList(
+            RPG_ACTION, RPG_ACTION_STRATEGY, ACTION_ONLY, STRATEGY_ONLY,
+            HIGH_SCORE_GAME, LOW_SCORE_GAME, MULTI_PLATFORM_GAME, EXCLUSIVE_GAME
+        );
     }
 
     public static List<Game> getSerializationTestGames() {
