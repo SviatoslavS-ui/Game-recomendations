@@ -3,408 +3,745 @@
     "id": "zelda-ocarina-time",
     "title": "The Legend of Zelda: Ocarina of Time",
     "description": "A legendary adventure that redefined gaming with its innovative Z-targeting system and immersive 3D world.",
-    "releaseDate": "1998-11-21",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/zelda-ocarina-time/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/zelda-ocarina-time/thumbnail.jpg",
     "developer": "Nintendo EAD",
     "publisher": "Nintendo",
-    "genres": ["Action", "Adventure", "RPG"],
-    "tags": ["Fantasy", "Single-player", "Puzzle", "Classic"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
+    "tags": [
+      "Single-player",
+      "Puzzle",
+      "Fantasy",
+      "Classic"
+    ],
     "metacriticScore": 99,
+    "ageRating": null,
     "userScore": 9.1,
     "reviewCount": 2847,
-    "platforms": ["Nintendo 64", "GameCube", "3DS"],
+    "platforms": [
+      "3DS",
+      "Nintendo 64",
+      "GameCube"
+    ],
     "price": 19.99,
-    "isMultiplayer": false,
-    "playtimeHours": 25
+    "playtimeHours": 25,
+    "multiplayer": false
   },
   {
     "id": "soulcalibur",
     "title": "SoulCalibur",
     "description": "This is a tale of souls and swords, transcending the world and all its history, told for all eternity. The greatest weapons-based fighter returns.",
-    "releaseDate": "1999-09-08",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/soulcalibur/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/soulcalibur/thumbnail.jpg",
     "developer": "Project Soul",
     "publisher": "Namco",
-    "genres": ["Fighting"],
-    "tags": ["Multiplayer", "Weapons", "3D Fighter"],
+    "genres": [
+      "Fighting"
+    ],
+    "tags": [
+      "Multiplayer",
+      "Weapons",
+      "3D Fighter"
+    ],
     "metacriticScore": 98,
+    "ageRating": null,
     "userScore": 8.9,
     "reviewCount": 1523,
-    "platforms": ["Dreamcast", "Xbox", "GameCube"],
+    "platforms": [
+      "GameCube",
+      "Xbox",
+      "Dreamcast"
+    ],
     "price": 14.99,
-    "isMultiplayer": true,
-    "playtimeHours": 15
+    "playtimeHours": 15,
+    "multiplayer": true
   },
   {
     "id": "gta-iv",
     "title": "Grand Theft Auto IV",
     "description": "What does the American Dream mean today? For Niko Belic, fresh off the boat from Europe, it's the hope he can escape his past.",
-    "releaseDate": "2008-04-29",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gta-iv/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gta-iv/thumbnail.jpg",
     "developer": "Rockstar North",
     "publisher": "Rockstar Games",
-    "genres": ["Action", "Adventure", "Crime"],
-    "tags": ["Open World", "Mature", "Multiplayer", "Sandbox"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "tags": [
+      "Multiplayer",
+      "Mature",
+      "Open World",
+      "Sandbox"
+    ],
     "metacriticScore": 98,
+    "ageRating": null,
     "userScore": 7.8,
     "reviewCount": 3421,
-    "platforms": ["PC", "PlayStation 3", "Xbox 360"],
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "Xbox 360"
+    ],
     "price": 19.99,
-    "isMultiplayer": true,
-    "playtimeHours": 30
+    "playtimeHours": 30,
+    "multiplayer": true
   },
   {
     "id": "super-mario-galaxy",
     "title": "Super Mario Galaxy",
     "description": "The ultimate Nintendo hero is taking the ultimate step... out into space. Join Mario as he ushers in a new era of video games, defying gravity across all the planets in the galaxy.",
-    "releaseDate": "2007-11-12",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/super-mario-galaxy/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/super-mario-galaxy/thumbnail.jpg",
     "developer": "Nintendo EAD Tokyo",
     "publisher": "Nintendo",
-    "genres": ["Platformer", "Adventure"],
-    "tags": ["Family", "Single-player", "Space", "Innovative"],
+    "genres": [
+      "Adventure",
+      "Platformer"
+    ],
+    "tags": [
+      "Space",
+      "Innovative",
+      "Single-player",
+      "Family"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 9.2,
     "reviewCount": 2156,
-    "platforms": ["Wii"],
+    "platforms": [
+      "Wii"
+    ],
     "price": 24.99,
-    "isMultiplayer": false,
-    "playtimeHours": 12
+    "playtimeHours": 12,
+    "multiplayer": false
   },
   {
     "id": "super-mario-galaxy-2",
     "title": "Super Mario Galaxy 2",
     "description": "The sequel to the galaxy-hopping original game, loaded with entirely new galaxies and features to challenge players.",
-    "releaseDate": "2010-05-23",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/super-mario-galaxy-2/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/super-mario-galaxy-2/thumbnail.jpg",
     "developer": "Nintendo EAD Tokyo",
     "publisher": "Nintendo",
-    "genres": ["Platformer", "Adventure"],
-    "tags": ["Family", "Single-player", "Space", "Yoshi"],
+    "genres": [
+      "Adventure",
+      "Platformer"
+    ],
+    "tags": [
+      "Space",
+      "Single-player",
+      "Yoshi",
+      "Family"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 9.0,
     "reviewCount": 1876,
-    "platforms": ["Wii"],
+    "platforms": [
+      "Wii"
+    ],
     "price": 24.99,
-    "isMultiplayer": false,
-    "playtimeHours": 15
+    "playtimeHours": 15,
+    "multiplayer": false
   },
   {
     "id": "zelda-breath-wild",
     "title": "The Legend of Zelda: Breath of the Wild",
     "description": "Step into a world of discovery, exploration and adventure in this stunning open-air adventure across the ruined kingdom of Hyrule.",
-    "releaseDate": "2017-03-03",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/zelda-breath-wild/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/zelda-breath-wild/thumbnail.jpg",
     "developer": "Nintendo EPD",
     "publisher": "Nintendo",
-    "genres": ["Action", "Adventure", "RPG"],
-    "tags": ["Open World", "Exploration", "Fantasy", "Single-player"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
+    "tags": [
+      "Single-player",
+      "Fantasy",
+      "Exploration",
+      "Open World"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.7,
     "reviewCount": 4523,
-    "platforms": ["Nintendo Switch", "Wii U"],
+    "platforms": [
+      "Nintendo Switch",
+      "Wii U"
+    ],
     "price": 59.99,
-    "isMultiplayer": false,
-    "playtimeHours": 60
+    "playtimeHours": 60,
+    "multiplayer": false
   },
   {
     "id": "tony-hawk-pro-skater-3",
     "title": "Tony Hawk's Pro Skater 3",
     "description": "Challenge up to four friends in online competitions over a LAN or the Internet. Take them on in both Trick Attack and Graffiti modes.",
-    "releaseDate": "2001-10-30",
+    "imageUrl": "/images/placeholder-game.jpg",
+    "thumbnailUrl": "/images/placeholder-game.jpg",
     "developer": "Neversoft",
     "publisher": "Activision",
-    "genres": ["Sports", "Extreme Sports"],
-    "tags": ["Skateboarding", "Multiplayer", "Arcade"],
+    "genres": [
+      "Extreme Sports",
+      "Sports"
+    ],
+    "tags": [
+      "Multiplayer",
+      "Skateboarding",
+      "Arcade"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.5,
     "reviewCount": 1234,
-    "platforms": ["PC", "PlayStation 2", "Xbox", "GameCube"],
+    "platforms": [
+      "PC",
+      "PlayStation 2",
+      "GameCube",
+      "Xbox"
+    ],
     "price": 9.99,
-    "isMultiplayer": true,
-    "playtimeHours": 20
+    "playtimeHours": 20,
+    "multiplayer": true
   },
   {
     "id": "perfect-dark",
     "title": "Perfect Dark",
     "description": "As Carrington Institute's most promising new Agent, Joanna Dark must uncover the truth behind the dataDyne Corporation's recent technological breakthroughs.",
-    "releaseDate": "2000-05-22",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/perfect-dark/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/perfect-dark/thumbnail.jpg",
     "developer": "Rare",
     "publisher": "Nintendo",
-    "genres": ["Shooter", "Action"],
-    "tags": ["Sci-Fi", "Single-player", "Multiplayer", "FPS"],
+    "genres": [
+      "Shooter",
+      "Action"
+    ],
+    "tags": [
+      "Sci-Fi",
+      "Single-player",
+      "Multiplayer",
+      "FPS"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.8,
     "reviewCount": 987,
-    "platforms": ["Nintendo 64", "Xbox 360"],
+    "platforms": [
+      "Nintendo 64",
+      "Xbox 360"
+    ],
     "price": 14.99,
-    "isMultiplayer": true,
-    "playtimeHours": 12
+    "playtimeHours": 12,
+    "multiplayer": true
   },
   {
     "id": "red-dead-redemption-2",
     "title": "Red Dead Redemption 2",
     "description": "An epic tale of life in America's unforgiving heartland. After a robbery goes badly wrong, Arthur Morgan and the Van der Linde gang are forced to flee.",
-    "releaseDate": "2018-10-26",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/red-dead-redemption-2/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/red-dead-redemption-2/thumbnail.jpg",
     "developer": "Rockstar Studios",
     "publisher": "Rockstar Games",
-    "genres": ["Action", "Adventure", "Western"],
-    "tags": ["Open World", "Mature", "Story-Rich", "Multiplayer"],
+    "genres": [
+      "Western",
+      "Action",
+      "Adventure"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Multiplayer",
+      "Mature",
+      "Open World"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.1,
     "reviewCount": 5678,
-    "platforms": ["PC", "PlayStation 4", "Xbox One"],
+    "platforms": [
+      "PlayStation 4",
+      "PC",
+      "Xbox One"
+    ],
     "price": 39.99,
-    "isMultiplayer": true,
-    "playtimeHours": 50
+    "playtimeHours": 50,
+    "multiplayer": true
   },
   {
     "id": "gta-v",
     "title": "Grand Theft Auto V",
     "description": "The sprawling sun-soaked metropolis of Los Santos is chock full of self-help coaches, starlets and C-List celebrities struggling to stay relevant.",
-    "releaseDate": "2013-09-17",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gta-v/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gta-v/thumbnail.jpg",
     "developer": "Rockstar North",
     "publisher": "Rockstar Games",
-    "genres": ["Action", "Adventure", "Crime"],
-    "tags": ["Open World", "Mature", "Multiplayer", "Sandbox"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "tags": [
+      "Multiplayer",
+      "Mature",
+      "Open World",
+      "Sandbox"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 7.9,
     "reviewCount": 6789,
-    "platforms": ["PC", "PlayStation 4", "Xbox One", "PlayStation 5", "Xbox Series X/S"],
+    "platforms": [
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox Series X/S",
+      "PC",
+      "Xbox One"
+    ],
     "price": 29.99,
-    "isMultiplayer": true,
-    "playtimeHours": 35
+    "playtimeHours": 35,
+    "multiplayer": true
   },
   {
     "id": "metroid-prime",
     "title": "Metroid Prime",
     "description": "Samus returns in a new mission to unravel the mystery behind the ruined walls scattered across Tallon IV in this first-person adventure.",
-    "releaseDate": "2002-11-17",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/metroid-prime/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/metroid-prime/thumbnail.jpg",
     "developer": "Retro Studios",
     "publisher": "Nintendo",
-    "genres": ["Action", "Adventure", "Shooter"],
-    "tags": ["Sci-Fi", "Single-player", "Exploration", "FPS"],
+    "genres": [
+      "Shooter",
+      "Action",
+      "Adventure"
+    ],
+    "tags": [
+      "Sci-Fi",
+      "Single-player",
+      "FPS",
+      "Exploration"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 9.0,
     "reviewCount": 1567,
-    "platforms": ["GameCube", "Wii"],
+    "platforms": [
+      "Wii",
+      "GameCube"
+    ],
     "price": 19.99,
-    "isMultiplayer": false,
-    "playtimeHours": 15
+    "playtimeHours": 15,
+    "multiplayer": false
   },
   {
     "id": "gta-iii",
     "title": "Grand Theft Auto III",
     "description": "Players are put at the heart of their very own gangster movie, and let loose in a fully-realised 3 dimensional city.",
-    "releaseDate": "2001-10-22",
+    "imageUrl": "/images/placeholder-game.jpg",
+    "thumbnailUrl": "/images/placeholder-game.jpg",
     "developer": "DMA Design",
     "publisher": "Rockstar Games",
-    "genres": ["Action", "Adventure", "Crime"],
-    "tags": ["Open World", "Mature", "Sandbox", "Classic"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Crime"
+    ],
+    "tags": [
+      "Mature",
+      "Open World",
+      "Classic",
+      "Sandbox"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.3,
     "reviewCount": 2345,
-    "platforms": ["PC", "PlayStation 2", "Xbox"],
+    "platforms": [
+      "PC",
+      "PlayStation 2",
+      "Xbox"
+    ],
     "price": 9.99,
-    "isMultiplayer": false,
-    "playtimeHours": 25
+    "playtimeHours": 25,
+    "multiplayer": false
   },
   {
     "id": "super-mario-odyssey",
     "title": "Super Mario Odyssey",
     "description": "Mario embarks on a new journey through unknown worlds in the first sandbox-style Mario game since Super Mario 64 and Super Mario Sunshine.",
-    "releaseDate": "2017-10-27",
+    "imageUrl": "/images/placeholder-game.jpg",
+    "thumbnailUrl": "/images/placeholder-game.jpg",
     "developer": "Nintendo EPD",
     "publisher": "Nintendo",
-    "genres": ["Platformer", "Adventure"],
-    "tags": ["Family", "Single-player", "Sandbox", "Exploration"],
+    "genres": [
+      "Adventure",
+      "Platformer"
+    ],
+    "tags": [
+      "Single-player",
+      "Family",
+      "Exploration",
+      "Sandbox"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.9,
     "reviewCount": 3456,
-    "platforms": ["Nintendo Switch"],
+    "platforms": [
+      "Nintendo Switch"
+    ],
     "price": 49.99,
-    "isMultiplayer": false,
-    "playtimeHours": 18
+    "playtimeHours": 18,
+    "multiplayer": false
   },
   {
     "id": "halo-combat-evolved",
     "title": "Halo: Combat Evolved",
     "description": "In a desperate attempt to keep the Covenant from finding Earth, you must uncover Halo's horrible secret and destroy mankind's nemesis.",
-    "releaseDate": "2001-11-15",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/halo-combat-evolved/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/halo-combat-evolved/thumbnail.jpg",
     "developer": "Bungie",
     "publisher": "Microsoft",
-    "genres": ["Shooter", "Action", "Sci-Fi"],
-    "tags": ["FPS", "Multiplayer", "Sci-Fi", "Classic"],
+    "genres": [
+      "Shooter",
+      "Action",
+      "Sci-Fi"
+    ],
+    "tags": [
+      "Sci-Fi",
+      "Multiplayer",
+      "FPS",
+      "Classic"
+    ],
     "metacriticScore": 97,
+    "ageRating": null,
     "userScore": 8.7,
     "reviewCount": 2789,
-    "platforms": ["Xbox", "PC", "Xbox 360"],
+    "platforms": [
+      "PC",
+      "Xbox",
+      "Xbox 360"
+    ],
     "price": 19.99,
-    "isMultiplayer": true,
-    "playtimeHours": 10
+    "playtimeHours": 10,
+    "multiplayer": true
   },
   {
     "id": "half-life-2",
     "title": "Half-Life 2",
     "description": "By taking the suspense, challenge and visceral charge of the original, Half-Life 2 opens the door to a world where the player's presence affects everything around him.",
-    "releaseDate": "2004-11-16",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/half-life-2/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/half-life-2/thumbnail.jpg",
     "developer": "Valve",
     "publisher": "Valve",
-    "genres": ["Shooter", "Action", "Sci-Fi"],
-    "tags": ["FPS", "Single-player", "Story-Rich", "Physics"],
+    "genres": [
+      "Shooter",
+      "Action",
+      "Sci-Fi"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Single-player",
+      "FPS",
+      "Physics"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 9.2,
     "reviewCount": 4567,
-    "platforms": ["PC", "Xbox", "PlayStation 3"],
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "Xbox"
+    ],
     "price": 9.99,
-    "isMultiplayer": false,
-    "playtimeHours": 13
+    "playtimeHours": 13,
+    "multiplayer": false
   },
   {
     "id": "bioshock",
     "title": "BioShock",
     "description": "After your plane crashes into icy uncharted waters, you discover Rapture, a city hidden beneath the sea with a dark secret.",
-    "releaseDate": "2007-08-21",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/bioshock/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/bioshock/thumbnail.jpg",
     "developer": "2K Boston",
     "publisher": "2K Games",
-    "genres": ["Shooter", "Action", "RPG"],
-    "tags": ["FPS", "Single-player", "Story-Rich", "Dystopian"],
+    "genres": [
+      "Shooter",
+      "Action",
+      "RPG"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Single-player",
+      "Dystopian",
+      "FPS"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.8,
     "reviewCount": 3789,
-    "platforms": ["PC", "Xbox 360", "PlayStation 3"],
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "Xbox 360"
+    ],
     "price": 19.99,
-    "isMultiplayer": false,
-    "playtimeHours": 12
+    "playtimeHours": 12,
+    "multiplayer": false
   },
   {
     "id": "goldeneye-007",
     "title": "GoldenEye 007",
     "description": "You are Bond. James Bond. You are assigned covert operations connected with the GoldenEye weapons satellite.",
-    "releaseDate": "1997-08-25",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/goldeneye-007/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/goldeneye-007/thumbnail.jpg",
     "developer": "Rare",
     "publisher": "Nintendo",
-    "genres": ["Shooter", "Action"],
-    "tags": ["FPS", "Multiplayer", "Split-screen", "Classic"],
+    "genres": [
+      "Shooter",
+      "Action"
+    ],
+    "tags": [
+      "Multiplayer",
+      "Split-screen",
+      "FPS",
+      "Classic"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.6,
     "reviewCount": 1876,
-    "platforms": ["Nintendo 64"],
+    "platforms": [
+      "Nintendo 64"
+    ],
     "price": 14.99,
-    "isMultiplayer": true,
-    "playtimeHours": 8
+    "playtimeHours": 8,
+    "multiplayer": true
   },
   {
     "id": "uncharted-2",
     "title": "Uncharted 2: Among Thieves",
     "description": "Fortune hunter Nathan Drake returns in a dangerous game of cat-and-mouse against a fugitive war criminal in search of the legendary Himalayan valley of Shambhala.",
-    "releaseDate": "2009-10-13",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/uncharted-2/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/uncharted-2/thumbnail.jpg",
     "developer": "Naughty Dog",
     "publisher": "Sony Computer Entertainment",
-    "genres": ["Action", "Adventure"],
-    "tags": ["Third-person", "Single-player", "Story-Rich", "Cinematic"],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Single-player",
+      "Cinematic",
+      "Third-person"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.9,
     "reviewCount": 2987,
-    "platforms": ["PlayStation 3"],
+    "platforms": [
+      "PlayStation 3"
+    ],
     "price": 19.99,
-    "isMultiplayer": true,
-    "playtimeHours": 10
+    "playtimeHours": 10,
+    "multiplayer": true
   },
   {
     "id": "resident-evil-4",
     "title": "Resident Evil 4",
     "description": "Leon S. Kennedy is on a top secret mission to investigate the disappearance of the president's daughter in a mysterious location in Europe.",
-    "releaseDate": "2005-01-11",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/resident-evil-4/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/resident-evil-4/thumbnail.jpg",
     "developer": "Capcom",
     "publisher": "Capcom",
-    "genres": ["Action", "Horror", "Survival"],
-    "tags": ["Third-person", "Single-player", "Horror", "Survival"],
+    "genres": [
+      "Action",
+      "Horror",
+      "Survival"
+    ],
+    "tags": [
+      "Single-player",
+      "Horror",
+      "Third-person",
+      "Survival"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.7,
     "reviewCount": 3456,
-    "platforms": ["PC", "PlayStation 2", "GameCube", "Wii"],
+    "platforms": [
+      "PC",
+      "PlayStation 2",
+      "Wii",
+      "GameCube"
+    ],
     "price": 19.99,
-    "isMultiplayer": false,
-    "playtimeHours": 16
+    "playtimeHours": 16,
+    "multiplayer": false
   },
   {
     "id": "baldurs-gate-3",
     "title": "Baldur's Gate 3",
     "description": "An ancient evil has returned to Baldur's Gate. Gather your party and return to the Forgotten Realms in a tale of fellowship and betrayal.",
-    "releaseDate": "2023-08-03",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/baldurs-gate-3/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/baldurs-gate-3/thumbnail.jpg",
     "developer": "Larian Studios",
     "publisher": "Larian Studios",
-    "genres": ["RPG", "Strategy", "Adventure"],
-    "tags": ["Turn-based", "Multiplayer", "Fantasy", "Story-Rich"],
+    "genres": [
+      "Adventure",
+      "RPG",
+      "Strategy"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Turn-based",
+      "Multiplayer",
+      "Fantasy"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.8,
     "reviewCount": 5432,
-    "platforms": ["PC", "PlayStation 5", "Xbox Series X/S"],
+    "platforms": [
+      "PlayStation 5",
+      "Xbox Series X/S",
+      "PC"
+    ],
     "price": 59.99,
-    "isMultiplayer": true,
-    "playtimeHours": 75
+    "playtimeHours": 75,
+    "multiplayer": true
   },
   {
     "id": "orange-box",
     "title": "The Orange Box",
     "description": "Games included: Half-Life 2, Half-Life 2: Episode One, Half-Life 2: Episode Two, Portal, and Team Fortress 2.",
-    "releaseDate": "2007-10-10",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/orange-box/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/orange-box/thumbnail.jpg",
     "developer": "Valve",
     "publisher": "Valve",
-    "genres": ["Shooter", "Puzzle", "Action"],
-    "tags": ["FPS", "Multiplayer", "Puzzle", "Compilation"],
+    "genres": [
+      "Shooter",
+      "Action",
+      "Puzzle"
+    ],
+    "tags": [
+      "Puzzle",
+      "Compilation",
+      "Multiplayer",
+      "FPS"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 9.1,
     "reviewCount": 4321,
-    "platforms": ["PC", "Xbox 360", "PlayStation 3"],
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "Xbox 360"
+    ],
     "price": 19.99,
-    "isMultiplayer": true,
-    "playtimeHours": 25
+    "playtimeHours": 25,
+    "multiplayer": true
   },
   {
     "id": "tekken-3",
     "title": "Tekken 3",
     "description": "An ancient evil force has reawakened. To lure it out of hiding will take the greatest fighting contest the world has ever seen.",
-    "releaseDate": "1998-04-29",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/tekken-3/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/tekken-3/thumbnail.jpg",
     "developer": "Namco",
     "publisher": "Namco",
-    "genres": ["Fighting"],
-    "tags": ["Multiplayer", "3D Fighter", "Arcade"],
+    "genres": [
+      "Fighting"
+    ],
+    "tags": [
+      "Multiplayer",
+      "3D Fighter",
+      "Arcade"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.9,
     "reviewCount": 1654,
-    "platforms": ["PlayStation", "Arcade"],
+    "platforms": [
+      "PlayStation",
+      "Arcade"
+    ],
     "price": 9.99,
-    "isMultiplayer": true,
-    "playtimeHours": 12
+    "playtimeHours": 12,
+    "multiplayer": true
   },
   {
     "id": "mass-effect-2",
     "title": "Mass Effect 2",
     "description": "In this dark second chapter, humans are now faced with an even greater peril in this science fiction adventure set in a vast universe.",
-    "releaseDate": "2010-01-26",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/mass-effect-2/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/mass-effect-2/thumbnail.jpg",
     "developer": "BioWare",
     "publisher": "Electronic Arts",
-    "genres": ["RPG", "Action", "Sci-Fi"],
-    "tags": ["Third-person", "Single-player", "Story-Rich", "Space"],
+    "genres": [
+      "Action",
+      "Sci-Fi",
+      "RPG"
+    ],
+    "tags": [
+      "Space",
+      "Story-Rich",
+      "Single-player",
+      "Third-person"
+    ],
     "metacriticScore": 96,
+    "ageRating": null,
     "userScore": 8.9,
     "reviewCount": 4567,
-    "platforms": ["PC", "Xbox 360", "PlayStation 3"],
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "Xbox 360"
+    ],
     "price": 19.99,
-    "isMultiplayer": false,
-    "playtimeHours": 30
+    "playtimeHours": 30,
+    "multiplayer": false
   },
   {
     "id": "witcher-3",
     "title": "The Witcher 3: Wild Hunt",
     "description": "As war rages on throughout the Northern Realms, you take on the greatest contract of your life — tracking down the Child of Prophecy.",
-    "releaseDate": "2015-05-19",
+    "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/witcher-3/original.jpg",
+    "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/witcher-3/thumbnail.jpg",
     "developer": "CD Projekt RED",
     "publisher": "CD Projekt",
-    "genres": ["RPG", "Action", "Adventure"],
-    "tags": ["Open World", "Single-player", "Fantasy", "Story-Rich"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
+    "tags": [
+      "Story-Rich",
+      "Single-player",
+      "Fantasy",
+      "Open World"
+    ],
     "metacriticScore": 95,
+    "ageRating": null,
     "userScore": 9.3,
     "reviewCount": 6789,
-    "platforms": ["PC", "PlayStation 4", "Xbox One", "Nintendo Switch"],
+    "platforms": [
+      "PlayStation 4",
+      "PC",
+      "Nintendo Switch",
+      "Xbox One"
+    ],
     "price": 39.99,
-    "isMultiplayer": false,
-    "playtimeHours": 100
+    "playtimeHours": 100,
+    "multiplayer": false
   }
 ]

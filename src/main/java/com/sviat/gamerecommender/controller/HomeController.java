@@ -26,27 +26,21 @@ public class HomeController {
     
     @GetMapping("/")
     public String dashboard(Model model) {
-        // Get different game categories for the dashboard
-        
-        // Debug: Check total games in a database
+        // Get different game categories for the dashboard        
         int totalGames = gameDatabase.getAllGames().size();
-        System.out.println("DEBUG: Total games in database: " + totalGames);
         
         // Best Rated Games (top 8)
-        List<Game> bestRatedGames = recommendationEngine.getRecommendationsByMetacriticScore(8);
-        System.out.println("DEBUG: Best rated games count: " + bestRatedGames.size());
+        List<Game> bestRatedGames = recommendationEngine.getRecommendationsByMetacriticScore(14);
         
         // New Releases (simulate by getting games with high review counts)
         List<Game> newReleases = gameDatabase.getAllGames().stream()
                 .sorted((g1, g2) -> Integer.compare(g2.getReviewCount(), g1.getReviewCount()))
-                .limit(8)
+                .limit(14)
                 .toList();
-        System.out.println("DEBUG: New releases count: " + newReleases.size());
         
         // Recommended for You (by popular genres)
         Set<String> popularGenres = Set.of("Action", "RPG", "Adventure");
-        List<Game> recommendedGames = recommendationEngine.getRecommendationsByGenre(popularGenres, 8);
-        System.out.println("DEBUG: Recommended games count: " + recommendedGames.size());
+        List<Game> recommendedGames = recommendationEngine.getRecommendationsByGenre(popularGenres, 14);
         
         // Add data to the model for Thymeleaf template
         model.addAttribute("bestRatedGames", bestRatedGames);

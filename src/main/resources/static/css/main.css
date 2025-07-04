@@ -202,18 +202,19 @@ body {
 }
 
 .game-image {
+  position: relative;
   width: 100%;
-  height: 120px;
-  border-radius: 6px;
+  padding-top: 133.33%; /* 3:4 aspect ratio */
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-md);
   overflow: hidden;
   margin-bottom: var(--space-3);
-  background: var(--background-tertiary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .game-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;

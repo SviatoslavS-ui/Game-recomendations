@@ -14,6 +14,7 @@ public class Game {
     private String title;
     private String description;
     private String imageUrl;
+    private String thumbnailUrl;
     private String developer;
     private String publisher;
     private Set<String> genres;
@@ -32,6 +33,7 @@ public class Game {
         this.title = builder.title;
         this.description = builder.description;
         this.imageUrl = builder.imageUrl;
+        this.thumbnailUrl = builder.thumbnailUrl;
         this.developer = builder.developer;
         this.publisher = builder.publisher;
         this.genres = builder.genres;
@@ -64,6 +66,10 @@ public class Game {
 
     public String getImageUrl() {
         return this.imageUrl;
+    }
+
+    public String getThumbnailUrl() {
+        return this.thumbnailUrl;
     }
 
     public String getDeveloper() {
@@ -120,6 +126,7 @@ public class Game {
         private String title;
         private String description;
         private String imageUrl;
+        private String thumbnailUrl;
         private String developer;
         private String publisher;
         private Set<String> genres;
@@ -156,6 +163,12 @@ public class Game {
         @JsonProperty("imageUrl")
         public Builder imageUrl(String imageUrl) {
             this.imageUrl = imageUrl;
+            return this;
+        }
+
+        @JsonProperty("thumbnailUrl")
+        public Builder thumbnailUrl(String thumbnailUrl) {
+            this.thumbnailUrl = thumbnailUrl;
             return this;
         }
 

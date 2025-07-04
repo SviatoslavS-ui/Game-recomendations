@@ -39,8 +39,11 @@
                     <div class="game-grid">
                         <div th:each="game : ${bestRatedGames}" class="game-card">
                             <div class="game-image">
-                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
-                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
+                                     th:alt="${game.title}" 
+                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
+                                     src="/images/placeholder-game.jpg" 
+                                     alt="Game Image">
                             </div>
                             <div class="game-info">
                                 <h3 class="game-title" th:text="${game.title}">Game Title</h3>
@@ -62,8 +65,11 @@
                     <div class="game-grid">
                         <div th:each="game : ${newReleases}" class="game-card">
                             <div class="game-image">
-                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
-                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
+                                     th:alt="${game.title}" 
+                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
+                                     src="/images/placeholder-game.jpg" 
+                                     alt="Game Image">
                             </div>
                             <div class="game-info">
                                 <h3 class="game-title" th:text="${game.title}">Game Title</h3>
@@ -85,8 +91,11 @@
                     <div class="game-grid">
                         <div th:each="game : ${recommendedGames}" class="game-card">
                             <div class="game-image">
-                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
-                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
+                                     th:alt="${game.title}" 
+                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
+                                     src="/images/placeholder-game.jpg" 
+                                     alt="Game Image">
                             </div>
                             <div class="game-info">
                                 <h3 class="game-title" th:text="${game.title}">Game Title</h3>
@@ -101,7 +110,6 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </main>
     </div>

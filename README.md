@@ -1,61 +1,78 @@
 # Game Recommendation System
 
-A Java project that demonstrates the use of modern Java features to build a game recommendation system. The project extensively uses Stream API, lambda expressions, and modern Java collections to process and filter game data.
+A Spring Boot web application that provides personalized game recommendations with a modern, Docker-inspired UI. The system features AWS S3 integration for image storage and processing, along with a responsive grid-based layout for optimal user experience.
 
 ## Project Overview
 
-This system provides game recommendations based on various criteria such as genres, platforms, developers, and metacritic scores. It includes a robust data processing pipeline from JSON files to Java objects and various filtering mechanisms.
+This system provides game recommendations based on various criteria such as genres, platforms, developers, and metacritic scores. It features a responsive web interface with image handling capabilities, powered by AWS S3 for cloud storage and Thumbnailator for image processing.
 
-## Implemented Features
+## Key Features
 
-1. **Data Models**:
-   - Game model with comprehensive attributes (title, genres, platforms, scores, etc.)
-   - Support for multiple game genres and platforms
-   - Metacritic scoring system integration
+### Backend
+- **AWS S3 Integration**
+  - Secure cloud storage for game images
+  - Automatic thumbnail generation
+  - Efficient image processing pipeline
 
-2. **Core Services**:
-   - `JsonService`: Handles JSON file processing and data serialization
-   - `GameDatabase`: Manages game data storage and basic CRUD operations
-   - `RecommendationEngine`: Provides sophisticated game filtering and recommendations
-   - `StatisticsService`: Calculates various gaming statistics and metrics
+### Frontend
+- **Responsive Design**
+  - Docker-inspired UI components
+  - Grid-based layout for game cards
+  - Smooth animations and transitions
 
-3. **Recommendation Features**:
-   - Genre-based recommendations with multi-genre support
-   - Platform-specific game filtering
-   - Developer-focused game lists
-   - Metacritic score-based sorting and filtering
+### Core Services
+- **Game Management**
+  - Comprehensive game data models
+  - Multi-platform support
+  - Metacritic score integration
+  - Advanced filtering and sorting
+
+- **Image Processing**
+  - Automatic thumbnail generation
+  - Multiple image format support
+  - Aspect ratio preservation
+  - Cloud-based storage solution
 
 ## Project Structure
 
-    src/
-    ├── main/
-    │   ├── java/
-    │   │   └── com/sviat/gamerecommender/
-    │   │       ├── model/              # Data models
-    │   │       ├── repository/         # Data access layer
-    │   │       ├── service/            # Business logic
-    │   │       │   ├── GameDatabase    # Game data management
-    │   │       │   ├── JsonService     # JSON processing
-    │   │       │   ├── RecommendationEngine  # Recommendation logic
-    │   │       │   └── StatisticsService     # Statistics calculations
-    │   │       ├── util/              # Utility classes
-    │   │       └── Main.java          # Application entry point
-    │   └── resources/
-    │       └── data/
-    │           └── games.json         # Game data
-    └── test/
-        └── java/
-            └── com/sviat/gamerecommender/service/
-                ├── BaseServiceTest
-                ├── GameDatabaseTest
-                ├── JsonServiceTest
-                ├── RecommendationEngineTest
-                ├── StatisticsServiceTest
-                └── TestGameData
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/sviat/gamerecommender/
+│   │       ├── config/               # Configuration classes
+│   │       │   ├── S3Config.java     # AWS S3 configuration
+│   │       │   └── GameConfig.java   # Application config-n
+│   │       │
+│   │       ├── controller/           # Web controllers
+│   │       │   └── HomeController.java
+│   │       │
+│   │       ├── model/                # Data models
+│   │       │   ├── Game.java
+│   │       │   └── Platform.java
+│   │       │
+│   │       └── service/              # Business logic
+│   │           ├── S3Service.java    # AWS S3 operations
+│   │           ├── GameDatabase.java
+│   │           └── RecommendationEngine.java
+│   │
+│   └── resources/
+│       ├── static/                   # Static assets
+│       │   ├── css/
+│       │   └── images/
+│       ├── templates/                # Thymeleaf templates
+│       └── application.properties    # App configuration
+│
+└── test/                            # Test files
+    └── java/
+        └── com/sviat/gamerecommender/service/
+            ├── S3ServiceTest.java
+            └── TestGameData.java
+```
 
 ## Technical Details
 
-- Built with Java 24
+- Built with Java 21
 - Uses JSON for data storage
 - Implements comprehensive unit testing
 - Leverages Stream API for efficient data processing
@@ -63,14 +80,34 @@ This system provides game recommendations based on various criteria such as genr
 
 ## Getting Started
 
+### Prerequisites
+- Java 21 or higher
+- Maven 3.6 or higher
+- AWS Account with S3 access
+- AWS credentials configured (~/.aws/credentials or environment variables)
+
+### Required Environment Variables
+```
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=your_region
+AWS_S3_BUCKET=your_bucket_name
+```
+
+### Running the Application
 1. Clone the repository
-2. Ensure Java 24 is installed
-3. Run `mvn compile` to build the project
-4. Run `mvn test` to execute tests
-5. Use `mvn exec:java -Dexec.mainClass="com.sviat.gamerecommender.Main"` to run the application
+2. Configure AWS credentials
+3. Build the project:
+   ```bash
+   mvn clean install
+   ```
+4. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+5. Open `http://localhost:8080` in your browser
 
 ## Testing
-
 The project includes extensive test coverage with:
 - Unit tests for all core services
 - Integration tests for the recommendation engine
