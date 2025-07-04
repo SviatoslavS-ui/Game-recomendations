@@ -51,6 +51,24 @@ public class TestGameData {
             .platforms(Set.of("PC", "PlayStation", "Xbox", "Nintendo Switch"))
             .build();
 
+    public static final Game DATABASE_TEST = Game.builder()
+            .id("test-game")
+            .title("Test Game")
+            .genres(Set.of("Test", "Game"))
+            .metacriticScore(90)
+            .developer("Test Studio")
+            .platforms(Set.of("PC"))
+            .build();
+
+    public static final Game DATABASE_TEST_ORIGINAL = Game.builder()
+            .id("test-game-original")
+            .title("Original Test Game")
+            .genres(Set.of("Test", "Original"))
+            .metacriticScore(85)
+            .developer("Test Studio Original")
+            .platforms(Set.of("PC"))
+            .build();
+
     public static final Game LOW_SCORE_GAME = Game.builder()
             .id("game6")
             .title("Budget Game")
@@ -90,20 +108,6 @@ public class TestGameData {
             .metacriticScore(90)
             .build();
 
-    public static final Game DATABASE_TEST = Game.builder()
-            .id("test-game")
-            .title("Test Game")
-            .build();
-
-    public static final Game DATABASE_TEST_ORIGINAL = Game.builder()
-            .id("test-game")
-            .title("Original Title")
-            .build();
-
-    public static final Game DATABASE_TEST_UPDATED = Game.builder()
-            .id("test-game")
-            .title("Updated Title")
-            .build();
 
     public static List<Game> getAllTestGames() {
         return Arrays.asList(

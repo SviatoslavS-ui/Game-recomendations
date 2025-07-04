@@ -26,7 +26,6 @@ public class RecommendationEngine {
                 .filter(g -> !java.util.Collections.disjoint(g.getGenres(), genres))
                 // sort by number of matching genres (desc)
                 .sorted(byMatchCountDesc)
-                // cap the result list
                 .limit(limit)
                 .collect(Collectors.toList());
     }
@@ -35,7 +34,6 @@ public class RecommendationEngine {
         return gameDatabase.getAllGames().stream()
                 // sort by metacritic score (desc)
                 .sorted(Comparator.comparingInt(Game::getMetacriticScore).reversed())
-                // cap the result list
                 .limit(limit)
                 .collect(Collectors.toList());
     }
@@ -46,7 +44,6 @@ public class RecommendationEngine {
                 .filter(g -> g.getDeveloper().equals(developer))
                 // sort by metacritic score (desc)
                 .sorted(Comparator.comparingInt(Game::getMetacriticScore).reversed())
-                // cap the result list
                 .limit(limit)
                 .collect(Collectors.toList());
     }
@@ -57,7 +54,6 @@ public class RecommendationEngine {
                 .filter(g -> g.getPlatforms().contains(platform))
                 // sort by metacritic score (desc)
                 .sorted(Comparator.comparingInt(Game::getMetacriticScore).reversed())
-                // cap the result list
                 .limit(limit)
                 .collect(Collectors.toList());
     }

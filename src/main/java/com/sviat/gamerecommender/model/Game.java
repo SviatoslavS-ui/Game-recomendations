@@ -13,6 +13,7 @@ public class Game {
     private String id;
     private String title;
     private String description;
+    private String imageUrl;
     private String developer;
     private String publisher;
     private Set<String> genres;
@@ -30,6 +31,7 @@ public class Game {
         this.id = builder.id;
         this.title = builder.title;
         this.description = builder.description;
+        this.imageUrl = builder.imageUrl;
         this.developer = builder.developer;
         this.publisher = builder.publisher;
         this.genres = builder.genres;
@@ -58,6 +60,10 @@ public class Game {
 
     public String getDescription() {
         return this.description;
+    }
+
+    public String getImageUrl() {
+        return this.imageUrl;
     }
 
     public String getDeveloper() {
@@ -113,6 +119,7 @@ public class Game {
         private String id;
         private String title;
         private String description;
+        private String imageUrl;
         private String developer;
         private String publisher;
         private Set<String> genres;
@@ -143,6 +150,12 @@ public class Game {
         @JsonProperty("description")
         public Builder description(String description) {
             this.description = description;
+            return this;
+        }
+
+        @JsonProperty("imageUrl")
+        public Builder imageUrl(String imageUrl) {
+            this.imageUrl = imageUrl;
             return this;
         }
 

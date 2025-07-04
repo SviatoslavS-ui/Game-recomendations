@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Recommender - Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🎮 Game Recommender</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="/" class="nav-item active">Dashboard</a></li>
+                <li><a href="/games" class="nav-item">Browse Games</a></li>
+                <li><a href="/recommendations" class="nav-item">My Recommendations</a></li>
+                <li><a href="/favorites" class="nav-item">Favorites</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Dashboard</h1>
+                <div class="stats">
+                    <span class="stat-item">Total Games: <strong th:text="${totalGames}">0</strong></span>
+                </div>
+            </header>
+
+            <!-- Game Sections -->
+            <div class="game-sections">
+                
+                <!-- Best Rated Games Section -->
+                <section class="game-section">
+                    <h2 class="section-title">🏆 Best Rated Games</h2>
+                    <div class="game-grid">
+                        <div th:each="game : ${bestRatedGames}" class="game-card">
+                            <div class="game-image">
+                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
+                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                            </div>
+                            <div class="game-info">
+                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
+                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
+                                    <span th:text="${game.metacriticScore}">85</span>
+                                </div>
+                                <div class="game-platforms">
+                                    <span th:each="platform : ${game.platforms}" 
+                                          class="platform-tag" th:text="${platform}">PC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- New Releases Section -->
+                <section class="game-section">
+                    <h2 class="section-title">🆕 New Releases</h2>
+                    <div class="game-grid">
+                        <div th:each="game : ${newReleases}" class="game-card">
+                            <div class="game-image">
+                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
+                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                            </div>
+                            <div class="game-info">
+                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
+                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
+                                    <span th:text="${game.metacriticScore}">85</span>
+                                </div>
+                                <div class="game-platforms">
+                                    <span th:each="platform : ${game.platforms}" 
+                                          class="platform-tag" th:text="${platform}">PC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommended Games Section -->
+                <section class="game-section">
+                    <h2 class="section-title">✨ Recommended for You</h2>
+                    <div class="game-grid">
+                        <div th:each="game : ${recommendedGames}" class="game-card">
+                            <div class="game-image">
+                                <img th:src="${game.imageUrl}" th:alt="${game.title}" 
+                                     src="/images/placeholder-game.jpg" alt="Game Image">
+                            </div>
+                            <div class="game-info">
+                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
+                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
+                                    <span th:text="${game.metacriticScore}">85</span>
+                                </div>
+                                <div class="game-platforms">
+                                    <span th:each="platform : ${game.platforms}" 
+                                          class="platform-tag" th:text="${platform}">PC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>
