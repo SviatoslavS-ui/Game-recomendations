@@ -47,8 +47,9 @@ public class S3ServiceTest {
                 .prefix("games/test-game-")
                 .build();
         
-        ListObjectsV2Response listRes = s3Client.listObjectsV2(listReq);
-        listRes.contents().forEach(obj -> s3Service.deleteGameImage(obj.key()));
+        s3Client.listObjectsV2(listReq)
+                .contents()
+                .forEach(obj -> s3Service.deleteGameImage(obj.key()));
     }
 
     @Test
