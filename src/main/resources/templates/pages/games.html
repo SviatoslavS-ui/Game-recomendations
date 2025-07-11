@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Recommender - Browse Games</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/game-card.css}">
+    <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
     <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Navigation -->
@@ -31,32 +35,13 @@
             </header>
             <!-- Games Grid -->
             <div class="games-container">
-                <div class="filter-controls">
-                    <!-- Filter controls will go here -->
-                    <div class="placeholder-message">
-                        <p>Filter controls will be implemented in the next phase</p>
-                    </div>
-                </div>                
                 <!-- All Games Section -->
                 <section class="game-section">
                     <h2 class="section-title">🎮 All Games</h2>
                     <div class="game-grid">
-                        <div th:each="game : ${allGames}" class="game-card">
-                        <div class="game-image">
-                            <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
-                                 th:alt="${game.title}" 
-                                 th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
-                                 src="/images/placeholder-game.jpg" 
-                                 alt="Game Image">
-                        </div>
-                        <div class="game-info">
-                            <h3 class="game-title" th:text="${game.title}">Game Title</h3>
-                            <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
-                                <span th:text="${game.metacriticScore}">85</span>
-                            </div>
-                            <div class="game-platforms">
-                                <span th:each="platform : ${game.platforms}" 
-                                      class="platform-tag" th:text="${platform}">PC</span>
+                        <!-- All game cards using fragment -->
+                        <div th:each="game : ${allGames}">
+                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
@@ -64,5 +49,12 @@
             </div>
         </main>
     </div>
+    <!-- Game Details Modal -->
+    <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
+
+    <!-- JavaScript for game card interactions -->
+    <script th:src="@{/js/game-card.js}"></script>
+    <script th:src="@{/js/game-details-modal.js}"></script>
 </body>
+
 </html>

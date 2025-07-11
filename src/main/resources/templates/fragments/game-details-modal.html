@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details Modal</title>
+</head>
+<body>
+    <!-- Game Details Modal Fragment -->
+    <div th:fragment="gameDetailsModal">
+        <!-- Modal Overlay - separate from modal -->
+        <div class="modal-overlay hidden" id="modalOverlay"></div>
+        
+        <!-- Modal Container -->
+        <div class="modal hidden" id="gameDetailsModal">
+            <!-- Modal Content -->
+            <div class="modal-content">
+            <!-- Close Button -->
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+                <span aria-hidden="true">&times;</span>
+            </button>            
+            
+            <!-- Game Details Content (initially hidden, shown after loading) -->
+            <div class="game-details hidden" id="gameDetailsContent">
+                <!-- Header Section -->
+                <header class="game-header">
+                    <div class="game-title-section">
+                        <h2 class="game-title" id="gameTitle">Game Title</h2>
+                        <div class="game-meta">
+                            <span class="developer" id="gameDeveloper">Developer</span>
+                            <span class="separator">|</span>
+                            <span class="publisher" id="gamePublisher">Publisher</span>
+                            <span class="separator">|</span>
+                            <span class="release-date" id="gameReleaseDate">Release Date</span>
+                        </div>
+                    </div>
+                    <div class="game-scores">
+                        <div class="metacritic-score">
+                            <span class="score-label">Metacritic</span>
+                            <span class="score-value" id="metacriticScore">85</span>
+                        </div>
+                        <div class="user-score">
+                            <span class="score-label">User Score</span>
+                            <span class="score-value" id="userScore">8.7</span>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Media Section -->
+                <section class="game-media">
+                    <div class="main-image-container">
+                        <!-- This will be populated with the original image from S3 -->
+                        <img id="gameMainImage" class="main-image" src="" alt="Game screenshot">
+                    </div>
+                    <!-- For future: We can add a thumbnail gallery here when we have multiple screenshots -->
+                    <div class="thumbnail-gallery" id="thumbnailGallery" style="display: none;">
+                        <!-- Thumbnails will be dynamically added here in the future -->
+                    </div>
+                </section>
+                
+                <!-- Details Section -->
+                <section class="game-info-container">
+                    <div class="game-info-main">
+                        <!-- Game Description -->
+                        <div class="game-description" id="gameDescription">
+                            <!-- Description content will be loaded from S3 -->
+                        </div>                        
+                    </div>
+                    
+                    <!-- Sidebar with Additional Info -->
+                    <aside class="game-info-sidebar">
+                        <!-- Platforms -->
+                        <div class="info-block platforms-block">
+                            <h4>Platforms</h4>
+                            <ul class="platforms-list" id="platformsList">
+                                <!-- Platforms will be dynamically added here -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Genres -->
+                        <div class="info-block genres-block">
+                            <h4>Genres</h4>
+                            <ul class="genres-list" id="genresList">
+                                <!-- Genres will be dynamically added here -->
+                            </ul>
+                        </div>                       
+                        
+                        <!-- Game Details -->
+                        <div class="info-block details-block">
+                            <h4>Details</h4>
+                            <table class="details-table">
+                                <tr>
+                                    <th>Age Rating</th>
+                                    <td id="ageRating">PEGI 18</td>
+                                </tr>
+                                <tr>
+                                    <th>Multiplayer</th>
+                                    <td id="multiplayer">Yes</td>
+                                </tr>
+                                <tr>
+                                    <th>Average Playtime</th>
+                                    <td id="playtime">40+ hours</td>
+                                </tr>
+                                <tr>
+                                    <th>Price</th>
+                                    <td id="price">$59.99</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </aside>
+                </section>
+                
+                <!-- Footer Section -->
+                <footer class="modal-footer">
+                    <!-- <div class="action-buttons">
+                        <a href="#" class="btn btn-primary" id="buyButton">Buy Now</a>
+                        <button class="btn btn-secondary" id="wishlistButton">Add to Wishlist</button>
+                    </div> -->
+                    <div class="related-games">
+                        <h4>You might also like</h4>
+                        <div class="related-games-container" id="relatedGamesContainer">
+                            <!-- Related games will be dynamically added here -->
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

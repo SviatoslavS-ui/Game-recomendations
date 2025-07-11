@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <!-- Game Card Fragment -->
+    <div th:fragment="gameCard(game)" class="game-card" th:data-game-id="${game != null ? game.id : ''}">
+        <div class="game-image">
+            <img th:if="${game != null}" th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}"
+                th:alt="${game != null ? game.title : 'Game Image'}" th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
+                src="/images/placeholder-game.jpg" alt="Game Image">
+            <img th:unless="${game != null}" src="/images/placeholder-game.jpg" alt="Game Image">
+        </div>
+        <div class="game-info">
+            <h3 class="game-title" th:text="${game != null ? game.title : 'Unknown Game'}">Game Title</h3>
+            <div class="game-score" th:if="${game != null && game.metacriticScore != null}"
+                th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
+                <span th:text="${game.metacriticScore}">85</span>
+            </div>
+            <div class="game-platforms" th:if="${game != null && game.platforms != null}">
+                <span th:each="platform : ${game.platforms}" th:text="${platform}" class="platform-tag">PC</span>
+            </div>
+            <button class="view-details-btn" th:if="${game != null}" th:attr="data-game-id=${game.id}">
+                View Details
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

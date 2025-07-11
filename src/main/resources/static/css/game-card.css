@@ -1,0 +1,147 @@
+/* Game Card Component Styles */
+
+/* Game Cards */
+.game-card {
+  background: var(--background-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  min-width: 180px;
+  position: relative; /* For pseudo-element positioning */
+  margin: 5px; /* Add margin to prevent border clipping on hover */
+}
+
+.game-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02); /* Subtle scale effect instead of translateY */
+  border-color: var(--primary-blue);
+  z-index: 1; /* Ensure hovered card appears above others */
+}
+
+.game-image {
+  position: relative;
+  width: 100%;
+  padding-top: 133.33%; /* 3:4 aspect ratio */
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+
+.game-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-info {
+  text-align: center;
+}
+
+.game-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+  height: 2.6rem; /* Fixed height for 2 lines of text */
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Score Badges */
+.game-score {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-3);
+  color: var(--text-white);
+}
+
+.game-score.score-high {
+  background-color: var(--accent-green);
+}
+
+.game-score.score-medium {
+  background-color: var(--accent-yellow);
+}
+
+.game-score.score-low {
+  background-color: var(--accent-red);
+}
+
+/* Platform Tags */
+.game-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  justify-content: center;
+  height: 2.5rem; /* Fixed height for platform tags area */
+  overflow: hidden; /* Hide overflow if there are too many platforms */
+  margin-bottom: var(--space-3); /* Consistent spacing before button */
+  position: relative; /* For pseudo-element positioning */
+}
+
+/* Add ellipsis indicator when platforms overflow */
+.game-platforms::after {
+  content: '...';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to right, transparent, var(--background-primary) 40%);
+  padding-left: 20px;
+  display: none; /* Hidden by default */
+}
+
+/* Show ellipsis only when content overflows */
+.game-platforms:has(> .platform-tag:nth-child(n+5))::after {
+  display: block;
+}
+
+.platform-tag {
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin: 0.1rem;
+  white-space: nowrap;
+}
+
+/* Details Button */
+.view-details-btn {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+  border: none;
+  border-radius: 4px;
+  padding: var(--space-2) var(--space-4);
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.view-details-btn:hover {
+  background-color: var(--primary-blue-dark);
+  transform: translateY(-1px);
+}
+
+.view-details-btn:active {
+  transform: translateY(0);
+}

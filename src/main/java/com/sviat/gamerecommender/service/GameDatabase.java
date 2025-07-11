@@ -2,7 +2,6 @@ package com.sviat.gamerecommender.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.sviat.gamerecommender.model.Game;
 
@@ -42,5 +41,12 @@ public class GameDatabase {
 
     public List<Game> getAllGames() {
         return games;
+    }
+
+    public Game findGameById(String gameId) {
+        return games.stream()
+                .filter(game -> game.getId().equals(gameId))
+                .findFirst()
+                .orElse(null);
     }
 }

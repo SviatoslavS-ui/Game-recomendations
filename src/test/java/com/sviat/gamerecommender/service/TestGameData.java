@@ -6,6 +6,20 @@ import java.util.List;
 import java.util.Arrays;
 
 public class TestGameData {
+    /**
+     * Simple HTML content for basic game details testing.
+     * This is used in unit tests to verify the S3 upload and retrieval functionality.
+     */
+    public static final String SIMPLE_GAME_DETAILS_HTML = "<div class=\"game-details\">\n" +
+            "  <h2>Test Game Details</h2>\n" +
+            "  <p>This is a test description for game details storage.</p>\n" +
+            "  <ul>\n" +
+            "    <li>Feature 1: Amazing gameplay</li>\n" +
+            "    <li>Feature 2: Stunning graphics</li>\n" +
+            "    <li>Feature 3: Immersive story</li>\n" +
+            "  </ul>\n" +
+            "</div>";    
+
     public static final Game RPG_ACTION = Game.builder()
             .id("game1")
             .title("RPG Action Game")

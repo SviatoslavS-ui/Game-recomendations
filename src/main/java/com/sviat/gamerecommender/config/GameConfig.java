@@ -1,5 +1,6 @@
 package com.sviat.gamerecommender.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,6 +11,9 @@ import com.sviat.gamerecommender.service.RecommendationEngine;
 @Configuration
 public class GameConfig {
     
+    @Value("${game.data.path:src/main/resources/data/games.json}")
+    private String gameDataPath;
+    
     @Bean
     public JsonService jsonService() {
         return new JsonService();
@@ -18,8 +22,9 @@ public class GameConfig {
     @Bean
     public GameDatabase gameDatabase(JsonService jsonService) {
         GameDatabase database = new GameDatabase(jsonService);
-        // read games from the games.json file
-        database.loadGamesFromFile("src/main/resources/data/games.json");
+        // Load games from the configured path
+        database.loadGamesFromFile(gameDataPath);
+        System.out.println("GameDatabase initialized with " + database.getAllGames().size() + " games");
         return database;
     }
     
