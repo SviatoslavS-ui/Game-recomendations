@@ -54,10 +54,17 @@ function openGameDetailsModal(gameId) {
     document.getElementById('modalOverlay').classList.remove('hidden');
     document.getElementById('gameDetailsModal').classList.remove('hidden');
 
+    // Show loading spinner, hide content
+    const spinner = document.getElementById('loadingSpinner');
     const content = document.getElementById('gameDetailsContent');
+    
+    if (spinner) spinner.style.display = 'flex';
     if (content) content.classList.add('hidden');
+    
     document.body.style.overflow = 'hidden';
-
+    debug('Game details modal opened, showing loading spinner');
+    
+    // Fetch game details from backend
     loadGameDetails(gameId);
 }
 
@@ -155,12 +162,22 @@ function displayGameDetails(gameData) {
         populateList('genresList', gameData.genres);
     }
 
-    // Show the content by removing the hidden class
+    // Hide spinner and show the content with a slight delay for smooth transition
+    const spinner = document.getElementById('loadingSpinner');
     const content = document.getElementById('gameDetailsContent');
-    if (content) {
-        content.classList.remove('hidden');
-        debug('Game details content is now visible');
-    }
+    
+    // Add a small delay for smoother transition
+    setTimeout(() => {
+        if (spinner) {
+            spinner.style.display = 'none';
+            debug('Loading spinner hidden');
+        }
+        
+        if (content) {
+            content.classList.remove('hidden');
+            debug('Game details content is now visible after 200ms delay');
+        }
+    }, 200); // 200ms delay
 }
 
 function setElementText(id, value) {

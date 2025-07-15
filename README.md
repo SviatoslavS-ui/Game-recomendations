@@ -19,6 +19,8 @@ This system provides game recommendations based on various criteria such as genr
   - Docker-inspired UI components
   - Grid-based layout for game cards
   - Smooth animations and transitions
+  - Interactive game cards with clickable areas
+  - Responsive game details modal with loading states
 
 ### Core Services
 - **Game Management**

@@ -87,27 +87,14 @@
   flex-wrap: wrap;
   gap: var(--space-1);
   justify-content: center;
-  height: 2.5rem; /* Fixed height for platform tags area */
+  align-content: flex-start; /* Align content to the top */
+  height: 3.5rem; /* Fixed height for two rows of platform tags */
   overflow: hidden; /* Hide overflow if there are too many platforms */
-  margin-bottom: var(--space-3); /* Consistent spacing before button */
-  position: relative; /* For pseudo-element positioning */
+  margin-bottom: var(--space-3); /* Consistent spacing */
+  min-height: 3.5rem; /* Ensure minimum height even when empty */
 }
 
-/* Add ellipsis indicator when platforms overflow */
-.game-platforms::after {
-  content: '...';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(to right, transparent, var(--background-primary) 40%);
-  padding-left: 20px;
-  display: none; /* Hidden by default */
-}
-
-/* Show ellipsis only when content overflows */
-.game-platforms:has(> .platform-tag:nth-child(n+5))::after {
-  display: block;
-}
+/* No ellipsis indicator - showing all platforms */
 
 .platform-tag {
   background-color: var(--background-tertiary);

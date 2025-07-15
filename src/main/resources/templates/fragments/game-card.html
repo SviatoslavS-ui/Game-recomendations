@@ -19,9 +19,6 @@
             <div class="game-platforms" th:if="${game != null && game.platforms != null}">
                 <span th:each="platform : ${game.platforms}" th:text="${platform}" class="platform-tag">PC</span>
             </div>
-            <button class="view-details-btn" th:if="${game != null}" th:attr="data-game-id=${game.id}">
-                View Details
-            </button>
         </div>
     </div>
 </body>

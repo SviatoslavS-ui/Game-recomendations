@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Recommender - Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/game-card.css}">
+    <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
     <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
 </head>
 <body>
@@ -35,23 +37,9 @@
                 <section class="game-section">
                     <h2 class="section-title">🏆 Best Rated Games</h2>
                     <div class="game-grid">
-                        <div th:each="game : ${bestRatedGames}" class="game-card">
-                            <div class="game-image">
-                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
-                                     th:alt="${game.title}" 
-                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
-                                     src="/images/placeholder-game.jpg" 
-                                     alt="Game Image">
-                            </div>
-                            <div class="game-info">
-                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
-                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
-                                    <span th:text="${game.metacriticScore}">85</span>
-                                </div>
-                                <div class="game-platforms">
-                                    <span th:each="platform : ${game.platforms}" 
-                                          class="platform-tag" th:text="${platform}">PC</span>
-                                </div>
+                        <!-- Best rated game cards using fragment -->
+                        <div th:each="game : ${bestRatedGames}">
+                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
@@ -60,23 +48,9 @@
                 <section class="game-section">
                     <h2 class="section-title">🆕 New Releases</h2>
                     <div class="game-grid">
-                        <div th:each="game : ${newReleases}" class="game-card">
-                            <div class="game-image">
-                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
-                                     th:alt="${game.title}" 
-                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
-                                     src="/images/placeholder-game.jpg" 
-                                     alt="Game Image">
-                            </div>
-                            <div class="game-info">
-                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
-                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
-                                    <span th:text="${game.metacriticScore}">85</span>
-                                </div>
-                                <div class="game-platforms">
-                                    <span th:each="platform : ${game.platforms}" 
-                                          class="platform-tag" th:text="${platform}">PC</span>
-                                </div>
+                        <!-- New releases game cards using fragment -->
+                        <div th:each="game : ${newReleases}">
+                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
@@ -85,23 +59,9 @@
                 <section class="game-section">
                     <h2 class="section-title">✨ Recommended for You</h2>
                     <div class="game-grid">
-                        <div th:each="game : ${recommendedGames}" class="game-card">
-                            <div class="game-image">
-                                <img th:src="${game.thumbnailUrl != null ? game.thumbnailUrl : (game.imageUrl != null ? game.imageUrl : '/images/placeholder-game.jpg')}" 
-                                     th:alt="${game.title}" 
-                                     th:onerror="this.onerror=null;this.src='/images/placeholder-game.jpg'"
-                                     src="/images/placeholder-game.jpg" 
-                                     alt="Game Image">
-                            </div>
-                            <div class="game-info">
-                                <h3 class="game-title" th:text="${game.title}">Game Title</h3>
-                                <div class="game-score" th:classappend="${game.metacriticScore >= 75} ? 'score-high' : (${game.metacriticScore >= 50} ? 'score-medium' : 'score-low')">
-                                    <span th:text="${game.metacriticScore}">85</span>
-                                </div>
-                                <div class="game-platforms">
-                                    <span th:each="platform : ${game.platforms}" 
-                                          class="platform-tag" th:text="${platform}">PC</span>
-                                </div>
+                        <!-- Recommended game cards using fragment -->
+                        <div th:each="game : ${recommendedGames}">
+                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
@@ -109,5 +69,13 @@
             </div>
         </main>
     </div>
+    
+    <!-- Game Details Modal -->
+    <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
+
+    <!-- JavaScript for game card interactions -->
+    <script th:src="@{/js/game-card.js}"></script>
+    <script th:src="@{/js/game-details-modal.js}"></script>
 </body>
+
 </html>
