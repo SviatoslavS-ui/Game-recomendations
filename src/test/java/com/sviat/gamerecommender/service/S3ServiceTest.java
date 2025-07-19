@@ -152,50 +152,23 @@ public class S3ServiceTest {
 
     @Test
     @Tag("manual")
-    @Tag("game-details")
-    @DisplayName("Upload game details from sample file (run manually)")
-    public void testUploadGameDetailsFromFile() throws IOException {
-        // Path to a sample HTML file containing game details
-        Path sampleFilePath = Paths.get("src/test/resources/sample-game-details.html");
-
-        // Check if the file exists
-        if (!Files.exists(sampleFilePath)) {
-            System.out.println("Sample game details file not found at: " + sampleFilePath);
-            fail("Required test file not found: " + sampleFilePath);
-            return;
-        }
-        
-        System.out.println("Using sample game details file at: " + sampleFilePath);
-
-        // Read the file content
-        String fileContent = Files.readString(sampleFilePath);
-
-        // Upload to S3 for a specific game
-        String gameId = "baldurs-gate-3";
-        String detailsUrl = s3Service.uploadGameDetails(gameId, fileContent);
-
-        System.out.println("Uploaded game details for " + gameId);
-        System.out.println("Details URL: " + detailsUrl);
-
-        // Verify retrieval
-        String retrievedContent = s3Service.getGameDetails(gameId);
-        boolean contentMatches = fileContent.equals(retrievedContent);
-
-        System.out.println("Retrieved content matches original: " + contentMatches);
-        System.out.println("Content length: " + retrievedContent.length() + " characters");
-    }
-
-    @Test
-    @Tag("manual")
-    @DisplayName("Upload game images from local directory (run manually)")
+    @DisplayName("Upload game images and HTML details from local directory (run manually)")
     public void uploadGameImagesFromLocalDirectory() throws IOException {
         // Path to the local images directory
         String localImagesPath = "C:\\Users\\svyat\\Pictures\\Screenshots\\cards";
         Path imagesDirectory = Paths.get(localImagesPath);
 
-        // Check if directory exists
+        // Path to the HTML details directory
+        String detailsDirectoryPath = "src/test/resources/test-images";
+        Path detailsDirectory = Paths.get(detailsDirectoryPath);
+
+        // Check if directories exist
         if (!Files.exists(imagesDirectory)) {
             System.out.println("Images directory does not exist: " + localImagesPath);
+            return;
+        }
+        if (!Files.exists(detailsDirectory)) {
+            System.out.println("Details directory does not exist: " + detailsDirectoryPath);
             return;
         }
 
@@ -211,6 +184,8 @@ public class S3ServiceTest {
 
         // Get all .jpg image files from the directory
         File[] imageFiles = new File(localImagesPath).listFiles((dir, name) -> name.toLowerCase().endsWith(".jpg"));
+        // Get all .html files from the directory
+        File[] htmlFiles = detailsDirectory.toFile().listFiles((dir, name) -> name.toLowerCase().endsWith(".html"));
 
         if (imageFiles == null || imageFiles.length == 0) {
             System.out.println("No .jpg image files found in directory: " + localImagesPath);
@@ -218,7 +193,13 @@ public class S3ServiceTest {
         }
         System.out.println("Found " + imageFiles.length + " .jpg image files");
 
-        // Process each game and try to find matching image
+        if (htmlFiles == null || htmlFiles.length == 0) {
+            System.out.println("No .html files found in directory: " + detailsDirectoryPath);
+            return;
+        }
+        System.out.println("Found " + htmlFiles.length + " .html files");
+
+        // Process each game and try to find matching image and HTML file
         for (Game game : games) {
             String gameId = game.getId();
             String gameTitle = game.getTitle();
@@ -226,7 +207,10 @@ public class S3ServiceTest {
             // Look for image file that matches gameId exactly
             File imageFile = new File(localImagesPath, gameId + ".jpg");
 
-            if (imageFile.exists()) {
+            // Look for HTML file that matches gameId exactly
+            File htmlFile = new File(detailsDirectoryPath, gameId + ".html");
+
+            if (imageFile.exists() && htmlFile.exists()) {
                 try {
                     System.out.println("Uploading image for game: " + gameTitle + " -> " + imageFile.getName());
 
@@ -245,11 +229,16 @@ public class S3ServiceTest {
                     System.out.println("  Original URL: " + urls.originalUrl());
                     System.out.println("  Thumbnail URL: " + urls.thumbnailUrl());
 
+                    String htmlContent = new String(Files.readAllBytes(htmlFile.toPath()));
+                    String detailsUrl = s3Service.uploadGameDetails(gameId, htmlContent);
+                    
+                    System.out.println("Uploaded details for game: " + gameTitle + " -> " + detailsUrl);
+
                     // Create updated game object with S3 URLs
                     Game updatedGame = Game.builder()
                             .id(game.getId())
                             .title(game.getTitle())
-                            .description(game.getDescription())
+                            .description(detailsUrl)
                             .imageUrl(urls.originalUrl())
                             .thumbnailUrl(urls.thumbnailUrl())
                             .developer(game.getDeveloper())
