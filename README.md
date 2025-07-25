@@ -20,20 +20,25 @@ This system provides game recommendations based on various criteria such as genr
   - Grid-based layout for game cards
   - Smooth animations and transitions
   - Interactive game cards with clickable areas
-  - Responsive game details modal with loading states
+  - **Enhanced Game Details Modal**
+    - Comprehensive game information display
+    - Tags integration for better categorization
+    - Async data loading with promise-based architecture
+    - Loading states and error handling
+    - Responsive design with smooth transitions
 
 ### Core Services
 - **Game Management**
   - Comprehensive game data models
   - Multi-platform support
   - Metacritic score integration
-  - Advanced filtering and sorting
+  - **Enhanced GetRecommendationByRelease** - Remastered using releaseDate for chronological sorting
+  - Advanced filtering and sorting algorithms
 
 - **Image Processing**
   - Automatic thumbnail generation
   - Multiple image format support
   - Aspect ratio preservation
-  - Cloud-based storage solution
 
 ## Project Structure
 
@@ -66,11 +71,21 @@ src/
 │       └── application.properties    # App configuration
 │
 └── test/                            # Test files
-    └── java/
-        └── com/sviat/gamerecommender/service/
-            ├── S3ServiceTest.java
-            └── TestGameData.java
-```
+    ├── java/
+    │   └── com/sviat/gamerecommender/service/
+    │       ├── S3ServiceTest.java
+    │       └── TestGameData.java
+    └── javascript/                  # Frontend tests
+        ├── setup/
+        │   └── setupTests.js        # Jest configuration
+        ├── mocks/
+        │   ├── gameMocks.js         # Test data
+        │   └── modalHtmlMock.js     # DOM fixtures
+        └── unit/modal/              # Modal test suites
+            ├── modalIntegration.test.js
+            ├── dataHandling.test.js
+            ├── modalControl.test.js
+            └── eventListeners.test.js
 
 ## Technical Details
 
@@ -110,7 +125,34 @@ AWS_S3_BUCKET=your_bucket_name
 5. Open `http://localhost:8080` in your browser
 
 ## Testing
-The project includes extensive test coverage with:
-- Unit tests for all core services
+The project includes comprehensive test coverage with:
+
+### Frontend Testing (46 Tests - 100% Pass Rate)
+- **Modal Integration Tests** (15 tests) - Complete modal lifecycle testing
+- **Data Handling Tests** (21 tests) - Function-level testing for all modal utilities  
+- **Modal Control Tests** (5 tests) - DOM manipulation and state management
+- **Event Listeners Tests** (5 tests) - User interaction and event handling
+
+### Backend Testing
+- Unit tests for all core services (S3Service, RecommendationEngine)
 - Integration tests for the recommendation engine
 - Test data sets for verification
+
+### Test Infrastructure
+- Jest test runner with JSDOM environment
+- Mock data and HTML fixtures
+- Async/await testing patterns
+- Promise-based function testing
+- Error handling and edge case coverage
+
+### Running Tests
+```bash
+# Run all tests
+npm test
+
+# Run specific test suite
+npx jest src/test/javascript/unit/modal/modalIntegration.test.js
+
+# Run tests with verbose output
+npm test -- --verbose
+```

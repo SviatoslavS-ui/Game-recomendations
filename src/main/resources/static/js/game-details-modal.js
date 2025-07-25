@@ -64,8 +64,8 @@ function openGameDetailsModal(gameId) {
     document.body.style.overflow = 'hidden';
     debug('Game details modal opened, showing loading spinner');
     
-    // Fetch game details from backend
-    loadGameDetails(gameId);
+    // Fetch game details from backend and return the promise
+    return loadGameDetails(gameId);
 }
 
 function loadGameDetails(gameId) {
@@ -73,12 +73,12 @@ function loadGameDetails(gameId) {
     if (gameDetailsCache[gameId]) {
         debug('Using cached game details for:', gameId);
         displayGameDetails(gameDetailsCache[gameId]);
-        return;
+        return Promise.resolve(gameDetailsCache[gameId]);
     }
 
     // Fetch from API
     debug('Fetching game details from API for:', gameId);
-    fetch(`/api/games/${gameId}/details`)
+    return fetch(`/api/games/${gameId}/details`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -90,6 +90,7 @@ function loadGameDetails(gameId) {
             gameDetailsCache[gameId] = data;
             // Display the data
             displayGameDetails(data);
+            return data;
         })
         .catch(error => {
             console.error('Error fetching game details:', error);
@@ -97,6 +98,7 @@ function loadGameDetails(gameId) {
             document.getElementById('gameDetailsContent').innerHTML =
                 `<div class="error-message">Error loading game details: ${error.message}</div>`;
             document.getElementById('gameDetailsContent').style.display = 'block';
+            throw error;
         });
 }
 
