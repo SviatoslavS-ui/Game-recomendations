@@ -243,4 +243,61 @@ public class RecommendationEngineTest extends BaseServiceTest {
         // Assert
         assertEquals(expectedGameTitles, actualTitles);
     }
+    
+    // Test data for release date recommendations
+    private static Stream<Arguments> releaseDateTestCases() {
+        return Stream.of(
+            // Format: limit, expectedGameTitles (ordered by release date descending - newest first)
+            Arguments.of(
+                3,
+                List.of(
+                    "Masterpiece Game",     // 2022-02-25
+                    "Console Exclusive",    // 2021-11-19
+                    "Pure Strategy"         // 2021-06-30
+                )
+            ),
+            Arguments.of(
+                5,
+                List.of(
+                    "Masterpiece Game",     // 2022-02-25
+                    "Console Exclusive",    // 2021-11-19
+                    "Pure Strategy",        // 2021-06-30
+                    "RPG Action Strategy",  // 2020-11-10
+                    "Cross Platform Hit"    // 2020-09-04
+                )
+            ),
+            Arguments.of(
+                8, // All games
+                List.of(
+                    "Masterpiece Game",     // 2022-02-25
+                    "Console Exclusive",    // 2021-11-19
+                    "Pure Strategy",        // 2021-06-30
+                    "RPG Action Strategy",  // 2020-11-10
+                    "Cross Platform Hit",   // 2020-09-04
+                    "RPG Action Game",      // 2019-05-15
+                    "Pure Action",          // 2018-03-20
+                    "Budget Game"           // 2017-08-12
+                )
+            ),
+            Arguments.of(
+                2, // Just the newest
+                List.of(
+                    "Masterpiece Game",     // 2022-02-25
+                    "Console Exclusive"     // 2021-11-19
+                )
+            )
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("releaseDateTestCases")
+    void testGetRecommendationsByReleaseDate(int limit, List<String> expectedGameTitles) {
+        // Act
+        List<String> actualTitles = recommendationEngine.getRecommendationsByReleaseDate(limit)
+                .stream()
+                .map(Game::getTitle)
+                .toList();        
+        // Assert
+        assertEquals(expectedGameTitles, actualTitles);
+    }
 }

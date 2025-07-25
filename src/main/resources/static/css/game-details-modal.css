@@ -247,14 +247,20 @@
 }
 
 /* Lists */
-.platforms-list, .genres-list {
+.platforms-list, .genres-list, .tags-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.platforms-list li, .genres-list li {
+.platforms-list li, .genres-list li, .tags-list li {
     margin-bottom: 8px;
+}
+
+/* Release Date */
+.release-date {
+    padding: 8px 0;
+    font-size: 0.95rem;
 }
 
 /* Details Table */

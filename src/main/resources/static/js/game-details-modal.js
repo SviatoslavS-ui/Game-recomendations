@@ -162,6 +162,14 @@ function displayGameDetails(gameData) {
         populateList('genresList', gameData.genres);
     }
 
+    if (gameData.tags && gameData.tags.length) {
+        populateList('tagsList', gameData.tags);
+    }
+    
+    if (gameData.releaseDate) {
+        setElementText('releaseDateDisplay', gameData.releaseDate);
+    }
+
     // Hide spinner and show the content with a slight delay for smooth transition
     const spinner = document.getElementById('loadingSpinner');
     const content = document.getElementById('gameDetailsContent');

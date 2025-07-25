@@ -27,6 +27,7 @@ public class TestGameData {
             .metacriticScore(85)
             .developer("GameStudio A")
             .platforms(Set.of("PC", "PlayStation"))
+            .releaseDate("2019-05-15")
             .build();
 
     public static final Game RPG_ACTION_STRATEGY = Game.builder()
@@ -36,6 +37,7 @@ public class TestGameData {
             .metacriticScore(92)
             .developer("GameStudio B")
             .platforms(Set.of("PC", "Xbox", "PlayStation"))
+            .releaseDate("2020-11-10")
             .build();
 
     public static final Game ACTION_ONLY = Game.builder()
@@ -45,6 +47,7 @@ public class TestGameData {
             .metacriticScore(78)
             .developer("GameStudio A")
             .platforms(Set.of("Xbox"))
+            .releaseDate("2018-03-20")
             .build();
 
     public static final Game STRATEGY_ONLY = Game.builder()
@@ -54,6 +57,7 @@ public class TestGameData {
             .metacriticScore(88)
             .developer("GameStudio C")
             .platforms(Set.of("PC"))
+            .releaseDate("2021-06-30")
             .build();
 
     public static final Game HIGH_SCORE_GAME = Game.builder()
@@ -63,6 +67,7 @@ public class TestGameData {
             .metacriticScore(96)
             .developer("Elite Studios")
             .platforms(Set.of("PC", "PlayStation", "Xbox", "Nintendo Switch"))
+            .releaseDate("2022-02-25")
             .build();
 
     public static final Game DATABASE_TEST = Game.builder()
@@ -90,6 +95,7 @@ public class TestGameData {
             .metacriticScore(65)
             .developer("Indie Dev")
             .platforms(Set.of("PC"))
+            .releaseDate("2017-08-12")
             .build();
 
     public static final Game MULTI_PLATFORM_GAME = Game.builder()
@@ -99,6 +105,7 @@ public class TestGameData {
             .metacriticScore(82)
             .developer("GameStudio A")
             .platforms(Set.of("PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile"))
+            .releaseDate("2020-09-04")
             .build();
 
     public static final Game EXCLUSIVE_GAME = Game.builder()
@@ -108,6 +115,7 @@ public class TestGameData {
             .metacriticScore(89)
             .developer("Console Studios")
             .platforms(Set.of("PlayStation"))
+            .releaseDate("2021-11-19")
             .build();
 
     public static final Game SERIALIZATION_TEST_1 = Game.builder()

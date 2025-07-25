@@ -57,13 +57,13 @@ public class GameDetailsController {
         response.put("tags", game.getTags());
         response.put("metacriticScore", game.getMetacriticScore());
         response.put("userScore", game.getUserScore());
-        response.put("reviewCount", game.getReviewCount());
         response.put("platforms", game.getPlatforms());
         response.put("price", game.getPrice());
         response.put("isMultiplayer", game.isMultiplayer());
         response.put("playtimeHours", game.getPlaytimeHours());
         response.put("ageRating", game.getAgeRating());
         response.put("detailsHtml", s3Service.getGameDetails(gameId));
+        response.put("releaseDate", game.getReleaseDate());
         
         return ResponseEntity.ok(response);
     }

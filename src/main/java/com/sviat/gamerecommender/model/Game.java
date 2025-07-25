@@ -22,7 +22,7 @@ public class Game {
     private int metacriticScore;
     private AgeRating ageRating;
     private Double userScore;
-    private int reviewCount;
+    private String releaseDate;
     private Set<String> platforms;
     private BigDecimal price;
     private boolean isMultiplayer;
@@ -41,7 +41,7 @@ public class Game {
         this.metacriticScore = builder.metacriticScore;
         this.ageRating = builder.ageRating;
         this.userScore = builder.userScore;
-        this.reviewCount = builder.reviewCount;
+        this.releaseDate = builder.releaseDate;
         this.platforms = builder.platforms;
         this.price = builder.price;
         this.isMultiplayer = builder.isMultiplayer;
@@ -100,8 +100,8 @@ public class Game {
         return this.userScore;
     }
 
-    public int getReviewCount() {
-        return this.reviewCount;
+    public String getReleaseDate() {
+        return this.releaseDate;
     }
 
     public Set<String> getPlatforms() {
@@ -134,7 +134,7 @@ public class Game {
         private int metacriticScore;
         private AgeRating ageRating;
         private Double userScore;
-        private int reviewCount;
+        private String releaseDate;
         private Set<String> platforms;
         private BigDecimal price;
         private boolean isMultiplayer;
@@ -214,9 +214,9 @@ public class Game {
             return this;
         }
 
-        @JsonProperty("reviewCount")
-        public Builder reviewCount(int reviewCount) {
-            this.reviewCount = reviewCount;
+        @JsonProperty("releaseDate")
+        public Builder releaseDate(String releaseDate) {
+            this.releaseDate = releaseDate;
             return this;
         }
 

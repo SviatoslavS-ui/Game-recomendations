@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.LocalDate;
 
 import com.sviat.gamerecommender.model.Game;
 
@@ -54,6 +57,29 @@ public class RecommendationEngine {
                 .filter(g -> g.getPlatforms().contains(platform))
                 // sort by metacritic score (desc)
                 .sorted(Comparator.comparingInt(Game::getMetacriticScore).reversed())
+                .limit(limit)
+                .collect(Collectors.toList());
+    }
+
+    public List<Game> getRecommendationsByReleaseDate(int limit) {
+        // Define formatter for ISO date format (YYYY-MM-DD)
+        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        Comparator<Game> byReleaseDateDesc = (g1, g2) -> {
+            try {
+                LocalDate date1 = LocalDate.parse(g1.getReleaseDate(), formatter);
+                LocalDate date2 = LocalDate.parse(g2.getReleaseDate(), formatter);
+                // Reversed for descending order (newest first)
+                return date2.compareTo(date1);
+            } catch (DateTimeParseException e) {
+                return 0;
+            }
+        };
+        
+        return gameDatabase.getAllGames().stream()
+                // Filter out games with null or empty release dates
+                .filter(game -> game.getReleaseDate() != null && !game.getReleaseDate().isEmpty())
+                // Sort by parsed release date (descending order)
+                .sorted(byReleaseDateDesc)
                 .limit(limit)
                 .collect(Collectors.toList());
     }
