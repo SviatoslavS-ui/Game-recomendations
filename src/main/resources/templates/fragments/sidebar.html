@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Sidebar Fragment -->
+    <nav class="sidebar" th:fragment="sidebar(activePage)">
+        <div class="sidebar-logo">
+            <img th:src="@{/images/recommend.png}" alt="Game Recommender Logo" class="sidebar-logo-image">
+        </div>
+        
+        <div class="sidebar-header">
+            <h2 class="sidebar-title cyberpunk-font-primary cyberpunk-text-primary cyberpunk-glow-cyan">Game Recommender</h2>
+            <div class="sidebar-subtitle cyberpunk-font-secondary cyberpunk-text-secondary">AI-Powered Gaming</div>
+        </div>
+        
+        <ul class="sidebar-nav">
+            <li class="nav-item-wrapper">
+                <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
+                     data-href="/"
+                     th:classappend="${activePage == 'dashboard'} ? 'active cyberpunk-text-primary' : ''">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-text">Dashboard</span>
+                </div>
+            </li>
+            <li class="nav-item-wrapper">
+                <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
+                     data-href="/games"
+                     th:classappend="${activePage == 'games'} ? 'active cyberpunk-text-primary' : ''">
+                    <span class="nav-icon">🕹️</span>
+                    <span class="nav-text">Browse Games</span>
+                </div>
+            </li>
+            <li class="nav-item-wrapper">
+                <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
+                     data-href="/recommendations"
+                     th:classappend="${activePage == 'recommendations'} ? 'active cyberpunk-text-primary' : ''">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">Recommendations</span>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Bottom Container -->
+        <div class="sidebar-bottom-container">
+            <div class="sidebar-footer">
+                <div class="sidebar-copyright cyberpunk-font-secondary cyberpunk-text-secondary">Created &copy; Third Squad 2025</div>
+            </div>
+            <div class="sidebar-accent">
+                <div class="accent-line"></div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

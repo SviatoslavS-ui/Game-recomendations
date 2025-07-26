@@ -1,0 +1,366 @@
+/* ===== CYBERPUNK SIDEBAR STYLES ===== */
+
+/* === CSS CUSTOM PROPERTIES === */
+:root {
+    --cyberpunk-cyan: #00ffff;
+    --cyberpunk-coral: #ff6b6b;
+    --cyberpunk-muted: #b8b8b8;
+    --cyberpunk-dark-primary: #1a1a1a;
+    --cyberpunk-dark-secondary: #2d2d2d;
+    
+    --sidebar-width: 17rem;
+    --sidebar-width-mobile: 100%;
+    
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-width: 0.125rem;
+    
+    --transition-fast: all 0.3s ease;
+    --transition-glow: filter 0.3s ease;
+    
+    --glow-cyan-sm: 0 0 0.3125rem rgba(0, 255, 255, 0.4);
+    --glow-cyan-md: 0 0 0.5rem rgba(0, 255, 255, 0.4);
+    --glow-cyan-lg: 0 0 0.625rem rgba(0, 255, 255, 0.5);
+    --glow-coral-md: 0 0 0.4rem rgba(255, 107, 107, 0.5);
+    
+    --shadow-cyan-soft: 0 0 0.75rem rgba(0, 255, 255, 0.2);
+    --shadow-coral-soft: 0 0 0.5rem rgba(255, 107, 107, 0.3);
+}
+
+/* === GLOBAL USER SELECTION === */
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow text selection for content areas */
+.game-description,
+.game-info-main,
+input,
+textarea,
+.sidebar-title,
+.sidebar-subtitle,
+.sidebar-copyright {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* === BASE UTILITY CLASSES === */
+.cyberpunk-font-primary {
+    font-family: 'Orbitron', 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cyberpunk-font-secondary {
+    font-family: 'Rajdhani', 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cyberpunk-text-primary {
+    color: var(--cyberpunk-cyan);
+}
+
+.cyberpunk-text-secondary {
+    color: var(--cyberpunk-coral);
+}
+
+.cyberpunk-text-muted {
+    color: var(--cyberpunk-muted);
+}
+
+.cyberpunk-glow-cyan {
+    text-shadow: 
+        0 0 0.625rem rgba(0, 255, 255, 0.8),
+        0 0 1.25rem rgba(0, 255, 255, 0.4);
+}
+
+.smooth-transition {
+    transition: var(--transition-fast);
+}
+
+.glow-cyan-sm {
+    filter: drop-shadow(var(--glow-cyan-sm));
+}
+
+.glow-cyan-md {
+    filter: drop-shadow(var(--glow-cyan-md));
+}
+
+.glow-cyan-lg {
+    filter: drop-shadow(var(--glow-cyan-lg));
+}
+
+.glow-coral-md {
+    filter: drop-shadow(var(--glow-coral-md));
+}
+
+/* === SIDEBAR CONTAINER === */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: linear-gradient(135deg, var(--cyberpunk-dark-primary) 0%, var(--cyberpunk-dark-secondary) 100%);
+    border-right: var(--border-width) solid var(--cyberpunk-cyan);
+    box-shadow: 0.125rem 0 1.25rem rgba(0, 255, 255, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Hide scrollbars */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Prevent any hover-triggered pseudo-elements */
+.sidebar *:hover::before,
+.sidebar *:hover::after {
+    display: none !important;
+}
+
+/* === LOGO SECTION === */
+.sidebar-logo {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 0.0625rem solid rgba(0, 255, 255, 0.3);
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.sidebar-logo-image {
+    width: 105%;
+    max-width: 15rem;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+    filter: drop-shadow(var(--glow-cyan-lg));
+    transition: var(--transition-glow);
+}
+
+.sidebar-logo-image:hover {
+    filter: drop-shadow(0 0 0.9375rem rgba(0, 255, 255, 0.8));
+}
+
+/* === HEADER SECTION === */
+.sidebar-header {
+    padding: 0 1.25rem 1.875rem;
+    text-align: center;
+}
+
+.sidebar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.sidebar-subtitle {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 
+            0 0 0.625rem rgba(0, 255, 255, 0.8),
+            0 0 1.25rem rgba(0, 255, 255, 0.4);
+    }
+    to {
+        text-shadow: 
+            0 0 1.25rem rgba(0, 255, 255, 1),
+            0 0 2.5rem rgba(0, 255, 255, 0.6);
+    }
+}
+
+/* === NAVIGATION SECTION === */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-item-wrapper {
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.9375rem 1.25rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-left: 0.1875rem solid transparent;
+    border-radius: var(--border-radius-sm);
+    pointer-events: auto;
+    filter: drop-shadow(0 0 0 rgba(0, 255, 255, 0));
+    transition: var(--transition-fast);
+}
+
+.nav-item:hover {
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 0%, transparent 100%);
+    border-left-color: var(--cyberpunk-cyan);
+    transform: translateX(0.3125rem);
+    filter: drop-shadow(var(--glow-cyan-md));
+    box-shadow: 
+        var(--shadow-cyan-soft),
+        inset 0 0 0.25rem rgba(0, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.05) 100%);
+    border-left-color: var(--cyberpunk-coral);
+    filter: drop-shadow(var(--glow-coral-md));
+    box-shadow: 
+        inset 0 0 0.625rem rgba(0, 255, 255, 0.2),
+        var(--shadow-coral-soft),
+        0 0 1rem rgba(255, 107, 107, 0.1);
+    cursor: default !important;
+    pointer-events: auto;
+}
+
+.nav-item.active:hover {
+    /* Override hover effects for active items */
+    transform: none;
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.05) 100%);
+    border-left-color: var(--cyberpunk-coral);
+    filter: drop-shadow(var(--glow-coral-md));
+    box-shadow: 
+        inset 0 0 0.625rem rgba(0, 255, 255, 0.2),
+        var(--shadow-coral-soft),
+        0 0 1rem rgba(255, 107, 107, 0.1);
+}
+
+.nav-icon {
+    font-size: 1.3rem;
+    margin-right: 0.75rem;
+    min-width: 1.5rem;
+    text-align: center;
+    filter: drop-shadow(0 0 0.3125rem currentColor);
+}
+
+.nav-text {
+    flex: 1;
+    text-transform: uppercase;
+}
+
+/* === BOTTOM SECTION === */
+.sidebar-bottom-container {
+    margin-top: auto;
+    padding: 0;
+}
+
+.sidebar-footer {
+    text-align: center;
+    padding: 1.25rem 0 0.625rem 0;
+}
+
+.sidebar-accent {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+.sidebar-copyright {
+    font-size: 0.8rem;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.accent-line {
+    height: var(--border-width);
+    background: linear-gradient(90deg, transparent, var(--cyberpunk-cyan), var(--cyberpunk-coral), transparent);
+    animation: accentPulse 3s ease-in-out infinite;
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes accentPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scaleX(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 48rem) {
+    .sidebar {
+        width: var(--sidebar-width-mobile);
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: var(--border-width) solid var(--cyberpunk-cyan);
+    }
+    
+    .sidebar-logo-image {
+        max-width: 9.375rem;
+    }
+    
+    .sidebar-title {
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        justify-content: space-around;
+        padding: 0.625rem 0;
+    }
+    
+    .nav-item-wrapper {
+        margin: 0;
+    }
+    
+    .nav-item {
+        flex-direction: column;
+        padding: 0.625rem;
+        text-align: center;
+    }
+    
+    .nav-icon {
+        margin-right: 0;
+        margin-bottom: 0.3125rem;
+    }
+    
+    .nav-text {
+        font-size: 0.9rem;
+    }
+    
+    .sidebar-accent {
+        position: relative;
+        bottom: auto;
+        margin-top: 1.25rem;
+    }
+    
+    .sidebar-footer {
+        position: relative;
+        bottom: auto;
+        margin-top: 0.9375rem;
+        padding: 0 0.625rem;
+    }
+    
+    .sidebar-copyright {
+        font-size: 0.75rem;
+    }
+}

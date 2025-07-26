@@ -12,22 +12,17 @@
         <!-- Modal Overlay - separate from modal -->
         <div class="modal-overlay hidden" id="modalOverlay"></div>
         
-        <!-- Modal Container -->
         <div class="modal hidden" id="gameDetailsModal">
-            <!-- Modal Content -->
             <div class="modal-content">
-            <!-- Close Button -->
             <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
                 <span aria-hidden="true">&times;</span>
             </button>            
             
-            <!-- Loading Spinner (shown while fetching data) -->
             <div class="loading-spinner" id="loadingSpinner">
                 <div class="spinner"></div>
                 <p>Loading game details...</p>
             </div>
             
-            <!-- Game Details Content (initially hidden, shown after loading) -->
             <div class="game-details hidden" id="gameDetailsContent">
                 <!-- Header Section -->
                 <header class="game-header">
@@ -53,10 +48,8 @@
                     </div>
                 </header>
                 
-                <!-- Media Section -->
                 <section class="game-media">
                     <div class="main-image-container">
-                        <!-- This will be populated with the original image from S3 -->
                         <img id="gameMainImage" class="main-image" src="" alt="Game screenshot">
                     </div>
                     <!-- For future: We can add a thumbnail gallery here when we have multiple screenshots -->
@@ -65,48 +58,36 @@
                     </div>
                 </section>
                 
-                <!-- Details Section -->
                 <section class="game-info-container">
                     <div class="game-info-main">
-                        <!-- Game Description -->
                         <div class="game-description" id="gameDescription">
-                            <!-- Description content will be loaded from S3 -->
                         </div>                        
                     </div>
                     
-                    <!-- Sidebar with Additional Info -->
                     <aside class="game-info-sidebar">
-                        <!-- Platforms -->
                         <div class="info-block platforms-block">
                             <h4>Platforms</h4>
                             <ul class="platforms-list" id="platformsList">
-                                <!-- Platforms will be dynamically added here -->
                             </ul>
                         </div>
                         
-                        <!-- Genres -->
                         <div class="info-block genres-block">
                             <h4>Genres</h4>
                             <ul class="genres-list" id="genresList">
-                                <!-- Genres will be dynamically added here -->
                             </ul>
                         </div>
                         
-                        <!-- Tags -->
                         <div class="info-block tags-block">
                             <h4>Tags</h4>
                             <ul class="tags-list" id="tagsList">
-                                <!-- Tags will be dynamically added here -->
                             </ul>
                         </div>
                         
-                        <!-- Release Date -->
                         <div class="info-block release-date-block">
                             <h4>Release Date</h4>
                             <div class="release-date" id="releaseDateDisplay">Not available</div>
                         </div>
                         
-                        <!-- Game Details -->
                         <div class="info-block details-block">
                             <h4>Details</h4>
                             <table class="details-table">
@@ -131,7 +112,6 @@
                     </aside>
                 </section>
                 
-                <!-- Footer Section -->
                 <footer class="modal-footer">
                     <!-- <div class="action-buttons">
                         <a href="#" class="btn btn-primary" id="buyButton">Buy Now</a>
@@ -140,7 +120,6 @@
                     <div class="related-games">
                         <h4>You might also like</h4>
                         <div class="related-games-container" id="relatedGamesContainer">
-                            <!-- Related games will be dynamically added here -->
                         </div>
                     </div>
                 </footer>

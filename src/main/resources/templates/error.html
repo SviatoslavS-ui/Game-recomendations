@@ -3,57 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .error-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #e74c3c;
-        }
-        .error-details {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #e74c3c;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #3498db;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Error - Game Recommender</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
 </head>
 <body>
     <div class="error-container">
-        <h1>Oops! Something went wrong</h1>
-        <p>We're sorry, but an error occurred while processing your request.</p>
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-title">System Error</h1>
+        <p class="error-message">We're sorry, but an error occurred while processing your request. Our systems are working to resolve this issue.</p>
         
         <div class="error-details">
-            <p><strong>Error:</strong> <span th:text="${error}">Error</span></p>
-            <p><strong>Status:</strong> <span th:text="${status}">Status</span></p>
-            <p th:if="${message}"><strong>Message:</strong> <span th:text="${message}">Message</span></p>
-            <p th:if="${timestamp}"><strong>Timestamp:</strong> <span th:text="${timestamp}">Timestamp</span></p>
-            <p th:if="${path}"><strong>Path:</strong> <span th:text="${path}">Path</span></p>
+            <h3>Error Details</h3>
+            <div class="detail-item" th:if="${error}">
+                <span class="detail-label">Error:</span>
+                <span class="detail-value" th:text="${error}">Unknown Error</span>
+            </div>
+            <div class="detail-item" th:if="${status}">
+                <span class="detail-label">Status:</span>
+                <span class="detail-value" th:text="${status}">500</span>
+            </div>
+            <div class="detail-item" th:if="${message}">
+                <span class="detail-label">Message:</span>
+                <span class="detail-value" th:text="${message}">Internal Server Error</span>
+            </div>
+            <div class="detail-item" th:if="${timestamp}">
+                <span class="detail-label">Time:</span>
+                <span class="detail-value" th:text="${timestamp}">Now</span>
+            </div>
+            <div class="detail-item" th:if="${path}">
+                <span class="detail-label">Path:</span>
+                <span class="detail-value" th:text="${path}">/</span>
+            </div>
         </div>
         
-        <a href="/" class="back-link">← Back to Home</a>
+        <a href="/" class="back-link">Return to Dashboard</a>
     </div>
 </body>
 </html>

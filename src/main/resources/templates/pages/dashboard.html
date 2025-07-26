@@ -5,25 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Recommender - Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
     <link rel="stylesheet" th:href="@{/css/game-card.css}">
     <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar">
-            <div class="sidebar-header">
-                <h2>🎯 Game Recommender</h2>
-            </div>
-            <ul class="sidebar-nav">
-                <li><a href="/" class="nav-item active">Dashboard</a></li>
-                <li><a href="/games" class="nav-item">Browse Games</a></li>
-                <li><a href="/recommendations" class="nav-item">My Recommendations</a></li>
-            </ul>
-        </nav>
+        <div th:replace="~{fragments/sidebar :: sidebar(activePage='dashboard')}"></div>
 
-        <!-- Main Content -->
         <main class="main-content">
             <header class="content-header">
                 <h1>Dashboard</h1>
@@ -31,35 +24,28 @@
                     <span class="stat-item">Total Games: <strong th:text="${totalGames}">0</strong></span>
                 </div>
             </header>
-            <!-- Game Sections -->
             <div class="game-sections">                
-                <!-- Best Rated Games Section -->
                 <section class="game-section">
                     <h2 class="section-title">🏆 Best Rated Games</h2>
                     <div class="game-grid">
-                        <!-- Best rated game cards using fragment -->
                         <div th:each="game : ${bestRatedGames}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
                 </section>
-                <!-- New Releases Section -->
                 <section class="game-section">
                     <h2 class="section-title">🆕 New Releases</h2>
                     <div class="game-grid">
-                        <!-- New releases game cards using fragment -->
                         <div th:each="game : ${newReleases}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
                         </div>
                     </div>
                 </section>
-                <!-- Recommended Games Section -->
                 <section class="game-section">
                     <h2 class="section-title">✨ Recommended for You</h2>
                     <div class="game-grid">
-                        <!-- Recommended game cards using fragment -->
                         <div th:each="game : ${recommendedGames}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                             </div>
@@ -70,10 +56,9 @@
         </main>
     </div>
     
-    <!-- Game Details Modal -->
     <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
 
-    <!-- JavaScript for game card interactions -->
+    <script th:src="@{/js/sidebar-navigation.js}"></script>
     <script th:src="@{/js/game-card.js}"></script>
     <script th:src="@{/js/game-details-modal.js}"></script>
 </body>
