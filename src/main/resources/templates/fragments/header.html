@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Header Fragment -->
+    <header class="cyberpunk-header" th:fragment="header(pageTitle)">
+        <div class="header-content">
+            <h1 class="header-title cyberpunk-font-primary cyberpunk-text-primary" th:text="${pageTitle ?: 'Game Recommender'}">Game Recommender</h1>
+            
+            <div class="header-actions">
+                <button class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
+                    <span class="btn-icon">🔍</span>
+                    <span class="btn-text">Quick Search</span>
+                </button>
+                <button class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
+                    <span class="btn-icon">ℹ️</span>
+                    <span class="btn-text">About</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Header Stats -->
+        <div class="header-stats" th:if="${totalGames != null}">
+            <span class="stat-item">Games in database: <strong th:text="${totalGames}">0</strong></span>
+        </div>
+        
+        <!-- Header Accent Line -->
+        <div class="header-accent">
+            <div class="accent-line"></div>
+        </div>
+    </header>
+</body>
+</html>

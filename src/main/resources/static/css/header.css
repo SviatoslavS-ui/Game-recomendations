@@ -1,0 +1,171 @@
+/* ===== CYBERPUNK HEADER STYLES ===== */
+/* Variables and utility classes are imported from variables.css */
+
+/* === HEADER CONTAINER === */
+
+.cyberpunk-header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: var(--header-height);
+    background: linear-gradient(135deg, var(--cyberpunk-dark-primary) 0%, var(--cyberpunk-dark-secondary) 100%);
+    border-bottom: var(--border-width) solid var(--cyberpunk-cyan);
+    box-shadow: 0 var(--border-width) 1.25rem rgba(0, 255, 255, 0.3);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* === HEADER CONTENT === */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    flex: 1;
+}
+
+/* === HEADER TITLE === */
+.header-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 
+            0 0 0.625rem rgba(0, 255, 255, 0.8),
+            0 0 1.25rem rgba(0, 255, 255, 0.4);
+    }
+    to {
+        text-shadow: 
+            0 0 1.25rem rgba(0, 255, 255, 1),
+            0 0 2.5rem rgba(0, 255, 255, 0.6);
+    }
+}
+
+/* === HEADER ACTIONS === */
+.header-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9375rem 1.5rem;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(0, 255, 255, 0.05) 50%,
+        rgba(26, 26, 26, 0.8) 100%);
+    border: var(--border-width) solid rgba(0, 255, 255, 0.4);
+    border-radius: var(--border-radius-sm);
+    color: var(--cyberpunk-cyan);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 0.5rem rgba(0, 255, 255, 0.2),
+        inset 0 0 0.25rem rgba(0, 255, 255, 0.1);
+}
+
+.header-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.2) 0%, 
+        rgba(0, 255, 255, 0.1) 50%,
+        rgba(26, 26, 26, 0.9) 100%);
+    border-color: var(--cyberpunk-cyan);
+    transform: translateY(-0.125rem) scale(1.02);
+    box-shadow: 
+        0 0 1rem rgba(0, 255, 255, 0.4),
+        0 0.25rem 0.5rem rgba(0, 0, 0, 0.3),
+        inset 0 0 0.5rem rgba(0, 255, 255, 0.2);
+    text-shadow: 0 0 0.5rem rgba(0, 255, 255, 0.8);
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+    min-width: 1.5rem;
+    text-align: center;
+    filter: drop-shadow(0 0 0.3125rem currentColor);
+}
+
+.btn-text {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === HEADER STATS === */
+.header-stats {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 3rem 0.75rem 3rem;
+}
+
+.stat-item {
+    color: var(--cyberpunk-muted);
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Rajdhani', 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-item strong {
+    color: var(--cyberpunk-cyan);
+    font-weight: 600;
+    text-shadow: 0 0 0.3125rem rgba(0, 255, 255, 0.5);
+}
+
+/* === HEADER ACCENT === */
+.header-accent {
+    padding: 0 3rem 1.25rem 3rem;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 48rem) {
+    .cyberpunk-header {
+        left: 0;
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-bottom: var(--border-width) solid var(--cyberpunk-cyan);
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .header-title {
+        font-size: 1.8rem;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .header-btn {
+        justify-content: center;
+        width: 100%;
+        max-width: 20rem;
+    }
+    
+    .header-accent {
+        padding: 0 1.5rem 1rem 1.5rem;
+    }
+}

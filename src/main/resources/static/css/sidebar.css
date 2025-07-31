@@ -1,31 +1,5 @@
 /* ===== CYBERPUNK SIDEBAR STYLES ===== */
-
-/* === CSS CUSTOM PROPERTIES === */
-:root {
-    --cyberpunk-cyan: #00ffff;
-    --cyberpunk-coral: #ff6b6b;
-    --cyberpunk-muted: #b8b8b8;
-    --cyberpunk-dark-primary: #1a1a1a;
-    --cyberpunk-dark-secondary: #2d2d2d;
-    
-    --sidebar-width: 17rem;
-    --sidebar-width-mobile: 100%;
-    
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
-    --border-width: 0.125rem;
-    
-    --transition-fast: all 0.3s ease;
-    --transition-glow: filter 0.3s ease;
-    
-    --glow-cyan-sm: 0 0 0.3125rem rgba(0, 255, 255, 0.4);
-    --glow-cyan-md: 0 0 0.5rem rgba(0, 255, 255, 0.4);
-    --glow-cyan-lg: 0 0 0.625rem rgba(0, 255, 255, 0.5);
-    --glow-coral-md: 0 0 0.4rem rgba(255, 107, 107, 0.5);
-    
-    --shadow-cyan-soft: 0 0 0.75rem rgba(0, 255, 255, 0.2);
-    --shadow-coral-soft: 0 0 0.5rem rgba(255, 107, 107, 0.3);
-}
+/* Variables and utility classes are imported from variables.css */
 
 /* === GLOBAL USER SELECTION === */
 * {
@@ -51,56 +25,7 @@ textarea,
     user-select: text;
 }
 
-/* === BASE UTILITY CLASSES === */
-.cyberpunk-font-primary {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
 
-.cyberpunk-font-secondary {
-    font-family: 'Rajdhani', 'Arial', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cyberpunk-text-primary {
-    color: var(--cyberpunk-cyan);
-}
-
-.cyberpunk-text-secondary {
-    color: var(--cyberpunk-coral);
-}
-
-.cyberpunk-text-muted {
-    color: var(--cyberpunk-muted);
-}
-
-.cyberpunk-glow-cyan {
-    text-shadow: 
-        0 0 0.625rem rgba(0, 255, 255, 0.8),
-        0 0 1.25rem rgba(0, 255, 255, 0.4);
-}
-
-.smooth-transition {
-    transition: var(--transition-fast);
-}
-
-.glow-cyan-sm {
-    filter: drop-shadow(var(--glow-cyan-sm));
-}
-
-.glow-cyan-md {
-    filter: drop-shadow(var(--glow-cyan-md));
-}
-
-.glow-cyan-lg {
-    filter: drop-shadow(var(--glow-cyan-lg));
-}
-
-.glow-coral-md {
-    filter: drop-shadow(var(--glow-coral-md));
-}
 
 /* === SIDEBAR CONTAINER === */
 .sidebar {

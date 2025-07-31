@@ -1,8 +1,11 @@
 /* Game Recommender - Main Stylesheet */
-/* Based on Docker-inspired design specification */
 
 /* CSS Custom Properties - Design System */
 :root {
+  /* Layout Variables */
+  --sidebar-width: 17rem;
+  --sidebar-width-mobile: 100%;
+  --header-height: 12.5rem; /* 200px */
   /* Primary Brand Colors */
   --primary-blue: #4A90E2;
   --primary-blue-dark: #357ABD;
@@ -123,10 +126,11 @@ body {
 
 /* Main Content */
 .main-content {
-  margin-left: 240px;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
   padding: var(--space-6);
   flex: 1;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
 }
 
 .content-header {

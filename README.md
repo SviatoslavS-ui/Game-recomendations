@@ -15,10 +15,25 @@ This system provides game recommendations based on various criteria such as genr
   - Efficient image processing pipeline
 
 ### Frontend
-- **Responsive Design**
-  - Docker-inspired UI components
+- **Cyberpunk Design System**
+  - Modern cyberpunk-themed UI with cyan/coral color scheme
+  - Centralized CSS variables architecture for maintainability
+  - Consistent typography using Orbitron and Rajdhani fonts
+  - Advanced glow effects and smooth transitions
+  
+- **Component Architecture**
+  - **Cyberpunk Header Fragment**
+    - Fixed header with dynamic page titles
+    - Action buttons (Quick Search, About) with gradient styling
+    - Real-time stats counter integration
+    - Responsive design with mobile optimization
+  - **Sidebar Navigation Fragment**
+    - Reusable navigation component
+    - Active state management
+    - Consistent styling across all pages
+  
+- **Enhanced UI Components**
   - Grid-based layout for game cards
-  - Smooth animations and transitions
   - Interactive game cards with clickable areas
   - **Enhanced Game Details Modal**
     - Comprehensive game information display
@@ -66,9 +81,22 @@ src/
 │   └── resources/
 │       ├── static/                   # Static assets
 │       │   ├── css/
+│       │   │   ├── variables.css     # Centralized design system
+│       │   │   ├── sidebar.css       # Sidebar component styles
+│       │   │   ├── header.css        # Header component styles
+│       │   │   ├── main.css          # Layout and general styles
+│       │   │   └── game-card.css     # Game card components
+│       │   ├── js/
 │       │   └── images/
 │       ├── templates/                # Thymeleaf templates
-│       └── application.properties    # App configuration
+       │   ├── fragments/            # Reusable components
+       │   │   ├── header.html       # Cyberpunk header fragment
+       │   │   ├── sidebar.html      # Navigation sidebar fragment
+       │   │   └── game-card.html    # Game card fragment
+       │   └── pages/                # Main page templates
+       │       ├── dashboard.html    # Dashboard page
+       │       └── games.html        # All games page
+       └── application.properties    # App configuration
 │
 └── test/                            # Test files
     ├── java/

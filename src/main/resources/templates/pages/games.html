@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Recommender - Browse Games</title>
+    <link rel="stylesheet" th:href="@{/css/variables.css}">
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/game-card.css}">
     <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +20,8 @@
 <body>
     <div class="app-container">
         <div th:replace="~{fragments/sidebar :: sidebar(activePage='games')}"></div>
+        <div th:replace="~{fragments/header :: header(pageTitle='All Games')}"></div>
         <main class="main-content">
-            <header class="content-header">
-                <h1>Browse Games</h1>
-                <div class="stats">
-                    <span class="stat-item">Total Games: <strong th:text="${totalGames}">0</strong></span>
-                </div>
-            </header>
             <div class="games-container">
                 <section class="game-section">
                     <h2 class="section-title">🎮 All Games</h2>
