@@ -2,19 +2,19 @@
 
 /* Modal-specific variables to avoid conflicts */
 .modal-overlay, #gameDetailsModal {
-    --modal-bg: #1e2736;
-    --modal-text: #e9ecef;
-    --modal-text-light: #adb5bd;
-    --modal-text-bright: #ffffff;
-    --modal-border: rgba(255, 255, 255, 0.1);
-    --modal-overlay: rgba(0, 0, 0, 0.75);
-    --accent-color: #0ea5e9;
-    --accent-hover: #0284c7;
-    --success-color: #2ea043;
-    --warning-color: #d29922;
-    --danger-color: #cf222e;
-    --metacritic-color: #66cc33;
-    --user-score-color: #ffcc33;
+    --modal-bg: var(--cyberpunk-dark-primary);
+    --modal-text: var(--cyberpunk-cyan);
+    --modal-text-light: var(--cyberpunk-cyan);
+    --modal-text-bright: var(--cyberpunk-cyan);
+    --modal-border: rgba(0, 255, 255, 0.1);
+    --modal-overlay: rgba(0, 0, 0, 0.85);
+    --accent-color: var(--cyberpunk-cyan);
+    --accent-hover: rgba(0, 255, 255, 0.8);
+    --success-color: var(--cyberpunk-cyan);
+    --warning-color: var(--cyberpunk-cyan);
+    --danger-color: var(--cyberpunk-cyan);
+    --metacritic-color: var(--cyberpunk-cyan);
+    --user-score-color: var(--cyberpunk-cyan);
 }
 
 /* Core Modal Structure */
@@ -42,8 +42,9 @@
     max-height: 90vh;
     background-color: var(--modal-bg);
     color: var(--modal-text);
-    border-radius: 8px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.1);
     overflow-y: auto;
     z-index: 1000;
     display: block;
@@ -62,29 +63,6 @@
     display: none !important;
 }
 
-/* Close Button */
-.modal-close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: var(--modal-text-bright);
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-#gameDetailsModal .modal-close-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 /* Game Header */
 #gameDetailsContent .game-header {
     display: flex;
@@ -99,11 +77,15 @@
 
 #gameDetailsContent .game-title {
     margin: 0.6rem 0 0.6rem 0;
-    font-size: 1.75rem;
-    color: var(--modal-text-bright);
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    color: var(--cyberpunk-cyan);
+    font-family: var(--cyberpunk-font-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: var(--glow-cyan-sm),
+                 var(--glow-cyan-md),
+                 var(--glow-cyan-lg);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 #gameDetailsContent .game-meta {
@@ -205,8 +187,10 @@
 }
 
 .game-description {
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 1.25rem;
+    color: var(--cyberpunk-cyan);
+    text-shadow: var(--glow-cyan-sm);
 }
 
 /* Fix for bullet points extending outside container */
@@ -234,9 +218,11 @@
 
 .info-block {
     margin-bottom: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05);
 }
 
 .info-block h4 {
@@ -321,8 +307,8 @@
     height: 50px;
     border: 4px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    border-top-color: var(--accent-color);
     margin-bottom: 1rem;
+    border-top-color: var(--accent-color);
     animation: spin 1s linear infinite;
 }
 

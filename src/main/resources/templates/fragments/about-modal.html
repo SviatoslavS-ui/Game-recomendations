@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Modal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- About Modal Fragment -->
+    <div th:fragment="aboutModal">
+        <!-- Using existing modalOverlay from game-details-modal -->
+        
+        <div class="modal hidden" id="aboutModal">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="aboutModalClose" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>            
+                
+                <div class="custom-modal-content" id="aboutModalContent">
+                    <!-- Header Section -->
+                    <header class="modal-header">
+                        <h2 class="modal-title" id="aboutModalTitle">About Game Recommender</h2>
+                    </header>
+                    
+                    <section class="modal-body">
+                        <div class="modal-content-wrapper">
+                            <div class="image-container">
+                                <img id="aboutModalImage" class="main-image" src="images/about.jpg" alt="Modal image">
+                            </div>
+                            
+                            <div class="content-container">
+                                <div class="content-text" id="aboutModalText">
+                                    <!-- Text content will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

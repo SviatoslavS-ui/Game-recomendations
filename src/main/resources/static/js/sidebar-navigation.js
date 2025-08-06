@@ -6,6 +6,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
     
+    // Create loading overlay
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.className = 'loading-overlay';
+    document.body.appendChild(loadingOverlay);
+    
+    // Function to handle page transitions
+    function navigateWithTransition(url) {
+        loadingOverlay.classList.add('active');
+        setTimeout(() => {
+            window.location.href = url;
+        }, 100);
+    }
+    
     navItems.forEach(function(navItem) {
         const targetHref = navItem.getAttribute('data-href');
         const isActive = navItem.classList.contains('active');
@@ -29,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (targetHref) {
-                window.location.href = targetHref;
+                navigateWithTransition(targetHref);
             }
         });
         

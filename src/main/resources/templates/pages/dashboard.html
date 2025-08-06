@@ -10,6 +10,8 @@
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/game-card.css}">
     <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
+    <link rel="stylesheet" th:href="@{/css/about-modal.css}">
+    <link rel="stylesheet" th:href="@{/css/loading-overlay.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -54,10 +56,12 @@
     </div>
     
     <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
+    <div th:replace="~{fragments/about-modal :: aboutModal}"></div>
 
     <script th:src="@{/js/sidebar-navigation.js}"></script>
     <script th:src="@{/js/game-card.js}"></script>
     <script th:src="@{/js/game-details-modal.js}"></script>
+    <script th:src="@{/js/about-modal.js}"></script>
 </body>
 
 </html>

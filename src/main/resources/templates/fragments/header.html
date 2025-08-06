@@ -7,20 +7,20 @@
             <h1 class="header-title cyberpunk-font-primary cyberpunk-text-primary" th:text="${pageTitle ?: 'Game Recommender'}">Game Recommender</h1>
             
             <div class="header-actions">
-                <button class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
+                <!-- Header Stats inline with buttons -->
+                <div class="header-stats" th:if="${totalGames != null}">
+                    <span class="data-item cyberpunk-text-secondary">Games in Database: <strong th:text="${totalGames}">0</strong></span>
+                </div>
+                
+                <button id="searchBtn" class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
                     <span class="btn-icon">🔍</span>
-                    <span class="btn-text">Quick Search</span>
+                    <span class="btn-text">Search</span>
                 </button>
-                <button class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
+                <button id="aboutBtn" class="header-btn cyberpunk-font-secondary cyberpunk-text-primary">
                     <span class="btn-icon">ℹ️</span>
                     <span class="btn-text">About</span>
                 </button>
             </div>
-        </div>
-        
-        <!-- Header Stats -->
-        <div class="header-stats" th:if="${totalGames != null}">
-            <span class="stat-item">Games in database: <strong th:text="${totalGames}">0</strong></span>
         </div>
         
         <!-- Header Accent Line -->

@@ -2,7 +2,7 @@
  * Game Details Modal JavaScript
 **/
 
-const DEBUG = true;
+const DEBUG = false;
 
 const gameDetailsCache = {};
 

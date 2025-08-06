@@ -1,0 +1,155 @@
+/* Custom Modal Styles */
+
+/* Modal Container */
+#aboutModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 800px;
+    max-height: 90vh;
+    background-color: var(--cyberpunk-dark-primary);
+    border-radius: var(--border-radius-md);
+    z-index: 1000;
+    overflow-y: auto;
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+/* Modal Content */
+#aboutModal .modal-content {
+    position: relative;
+    padding: 2rem;
+    color: var(--cyberpunk-bright-red);
+    font-family: var(--cyberpunk-font-secondary);
+    letter-spacing: 1px;
+}
+
+/* Modal Header */
+#aboutModal .modal-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.25rem;    
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--modal-border);
+    text-align: center;
+}
+
+#aboutModal .modal-title {
+    font-size: 1.5rem;
+    color: var(--cyberpunk-cyan);
+    text-shadow: var(--glow-cyan-sm),
+                 var(--glow-cyan-md),
+                 var(--glow-cyan-lg);
+    margin: 0;
+    font-family: var(--cyberpunk-font-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Modal Body */
+.modal-body {
+    margin-bottom: 2rem;
+}
+
+.modal-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#aboutModal .image-container {
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.main-image {
+    width: auto;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.content-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.content-text {
+    line-height: 1.8;
+    color: var(--cyberpunk-bright-red);
+    font-size: 1.1rem;
+    text-shadow: var(--glow-red-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-text p {
+    text-align: center;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                     0 0 20px rgba(0, 255, 255, 0.3),
+                     0 0 30px rgba(0, 255, 255, 0.1);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.7),
+                     0 0 25px rgba(0, 255, 255, 0.5),
+                     0 0 35px rgba(0, 255, 255, 0.3);
+    }
+}
+
+/* Utility Classes */
+#aboutModal.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .modal-content-wrapper {
+        gap: 3rem;
+    }
+}
+
+/* Scrollbar Styling */
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}

@@ -5,7 +5,7 @@
   /* Layout Variables */
   --sidebar-width: 17rem;
   --sidebar-width-mobile: 100%;
-  --header-height: 12.5rem; /* 200px */
+  --header-height: 7.5rem; /* 120px */
   /* Primary Brand Colors */
   --primary-blue: #4A90E2;
   --primary-blue-dark: #357ABD;
@@ -79,51 +79,6 @@ body {
   min-height: 100vh;
 }
 
-/* Sidebar Navigation */
-.sidebar {
-  width: 240px;
-  background: var(--sidebar-dark);
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.sidebar-header {
-  padding: var(--space-6) var(--space-4);
-  border-bottom: 1px solid var(--sidebar-dark-hover);
-}
-
-.sidebar-header h2 {
-  color: var(--text-white);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.sidebar-nav {
-  list-style: none;
-  padding: var(--space-4) 0;
-}
-
-.nav-item {
-  display: block;
-  padding: var(--space-3) var(--space-4);
-  color: var(--text-white);
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.nav-item:hover {
-  background-color: var(--sidebar-dark-hover);
-}
-
-.nav-item.active {
-  background-color: var(--primary-blue);
-  border-left: 3px solid var(--secondary-purple);
-}
-
 /* Main Content */
 .main-content {
   margin-left: var(--sidebar-width);
@@ -153,11 +108,6 @@ body {
   gap: var(--space-6);
 }
 
-.stat-item {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
 /* Game Sections */
 .game-sections {
   display: flex;
@@ -165,13 +115,37 @@ body {
   gap: var(--space-10);
 }
 
-.game-section {
-  background: var(--background-primary);
+section.game-section {
+  background: 
+    linear-gradient(135deg, rgba(0, 255, 255, 0.03) 0%, rgba(255, 107, 107, 0.02) 100%),
+    linear-gradient(23deg, transparent 46%, rgba(139, 69, 19, 0.12) 48%, rgba(139, 69, 19, 0.12) 52%, transparent 54%),
+    linear-gradient(67deg, transparent 46%, rgba(105, 105, 105, 0.10) 48%, rgba(105, 105, 105, 0.10) 52%, transparent 54%),
+    linear-gradient(157deg, transparent 46%, rgba(160, 82, 45, 0.08) 48%, rgba(160, 82, 45, 0.08) 52%, transparent 54%),
+    linear-gradient(203deg, transparent 46%, rgba(128, 128, 128, 0.11) 48%, rgba(128, 128, 128, 0.11) 52%, transparent 54%),
+    linear-gradient(289deg, transparent 46%, rgba(165, 42, 42, 0.09) 48%, rgba(165, 42, 42, 0.09) 52%, transparent 54%),
+    #f8f9fa; /* Light base color */
   border-radius: var(--radius-md);
   padding: var(--space-6);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border-light);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.2);
   overflow: visible; /* Allow content to overflow for hover effects */
+  position: relative;
+}
+
+section.game-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--cyberpunk-cyan) 50%, 
+    transparent 100%);
+  opacity: 0.6;
 }
 
 .section-title {

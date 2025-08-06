@@ -12,13 +12,44 @@
   min-width: 180px;
   position: relative; /* For pseudo-element positioning */
   margin: 5px; /* Add margin to prevent border clipping on hover */
+  overflow: hidden; /* Ensure texture doesn't overflow rounded corners */
+}
+
+/* Cyberpunk Texture Overlay */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/armor.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.45; /* Subtle texture overlay */
+  border-radius: var(--radius-md);
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 1; /* Behind content */
+  transition: opacity 0.3s ease; /* Smooth opacity transitions */
 }
 
 .game-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: scale(1.02); /* Subtle scale effect instead of translateY */
   border-color: var(--primary-blue);
-  z-index: 1; /* Ensure hovered card appears above others */
+  z-index: 10; /* Ensure hovered card appears above others */
+}
+
+/* Enhanced texture visibility on hover */
+.game-card:hover::before {
+  opacity: 0.6; /* Slightly more visible texture on hover */
+}
+
+/* Ensure all content appears above texture overlay */
+.game-card > * {
+  position: relative;
+  z-index: 2; /* Above texture overlay */
 }
 
 .game-image {
