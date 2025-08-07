@@ -10,11 +10,12 @@
     --modal-overlay: rgba(0, 0, 0, 0.85);
     --accent-color: var(--cyberpunk-cyan);
     --accent-hover: rgba(0, 255, 255, 0.8);
-    --success-color: var(--cyberpunk-cyan);
-    --warning-color: var(--cyberpunk-cyan);
-    --danger-color: var(--cyberpunk-cyan);
+    --success-color: #00ff00;
+    --warning-color: #ffaa00;
+    --danger-color: #ff3333;
     --metacritic-color: var(--cyberpunk-cyan);
-    --user-score-color: var(--cyberpunk-cyan);
+    --user-score-color: var(--cyberpunk-magenta);
+    --score-label-color: #888888;
 }
 
 /* Core Modal Structure */
@@ -104,23 +105,31 @@
 
 /* Score color classes */
 #gameDetailsContent .score-high {
-    color: var(--metacritic-color);
+    color: var(--success-color);
+    text-shadow: 0 0 5px var(--success-color), 0 0 10px var(--success-color);
 }
 
 #gameDetailsContent .score-medium {
     color: var(--warning-color);
+    text-shadow: 0 0 5px var(--warning-color), 0 0 10px var(--warning-color);
 }
 
 #gameDetailsContent .score-low {
     color: var(--danger-color);
+    text-shadow: 0 0 5px var(--danger-color), 0 0 10px var(--danger-color);
 }
 
-#gameDetailsContent .metacritic-score .score-value {
-    color: var(--metacritic-color);
+/* Remove these overrides to allow score-high/medium/low classes to work */
+#gameDetailsContent .score-label {
+    color: var(--score-label-color);
 }
 
-#gameDetailsContent .user-score .score-value {
-    color: var(--user-score-color);
+#gameDetailsContent .metacritic-score .score-label {
+    color: var(--score-label-color);
+}
+
+#gameDetailsContent .user-score .score-label {
+    color: var(--score-label-color);
 }
 
 #gameDetailsContent .game-scores {
@@ -138,8 +147,10 @@
     align-items: center;
     padding: 10px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
     min-width: 80px;
+    border: 1px solid var(--modal-border);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
 /* Media Section */

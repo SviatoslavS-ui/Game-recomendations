@@ -115,15 +115,15 @@ function displayGameDetails(gameData) {
         setElementText('metacriticScore', gameData.metacriticScore);
         const score = parseInt(gameData.metacriticScore);
         metacriticScoreEl.className = 'score-value ' +
-            (score >= 75 ? 'score-high' : (score >= 50 ? 'score-medium' : 'score-low'));
+            (score >= 80 ? 'score-high' : (score >= 50 ? 'score-medium' : 'score-low'));
     }
 
     const userScoreEl = document.getElementById('userScore');
     if (userScoreEl && gameData.userScore) {
         setElementText('userScore', gameData.userScore);
-        const score = parseFloat(gameData.userScore) * 10; // Convert to same scale as metacritic
+        const score = parseFloat(gameData.userScore); // Keep original 0-9.9 scale
         userScoreEl.className = 'score-value ' +
-            (score >= 75 ? 'score-high' : (score >= 50 ? 'score-medium' : 'score-low'));
+            (score >= 8.0 ? 'score-high' : (score >= 5.0 ? 'score-medium' : 'score-low'));
     }
 
     setElementText('ageRating', gameData.ageRating);

@@ -4,7 +4,7 @@
 .game-card {
   background: var(--background-primary);
   border-radius: var(--radius-md);
-  padding: var(--space-4);
+  padding: var(--space-3);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-light);
   transition: all 0.2s ease;
@@ -43,13 +43,13 @@
 
 /* Enhanced texture visibility on hover */
 .game-card:hover::before {
-  opacity: 0.6; /* Slightly more visible texture on hover */
+  opacity: 0.6; 
 }
 
 /* Ensure all content appears above texture overlay */
 .game-card > * {
   position: relative;
-  z-index: 2; /* Above texture overlay */
+  z-index: 2; 
 }
 
 .game-image {
@@ -59,7 +59,7 @@
   background-color: var(--background-tertiary);
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .game-image img {
@@ -78,6 +78,7 @@
 .game-title {
   font-size: 1rem;
   font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
   line-height: 1.3;
@@ -87,6 +88,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Score Badges */
@@ -112,54 +114,31 @@
   background-color: var(--accent-red);
 }
 
-/* Platform Tags */
-.game-platforms {
+/* Genre Tags */
+.game-genres {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
   justify-content: center;
-  align-content: flex-start; /* Align content to the top */
-  height: 3.5rem; /* Fixed height for two rows of platform tags */
-  overflow: hidden; /* Hide overflow if there are too many platforms */
-  margin-bottom: var(--space-3); /* Consistent spacing */
-  min-height: 3.5rem; /* Ensure minimum height even when empty */
+  align-content: flex-start;
+  height: 1.8rem;
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+  min-height: 1.8rem;
 }
 
-/* No ellipsis indicator - showing all platforms */
-
-.platform-tag {
-  background-color: var(--background-tertiary);
-  color: var(--text-secondary);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  font-size: 0.7rem;
-  font-weight: 500;
+.genre-tag {
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
   margin: 0.1rem;
   white-space: nowrap;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-/* Details Button */
-.view-details-btn {
-  display: inline-block;
-  background-color: var(--primary-blue);
-  color: var(--text-white);
-  border: none;
-  border-radius: 4px;
-  padding: var(--space-2) var(--space-4);
-  margin-top: var(--space-3);
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  text-align: center;
-  width: 100%;
-}
-
-.view-details-btn:hover {
-  background-color: var(--primary-blue-dark);
-  transform: translateY(-1px);
-}
-
-.view-details-btn:active {
-  transform: translateY(0);
+.genre-tag:hover {
+  color: var(--accent-red);
+  text-shadow: 0 0 4px rgba(255, 0, 0, 0.4);
 }

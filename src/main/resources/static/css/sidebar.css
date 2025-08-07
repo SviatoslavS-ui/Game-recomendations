@@ -134,6 +134,7 @@ textarea,
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    color: var(--cyberpunk-cyan);
     border-left: 0.1875rem solid transparent;
     border-radius: var(--border-radius-sm);
     pointer-events: auto;
@@ -146,6 +147,7 @@ textarea,
     border-left-color: var(--cyberpunk-cyan);
     transform: translateX(0.3125rem);
     filter: drop-shadow(var(--glow-cyan-md));
+    color: var(--cyberpunk-coral);
     box-shadow: 
         var(--shadow-cyan-soft),
         inset 0 0 0.25rem rgba(0, 255, 255, 0.1);
