@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
     <link rel="stylesheet" th:href="@{/css/about-modal.css}">
     <link rel="stylesheet" th:href="@{/css/loading-overlay.css}">
+    <link rel="stylesheet" th:href="@{/css/section-icons.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +27,15 @@
         <main class="main-content">
             <div class="games-container">
                 <section class="game-section">
-                    <h2 class="section-title">🎮 All Games</h2>
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L4 6v12l8 4 8-4V6L12 2zm0 2.8L17.2 8 12 11.2 6.8 8 12 4.8zM6 9.5l5 2.5v5.5l-5-2.5V9.5zm12 0v5.5l-5 2.5v-5.5l5-2.5z" />
+                                <path class="glow" d="M12 2L4 6v12l8 4 8-4V6L12 2zm0 2.8L17.2 8 12 11.2 6.8 8 12 4.8zM6 9.5l5 2.5v5.5l-5-2.5V9.5zm12 0v5.5l-5 2.5v-5.5l5-2.5z" />
+                            </svg>
+                        </span>
+                        All Games
+                    </h2>
                     <div class="game-grid">
                         <!-- All game cards using fragment -->
                         <div th:each="game : ${allGames}">

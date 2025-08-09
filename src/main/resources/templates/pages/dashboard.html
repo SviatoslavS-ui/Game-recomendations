@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
     <link rel="stylesheet" th:href="@{/css/about-modal.css}">
     <link rel="stylesheet" th:href="@{/css/loading-overlay.css}">
+    <link rel="stylesheet" th:href="@{/css/section-icons.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +26,15 @@
         <main class="main-content">
             <div class="game-sections">                
                 <section class="game-section">
-                    <h2 class="section-title">🏆 Best Rated Games</h2>
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                                <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                        </span>
+                        Best Rated Games
+                    </h2>
                     <div class="game-grid">
                         <div th:each="game : ${bestRatedGames}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
@@ -34,7 +43,15 @@
                     </div>
                 </section>
                 <section class="game-section">
-                    <h2 class="section-title">🆕 New Releases</h2>
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
+                                <path class="glow" d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
+                            </svg>
+                        </span>
+                        New Releases
+                    </h2>
                     <div class="game-grid">
                         <div th:each="game : ${newReleases}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
@@ -43,7 +60,17 @@
                     </div>
                 </section>
                 <section class="game-section">
-                    <h2 class="section-title">✨ Recommended for You</h2>
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                <path d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                                <path class="glow" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                <path class="glow" d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                            </svg>
+                        </span>
+                        Recommended for You
+                    </h2>
                     <div class="game-grid">
                         <div th:each="game : ${recommendedGames}">
                             <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">

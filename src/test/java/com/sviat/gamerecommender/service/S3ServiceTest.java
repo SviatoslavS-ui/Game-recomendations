@@ -45,7 +45,6 @@ public class S3ServiceTest {
     public void cleanupBucket() {
         ListObjectsV2Request listReq = ListObjectsV2Request.builder()
                 .bucket(bucketName)
-                // .prefix("games/test-game-")
                 .build();
 
         s3Client.listObjectsV2(listReq)

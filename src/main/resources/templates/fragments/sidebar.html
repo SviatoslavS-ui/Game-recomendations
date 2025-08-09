@@ -17,7 +17,12 @@
                 <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
                      data-href="/"
                      th:classappend="${activePage == 'dashboard'} ? 'active cyberpunk-text-primary' : ''">
-                    <span class="nav-icon">⚡</span>
+                    <span class="nav-icon">
+                        <svg class="cyber-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h6v8H4V4zm0 10h6v6H4v-6zm8-10h8v4h-8V4zm0 6h8v10h-8V10z" />
+                            <path class="glow" d="M4 4h6v8H4V4zm0 10h6v6H4v-6zm8-10h8v4h-8V4zm0 6h8v10h-8V10z" />
+                        </svg>
+                    </span>
                     <span class="nav-text">Dashboard</span>
                 </div>
             </li>
@@ -25,7 +30,12 @@
                 <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
                      data-href="/games"
                      th:classappend="${activePage == 'games'} ? 'active cyberpunk-text-primary' : ''">
-                    <span class="nav-icon">🕹️</span>
+                    <span class="nav-icon">
+                        <svg class="cyber-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 6v12l8 4 8-4V6L12 2zm0 2.8L17.2 8 12 11.2 6.8 8 12 4.8zM6 9.5l5 2.5v5.5l-5-2.5V9.5zm12 0v5.5l-5 2.5v-5.5l5-2.5z" />
+                            <path class="glow" d="M12 2L4 6v12l8 4 8-4V6L12 2zm0 2.8L17.2 8 12 11.2 6.8 8 12 4.8zM6 9.5l5 2.5v5.5l-5-2.5V9.5zm12 0v5.5l-5 2.5v-5.5l5-2.5z" />
+                        </svg>
+                    </span>
                     <span class="nav-text">Browse Games</span>
                 </div>
             </li>
@@ -33,7 +43,14 @@
                 <div class="nav-item cyberpunk-font-secondary cyberpunk-text-muted smooth-transition"
                      data-href="/recommendations"
                      th:classappend="${activePage == 'recommendations'} ? 'active cyberpunk-text-primary' : ''">
-                    <span class="nav-icon">🤖</span>
+                    <span class="nav-icon">
+                        <svg class="cyber-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+                            <path d="M12 8l-1.25 2.75L8 12l2.75 1.25L12 16l1.25-2.75L16 12l-2.75-1.25z" />
+                            <path class="glow" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+                            <path class="glow" d="M12 8l-1.25 2.75L8 12l2.75 1.25L12 16l1.25-2.75L16 12l-2.75-1.25z" />
+                        </svg>
+                    </span>
                     <span class="nav-text">Recommendations</span>
                 </div>
             </li>

@@ -421,7 +421,7 @@
         "metacriticScore": 97,
         "ageRating": null,
         "userScore": 8.7,
-        "reviewCount": 2789,
+        "releaseDate": null,
         "platforms": [
             "PC",
             "Xbox",
@@ -944,6 +944,337 @@
         ],
         "price": 29.99,
         "playtimeHours": 10,
+        "multiplayer": false
+    },
+    {
+        "id": "control",
+        "title": "Control",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/control/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/control/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/control/thumbnail.jpg",
+        "developer": "Remedy Entertainment",
+        "publisher": "505 Games",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Supernatural"
+        ],
+        "tags": [
+            "Psychological",
+            "Third-Person",
+            "Mystery",
+            "Supernatural"
+        ],
+        "metacriticScore": 85,
+        "ageRating": "Mature",
+        "userScore": 8.2,
+        "releaseDate": "2019-08-27",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC",
+            "Nintendo Switch",
+            "Xbox One"
+        ],
+        "price": 39.99,
+        "playtimeHours": 20,
+        "multiplayer": false
+    },
+    {
+        "id": "warhammer-space-marine-2",
+        "title": "Warhammer 40,000: Space Marine 2",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/warhammer-space-marine-2/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/warhammer-space-marine-2/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/warhammer-space-marine-2/thumbnail.jpg",
+        "developer": "Saber Interactive",
+        "publisher": "Focus Entertainment",
+        "genres": [
+            "Action",
+            "Sci-Fi",
+            "Third-Person Shooter"
+        ],
+        "tags": [
+            "Sci-Fi",
+            "Warhammer 40K",
+            "Action-Packed",
+            "Gore"
+        ],
+        "metacriticScore": 84,
+        "ageRating": "Mature",
+        "userScore": 8.5,
+        "releaseDate": "2024-02-09",
+        "platforms": [
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC"
+        ],
+        "price": 59.99,
+        "playtimeHours": 15,
+        "multiplayer": false
+    },
+    {
+        "id": "lies-of-p",
+        "title": "Lies of P",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/lies-of-p/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/lies-of-p/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/lies-of-p/thumbnail.jpg",
+        "developer": "Neowiz Games",
+        "publisher": "Neowiz",
+        "genres": [
+            "Action",
+            "RPG",
+            "Soulslike"
+        ],
+        "tags": [
+            "Story-Rich",
+            "Souls-like",
+            "Dark Fantasy",
+            "Challenging"
+        ],
+        "metacriticScore": 83,
+        "ageRating": "Mature",
+        "userScore": 8.4,
+        "releaseDate": "2023-09-19",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC",
+            "Xbox One"
+        ],
+        "price": 59.99,
+        "playtimeHours": 30,
+        "multiplayer": false
+    },
+    {
+        "id": "dark-souls",
+        "title": "Dark Souls",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls/thumbnail.jpg",
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco",
+        "genres": [
+            "Action",
+            "Dark Fantasy",
+            "RPG"
+        ],
+        "tags": [
+            "Medieval",
+            "Dark Fantasy",
+            "Difficult",
+            "Atmospheric"
+        ],
+        "metacriticScore": 89,
+        "ageRating": "Mature",
+        "userScore": 8.8,
+        "releaseDate": "2011-09-22",
+        "platforms": [
+            "PlayStation 4",
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 3",
+            "Xbox One",
+            "Xbox 360"
+        ],
+        "price": 39.99,
+        "playtimeHours": 50,
+        "multiplayer": false
+    },
+    {
+        "id": "dark-souls-3",
+        "title": "Dark Souls III",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls-3/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls-3/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/dark-souls-3/thumbnail.jpg",
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco",
+        "genres": [
+            "Action",
+            "Dark Fantasy",
+            "RPG"
+        ],
+        "tags": [
+            "Medieval",
+            "Dark Fantasy",
+            "Difficult",
+            "Atmospheric"
+        ],
+        "metacriticScore": 89,
+        "ageRating": "Mature",
+        "userScore": 8.9,
+        "releaseDate": "2016-03-24",
+        "platforms": [
+            "PlayStation 4",
+            "PC",
+            "Xbox One"
+        ],
+        "price": 59.99,
+        "playtimeHours": 45,
+        "multiplayer": false
+    },
+    {
+        "id": "gears-tactics",
+        "title": "Gears Tactics",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gears-tactics/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gears-tactics/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/gears-tactics/thumbnail.jpg",
+        "developer": "Splash Damage, The Coalition",
+        "publisher": "Xbox Game Studios",
+        "genres": [
+            "Tactical",
+            "Strategy",
+            "Turn-Based"
+        ],
+        "tags": [
+            "Sci-Fi",
+            "Squad-Based",
+            "Turn-Based Combat",
+            "Gore"
+        ],
+        "metacriticScore": 82,
+        "ageRating": "Mature",
+        "userScore": 7.9,
+        "releaseDate": "2020-04-28",
+        "platforms": [
+            "Xbox Series X/S",
+            "PC",
+            "Xbox One"
+        ],
+        "price": 59.99,
+        "playtimeHours": 25,
+        "multiplayer": false
+    },
+    {
+        "id": "xcom-2-war-of-the-chosen",
+        "title": "XCOM 2: War of the Chosen",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/xcom-2-war-of-the-chosen/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/xcom-2-war-of-the-chosen/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/xcom-2-war-of-the-chosen/thumbnail.jpg",
+        "developer": "Firaxis Games",
+        "publisher": "2K Games",
+        "genres": [
+            "Tactical",
+            "Strategy",
+            "Turn-Based"
+        ],
+        "tags": [
+            "Sci-Fi",
+            "Aliens",
+            "Turn-Based Combat",
+            "Difficult"
+        ],
+        "metacriticScore": 88,
+        "ageRating": "Teen",
+        "userScore": 8.7,
+        "releaseDate": "2017-08-29",
+        "platforms": [
+            "PlayStation 4",
+            "PC",
+            "Nintendo Switch",
+            "Xbox One"
+        ],
+        "price": 39.99,
+        "playtimeHours": 40,
+        "multiplayer": false
+    },
+    {
+        "id": "total-war-warhammer-3",
+        "title": "Total War: Warhammer III",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/total-war-warhammer-3/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/total-war-warhammer-3/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/total-war-warhammer-3/thumbnail.jpg",
+        "developer": "Creative Assembly",
+        "publisher": "SEGA",
+        "genres": [
+            "Real-Time",
+            "Strategy",
+            "Grand Strategy"
+        ],
+        "tags": [
+            "Fantasy",
+            "War",
+            "Real-Time Battles",
+            "Turn-Based Strategy"
+        ],
+        "metacriticScore": 86,
+        "ageRating": "Teen",
+        "userScore": 8.3,
+        "releaseDate": "2022-02-17",
+        "platforms": [
+            "PC",
+            "macOS"
+        ],
+        "price": 59.99,
+        "playtimeHours": 80,
+        "multiplayer": false
+    },
+    {
+        "id": "wolfenstein-2-the-new-colossus",
+        "title": "Wolfenstein II: The New Colossus",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/wolfenstein-2-the-new-colossus/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/wolfenstein-2-the-new-colossus/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/wolfenstein-2-the-new-colossus/thumbnail.jpg",
+        "developer": "MachineGames",
+        "publisher": "Bethesda Softworks",
+        "genres": [
+            "Action",
+            "First-Person Shooter",
+            "Stealth"
+        ],
+        "tags": [
+            "Story-Rich",
+            "Nazi",
+            "Alternate History",
+            "Single-Player"
+        ],
+        "metacriticScore": 87,
+        "ageRating": "Mature",
+        "userScore": 8.2,
+        "releaseDate": "2017-10-27",
+        "platforms": [
+            "PlayStation 4",
+            "PC",
+            "Nintendo Switch",
+            "Xbox One"
+        ],
+        "price": 39.99,
+        "playtimeHours": 15,
+        "multiplayer": false
+    },
+    {
+        "id": "cyberpunk-2077",
+        "title": "Cyberpunk 2077",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/cyberpunk-2077/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/cyberpunk-2077/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/cyberpunk-2077/thumbnail.jpg",
+        "developer": "CD Projekt Red",
+        "publisher": "CD Projekt",
+        "genres": [
+            "Action",
+            "RPG",
+            "Open World"
+        ],
+        "tags": [
+            "Futuristic",
+            "Story-Rich",
+            "Cyberpunk",
+            "First-Person"
+        ],
+        "metacriticScore": 86,
+        "ageRating": "Mature",
+        "userScore": 7.4,
+        "releaseDate": "2020-12-10",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC",
+            "Xbox One"
+        ],
+        "price": 59.99,
+        "playtimeHours": 60,
         "multiplayer": false
     }
 ]

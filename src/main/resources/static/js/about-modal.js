@@ -28,6 +28,8 @@ function setupAboutModalEventListeners() {
                 `
                     <p>Welcome to Game Recommender - your cyberpunk-themed guide to the gaming universe!</p>
                     <p>As an avid gamer with thousands of hours spent across various genres, I developed this application with great respect and passion for everyone who shares a love for video games. This app is designed to help you discover games based on your preferences — including your favorite genre, game features, developer studio, publisher, and release date.</p>
+                    <p>I would like to note in advance that this collection contains very few multiplayer titles such as Call of Duty or World of Warcraft. It is primarily focused on single-player games with rich storytelling, immersive atmospheres, and a variety of genres.<p>
+
                 `
             );
         });

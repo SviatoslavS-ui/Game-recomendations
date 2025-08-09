@@ -183,6 +183,47 @@ textarea,
     min-width: 1.5rem;
     text-align: center;
     filter: drop-shadow(0 0 0.3125rem currentColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SVG Cyber Icon Styles */
+.cyber-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--cyberpunk-cyan);
+    filter: drop-shadow(0 0 2px var(--cyberpunk-cyan));
+    transition: all 0.3s ease;
+}
+
+.cyber-icon .glow {
+    fill: transparent;
+    stroke: var(--cyberpunk-cyan);
+    stroke-width: 0.5;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px var(--cyberpunk-cyan));
+}
+
+.nav-item:hover .cyber-icon {
+    fill: var(--cyberpunk-coral);
+    filter: drop-shadow(0 0 4px var(--cyberpunk-coral));
+    transform: scale(1.1);
+}
+
+.nav-item:hover .cyber-icon .glow {
+    stroke: var(--cyberpunk-coral);
+    opacity: 1;
+}
+
+.nav-item.active .cyber-icon {
+    fill: var(--cyberpunk-coral);
+    filter: drop-shadow(0 0 5px var(--cyberpunk-coral));
+}
+
+.nav-item.active .cyber-icon .glow {
+    stroke: var(--cyberpunk-coral);
+    opacity: 1;
 }
 
 .nav-text {
