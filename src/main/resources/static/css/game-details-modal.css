@@ -77,16 +77,28 @@
 }
 
 #gameDetailsContent .game-title {
-    margin: 0.6rem 0 0.6rem 0;
+    margin: 0.6rem auto;
+    padding: 0.5rem 1.2rem 0.4rem;
     font-size: 1.5rem;
     color: var(--cyberpunk-cyan);
     font-family: var(--cyberpunk-font-primary);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-shadow: var(--glow-cyan-sm),
                  var(--glow-cyan-md),
                  var(--glow-cyan-lg);
     animation: glow 2s ease-in-out infinite alternate;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    height: auto;
 }
 
 #gameDetailsContent .game-meta {

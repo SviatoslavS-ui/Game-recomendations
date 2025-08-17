@@ -1,0 +1,89 @@
+/* ===== CYBERPUNK UTILITY CLASSES ===== */
+
+/* Typography Utilities */
+.cyberpunk-font-primary {
+    font-family: 'Orbitron', 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cyberpunk-font-secondary {
+    font-family: 'Rajdhani', 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Text Color Utilities */
+.cyberpunk-text-primary {
+    color: var(--cyberpunk-cyan);
+}
+
+.cyberpunk-text-secondary {
+    color: var(--cyberpunk-coral);
+}
+
+.cyberpunk-text-muted {
+    color: var(--cyberpunk-muted);
+}
+
+/* Text Effect Utilities */
+.cyberpunk-glow-cyan {
+    text-shadow: 
+        0 0 0.625rem rgba(0, 255, 255, 0.8),
+        0 0 1.25rem rgba(0, 255, 255, 0.4);
+}
+
+/* Transition Utilities */
+.smooth-transition {
+    transition: var(--transition-fast);
+}
+
+/* Glow Effect Utilities */
+.glow-cyan-sm {
+    filter: drop-shadow(var(--glow-cyan-sm));
+}
+
+.glow-cyan-md {
+    filter: drop-shadow(var(--glow-cyan-md));
+}
+
+.glow-cyan-lg {
+    filter: drop-shadow(var(--glow-cyan-lg));
+}
+
+.glow-coral-md {
+    filter: drop-shadow(var(--glow-coral-md));
+}
+
+/* Responsive Utilities */
+.hide-mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: initial;
+    }
+    
+    .hide-desktop {
+        display: none;
+    }
+}
+
+/* Flexbox Utilities */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}

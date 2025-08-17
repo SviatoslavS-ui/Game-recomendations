@@ -19,13 +19,14 @@
     <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
 </head>
 <body>
+    <div th:replace="~{fragments/svg-filters :: svgFilters}"></div>
     <div class="app-container">
         <div th:replace="~{fragments/sidebar :: sidebar(activePage='dashboard')}"></div>
         <div th:replace="~{fragments/header :: header(pageTitle='Dashboard')}"></div>
 
         <main class="main-content">
             <div class="game-sections">                
-                <section class="game-section">
+                <section class="game-section noise noise-basic">
                     <h2 class="section-title">
                         <span class="section-icon">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +43,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="game-section">
+                <section class="game-section noise noise-basic">
                     <h2 class="section-title">
                         <span class="section-icon">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +60,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="game-section">
+                <section class="game-section noise noise-basic">
                     <h2 class="section-title">
                         <span class="section-icon">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

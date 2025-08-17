@@ -53,6 +53,19 @@ function openAboutModal(title, imageUrl, text) {
     document.getElementById('aboutModal').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     displayAboutModalContent({ title, imageUrl, text });
+    
+    // Force SVG filter reapplication when modal becomes visible
+    const contentContainer = document.querySelector('.content-container.noise');
+    if (contentContainer) {
+        // Trigger reflow to ensure filter is applied correctly
+        void contentContainer.offsetWidth;
+        
+        // Force filter reapplication by briefly toggling a class
+        contentContainer.classList.add('filter-refresh');
+        setTimeout(() => {
+            contentContainer.classList.remove('filter-refresh');
+        }, 50);
+    }
 }
 
 function displayAboutModalContent(modalData) {

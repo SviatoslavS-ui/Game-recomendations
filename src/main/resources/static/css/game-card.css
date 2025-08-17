@@ -13,6 +13,21 @@
   position: relative; /* For pseudo-element positioning */
   margin: 5px; /* Add margin to prevent border clipping on hover */
   overflow: hidden; /* Ensure texture doesn't overflow rounded corners */
+  z-index: 1; /* Position above parent container */
+}
+
+/* Solid white background to block the noisy gradient */
+.game-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff; /* Fully opaque white */
+  border-radius: var(--radius-md);
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 2; /* Above the noise layer (z-index: 1) */
 }
 
 /* Cyberpunk Texture Overlay */
@@ -30,7 +45,7 @@
   opacity: 0.45; /* Subtle texture overlay */
   border-radius: var(--radius-md);
   pointer-events: none; /* Allow clicks to pass through */
-  z-index: 1; /* Behind content */
+  z-index: 3; /* Above white background (z-index: 2), below content */
   transition: opacity 0.3s ease; /* Smooth opacity transitions */
 }
 
@@ -46,10 +61,12 @@
   opacity: 0.6; 
 }
 
-/* Ensure all content appears above texture overlay */
+/* Content appears above background layers */
+
+/* Ensure all content appears above both background layers */
 .game-card > * {
   position: relative;
-  z-index: 2; 
+  z-index: 4; /* Top layer - above both background and texture */
 }
 
 .game-image {

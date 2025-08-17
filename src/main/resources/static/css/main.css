@@ -1,5 +1,6 @@
 /* Game Recommender - Main Stylesheet */
-
+@import "svg-filters.css";
+@import "utilities.css";
 /* CSS Custom Properties - Design System */
 :root {
   /* Layout Variables */
@@ -108,6 +109,32 @@ body {
   gap: var(--space-6);
 }
 
+/* === COMMON MODAL STYLES === */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: none;
+  border: var(--border-width) solid rgba(0, 255, 255, 0.2);
+  color: var(--cyberpunk-cyan);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
 /* Game Sections */
 .game-sections {
   display: flex;
@@ -116,25 +143,36 @@ body {
 }
 
 section.game-section {
-  background: 
-    linear-gradient(135deg, rgba(0, 255, 255, 0.03) 0%, rgba(255, 107, 107, 0.02) 100%),
-    linear-gradient(23deg, transparent 46%, rgba(139, 69, 19, 0.12) 48%, rgba(139, 69, 19, 0.12) 52%, transparent 54%),
-    linear-gradient(67deg, transparent 46%, rgba(105, 105, 105, 0.10) 48%, rgba(105, 105, 105, 0.10) 52%, transparent 54%),
-    linear-gradient(157deg, transparent 46%, rgba(160, 82, 45, 0.08) 48%, rgba(160, 82, 45, 0.08) 52%, transparent 54%),
-    linear-gradient(203deg, transparent 46%, rgba(128, 128, 128, 0.11) 48%, rgba(128, 128, 128, 0.11) 52%, transparent 54%),
-    linear-gradient(289deg, transparent 46%, rgba(165, 42, 42, 0.09) 48%, rgba(165, 42, 42, 0.09) 52%, transparent 54%),
-    #f8f9fa; /* Light base color */
-  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(255, 107, 107, 0.03) 100%), #f8f9fa;
+  border-radius: var(--border-radius-md);
   padding: var(--space-6);
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(0, 255, 255, 0.1);
   border: 1px solid rgba(0, 255, 255, 0.2);
-  overflow: visible; /* Allow content to overflow for hover effects */
-  position: relative;
+  overflow: hidden;
 }
 
-section.game-section::before {
+/* Add these classes to your HTML: class="noise noise-cyberpunk" */
+/* Example: <section class="game-section noise noise-cyberpunk"> */
+
+/* Custom opacity override for game sections */
+section.game-section.noise::before {
+  opacity: 0.7; /* Increased from 0.5 to 0.7 for darker texture */
+  background-color: rgba(30, 30, 30, 0.7); /* Darker background tint */
+  border-radius: var(--border-radius-md);
+}
+
+/* Mobile optimization - replace noisy texture with simple gradient for game sections */
+@media (max-width: 768px) {
+  section.game-section.noise::before {
+    filter: none; /* Remove the SVG noise filter */
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.1) 0%, rgba(20, 20, 20, 0.05) 100%);
+    opacity: 0.7;
+  }
+}
+
+section.game-section::after {
   content: '';
   position: absolute;
   top: 0;
@@ -146,6 +184,7 @@ section.game-section::before {
     var(--cyberpunk-cyan) 50%, 
     transparent 100%);
   opacity: 0.6;
+  z-index: 2;
 }
 
 .section-title {

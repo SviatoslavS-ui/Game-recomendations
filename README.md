@@ -21,6 +21,7 @@ This system provides game recommendations based on various criteria such as genr
   - Consistent typography using Orbitron and Rajdhani fonts
   - Advanced glow effects and smooth transitions
   - Custom SVG icons with cyberpunk styling and hover effects
+  - SVG noise filters for authentic cyberpunk texture effects
   
 - **Component Architecture**
   - **Cyberpunk Header Fragment**
@@ -86,6 +87,7 @@ src/
 │       │   │   ├── sidebar.css       # Sidebar component styles
 │       │   │   ├── header.css        # Header component styles
 │       │   │   ├── main.css          # Layout and general styles
+│       │   │   ├── svg-filters.css   # SVG noise filter utilities
 │       │   │   └── game-card.css     # Game card components
 │       │   ├── js/
 │       │   └── images/
@@ -93,6 +95,7 @@ src/
        │   ├── fragments/            # Reusable components
        │   │   ├── header.html       # Cyberpunk header fragment
        │   │   ├── sidebar.html      # Navigation sidebar fragment
+       │   │   ├── svg-filters.html  # SVG noise filter definitions
        │   │   └── game-card.html    # Game card fragment
        │   └── pages/                # Main page templates
        │       ├── dashboard.html    # Dashboard page
@@ -123,6 +126,14 @@ src/
 - Implements comprehensive unit testing
 - Leverages Stream API for efficient data processing
 - Uses builder pattern for object creation
+
+### SVG Noise Filter System
+- Reusable SVG filter definitions in fragments/svg-filters.html
+- Four filter variations: basic noise, blur noise, cyberpunk grain, and subtle grain
+- Utility classes in svg-filters.css for easy application
+- Applied to game sections for authentic cyberpunk texture
+- Configurable opacity and color variations
+- Z-index control classes for layering effects
 
 ## Getting Started
 
