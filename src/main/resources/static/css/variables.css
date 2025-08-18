@@ -1,6 +1,61 @@
 /* ===== CYBERPUNK DESIGN SYSTEM VARIABLES ===== */
 
 :root {
+    /* Layout Variables */
+    --sidebar-width: 17rem;
+    --sidebar-width-mobile: 100%;
+    --header-height: 7.5rem;
+
+    /* Primary Brand Colors */
+    --primary-blue: #4A90E2;
+    --primary-blue-dark: #357ABD;
+    --primary-gradient: linear-gradient(135deg, #4A90E2, #6B73FF);
+
+    /* Secondary Colors */
+    --secondary-purple: #6B73FF;
+    --secondary-purple-light: #8B93FF;
+
+    /* Neutral Colors */
+    --sidebar-dark: #2C3E50;
+    --sidebar-dark-hover: #34495E;
+    --background-primary: #FFFFFF;
+    --background-secondary: #F8F9FA;
+    --background-tertiary: #E9ECEF;
+
+    /* Accent Colors */
+    --accent-orange: #FF6B35;
+    --accent-green: #27AE60;
+    --accent-red: #E74C3C;
+    --accent-yellow: #F39C12;
+
+    /* Text Colors */
+    --text-primary: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --text-muted: #BDC3C7;
+    --text-white: #FFFFFF;
+
+    /* Border Colors */
+    --border-light: #E1E8ED;
+    --border-medium: #D1D9E0;
+    --border-dark: #BDC3C7;
+
+    /* Spacing */
+    --space-1: 0.25rem;    /* 4px */
+    --space-2: 0.5rem;     /* 8px */
+    --space-3: 0.75rem;    /* 12px */
+    --space-4: 1rem;       /* 16px */
+    --space-5: 1.25rem;    /* 20px */
+    --space-6: 1.5rem;     /* 24px */
+    --space-8: 2rem;       /* 32px */
+    --space-10: 2.5rem;    /* 40px */
+    --space-12: 3rem;      /* 48px */
+    --space-16: 4rem;      /* 64px */
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
     /* === CYBERPUNK COLORS === */
     --cyberpunk-cyan: #00ffff;
     --cyberpunk-coral: #ff6b6b;
@@ -8,30 +63,28 @@
     --cyberpunk-muted: #b8b8b8;
     --cyberpunk-dark-primary: #1a1a1a;
     --cyberpunk-dark-secondary: #2d2d2d;
-    
+
     /* === LAYOUT DIMENSIONS === */
     --sidebar-width: 17rem;
     --sidebar-width-mobile: 100%;
-    --header-height: 12.5rem; /* 200px */
-    
+
     /* === BORDER & RADIUS === */
     --border-radius-sm: 0.25rem;
     --border-radius-md: 0.5rem;
     --border-width: 0.125rem;
-    
+
     /* === TRANSITIONS === */
     --transition-fast: all 0.3s ease;
     --transition-glow: filter 0.3s ease;
-    
+
     /* === GLOW EFFECTS === */
     --glow-cyan-sm: 0 0 0.3125rem rgba(0, 255, 255, 0.4);
     --glow-cyan-md: 0 0 0.5rem rgba(0, 255, 255, 0.4);
     --glow-cyan-lg: 0 0 0.625rem rgba(0, 255, 255, 0.5);
     --glow-coral-md: 0 0 0.4rem rgba(255, 107, 107, 0.5);
     --glow-red-md: 0 0 0.4rem rgba(255, 51, 51, 0.5);
-    
+
     /* === SHADOW EFFECTS === */
     --shadow-cyan-soft: 0 0 0.75rem rgba(0, 255, 255, 0.2);
     --shadow-coral-soft: 0 0 0.5rem rgba(255, 107, 107, 0.3);
 }
-

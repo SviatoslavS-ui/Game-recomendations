@@ -51,7 +51,7 @@
 
 .game-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: scale(1.02); /* Subtle scale effect instead of translateY */
+  transform: scale(1.02);
   border-color: var(--primary-blue);
   z-index: 10; /* Ensure hovered card appears above others */
 }
@@ -60,8 +60,6 @@
 .game-card:hover::before {
   opacity: 0.6; 
 }
-
-/* Content appears above background layers */
 
 /* Ensure all content appears above both background layers */
 .game-card > * {

@@ -1,6 +1,6 @@
 /* ===== CYBERPUNK HEADER STYLES ===== */
 /* Variables and utility classes are imported from variables.css */
-
+@import "variables.css";
 /* === HEADER CONTAINER === */
 
 .cyberpunk-header {
