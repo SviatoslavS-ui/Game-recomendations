@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Fragment for recommendation results -->
+    <div th:fragment="recommendationResults" class="recommendation-results-container">
+        <!-- No results message -->
+        <div th:if="${recommendedGames == null || recommendedGames.isEmpty()}" class="no-results">
+            <p>No games match your selected criteria. Try different filters.</p>
+        </div>
+        
+        <!-- Game cards categorized by match quality -->
+        <div th:if="${recommendedGames != null && !recommendedGames.isEmpty()}">
+            <!-- Best Matches (Perfect Match) -->
+            <section th:if="${not #lists.isEmpty(recommendedGames)}" class="game-section noise noise-basic">
+                <h2 class="section-title">
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </span>
+                    Best Matches
+                </h2>
+                <div class="game-grid">
+                    <!-- First third of games (or at least one if available) -->
+                    <div th:each="game, gameStat : ${recommendedGames}" 
+                         th:if="${gameStat.index < #lists.size(recommendedGames) / 3 || (gameStat.index == 0 && #lists.size(recommendedGames) >= 1)}">
+                        <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Partial Matches -->
+            <section th:if="${#lists.size(recommendedGames) > 1}" class="game-section noise noise-basic">
+                <h2 class="section-title">
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            <path d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                            <path class="glow" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            <path class="glow" d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                        </svg>
+                    </span>
+                    Partial Matches
+                </h2>
+                <div class="game-grid">
+                    <!-- Middle third of games -->
+                    <div th:each="game, gameStat : ${recommendedGames}" 
+                         th:if="${gameStat.index >= #lists.size(recommendedGames) / 3 && gameStat.index < (#lists.size(recommendedGames) * 2 / 3)}">
+                        <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Other Recommendations -->
+            <section th:if="${#lists.size(recommendedGames) > 2}" class="game-section noise noise-basic">
+                <h2 class="section-title">
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </span>
+                    Other Recommendations
+                </h2>
+                <div class="game-grid">
+                    <!-- Last third of games -->
+                    <div th:each="game, gameStat : ${recommendedGames}" 
+                         th:if="${gameStat.index >= (#lists.size(recommendedGames) * 2 / 3)}">
+                        <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

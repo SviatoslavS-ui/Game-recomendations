@@ -52,6 +52,15 @@ This system provides game recommendations based on various criteria such as genr
   - **Enhanced GetRecommendationByRelease** - Remastered using releaseDate for chronological sorting
   - Advanced filtering and sorting algorithms
 
+- **Recommendation Engine**
+  - **Multi-filter recommendation system** - Combines genre and tag filters with weighted scoring
+  - **Intelligent scoring algorithm** - Calculates match quality based on both quantity and precision
+  - **Genre-weighted scoring** - Genres weighted higher than tags (1.3:1.0 ratio)
+  - **Perfect match detection** - 100% matches score higher than partial matches
+  - **Precision-based ranking** - Considers the ratio of matches to filter criteria
+  - **Metacritic tiebreaker** - Uses metacritic scores to resolve equal match scores
+  - **Null-safe filtering** - Gracefully handles null or empty filter criteria
+
 - **Image Processing**
   - Automatic thumbnail generation
   - Multiple image format support
@@ -174,9 +183,23 @@ The project includes comprehensive test coverage with:
 - **Event Listeners Tests** (5 tests) - User interaction and event handling
 
 ### Backend Testing
-- Unit tests for all core services (S3Service, RecommendationEngine)
-- Integration tests for the recommendation engine
-- Test data sets for verification
+- **Recommendation Engine Test Suite (43 Tests)**
+  - **Requirement-based tests (R1-R8)** - Validates core recommendation requirements
+  - **Parameterized test cases** - Data-driven tests for multiple scenarios
+  - **Edge case handling** - Tests for non-existent genres, zero results
+  - **Algorithm verification** - Direct testing of scoring algorithm
+  - **Weight influence tests** - Verifies genre/tag weighting system
+  - **Multi-filter tests** - Tests combinations of genre and tag filters
+  - **Release date tests** - Verifies chronological sorting
+  - **Metacritic score tests** - Validates score-based ordering
+  - **Developer-specific tests** - Tests filtering by game developer
+
+- **Test Infrastructure**
+  - **TestGameData** - Standard game objects for consistent testing
+  - **RecommendationTestData** - Specialized test games and parameterized test cases
+  - **BaseServiceTest** - Common setup for service-level tests
+  - **Reflection-based testing** - For private method verification
+  - **Clean test isolation** - Prevents test interference
 
 ### Test Infrastructure
 - Jest test runner with JSDOM environment

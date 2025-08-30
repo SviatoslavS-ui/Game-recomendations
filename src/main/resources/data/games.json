@@ -44,8 +44,7 @@
         ],
         "tags": [
             "Multiplayer",
-            "Weapons",
-            "3D Fighter"
+            "Weapons"
         ],
         "metacriticScore": 98,
         "ageRating": null,
@@ -136,7 +135,6 @@
         "tags": [
             "Space",
             "Single-player",
-            "Yoshi",
             "Family"
         ],
         "metacriticScore": 97,
@@ -190,7 +188,6 @@
         "developer": "Neversoft",
         "publisher": "Activision",
         "genres": [
-            "Extreme Sports",
             "Sports"
         ],
         "tags": [
@@ -480,7 +477,9 @@
             "Story-Rich",
             "Single-player",
             "Dystopian",
-            "FPS"
+            "FPS",
+            "Underwater",
+            "Psychological"
         ],
         "metacriticScore": 96,
         "ageRating": null,
@@ -509,7 +508,6 @@
         ],
         "tags": [
             "Multiplayer",
-            "Split-screen",
             "FPS",
             "Classic"
         ],
@@ -570,7 +568,7 @@
             "Single-player",
             "Horror",
             "Third-person",
-            "Survival"
+            "Atmospheric"
         ],
         "metacriticScore": 96,
         "ageRating": null,
@@ -603,7 +601,8 @@
             "Story-Rich",
             "Turn-based",
             "Multiplayer",
-            "Fantasy"
+            "Fantasy",
+            "Squad-Based"
         ],
         "metacriticScore": 96,
         "ageRating": null,
@@ -663,7 +662,7 @@
         ],
         "tags": [
             "Multiplayer",
-            "3D Fighter",
+            "Classic",
             "Arcade"
         ],
         "metacriticScore": 96,
@@ -727,7 +726,8 @@
             "Story-Rich",
             "Single-player",
             "Fantasy",
-            "Open World"
+            "Open World",
+            "Third-person"
         ],
         "metacriticScore": 95,
         "ageRating": null,
@@ -753,14 +753,14 @@
         "publisher": "Bethesda Softworks",
         "genres": [
             "Adventure",
-            "RPG",
-            "Open World"
+            "RPG"
         ],
         "tags": [
             "Character Customization",
             "Dragons",
             "Fantasy",
-            "First-Person"
+            "First-Person",
+            "Open World"
         ],
         "metacriticScore": 94,
         "ageRating": null,
@@ -788,14 +788,12 @@
         "publisher": "ZA/UM",
         "genres": [
             "Adventure",
-            "RPG",
-            "Mystery"
+            "RPG"
         ],
         "tags": [
-            "Narrative",
-            "Political",
-            "Detective",
-            "Choices Matter"
+            "Atmospheric",
+            "Single-player",
+            "Detective"
         ],
         "metacriticScore": 91,
         "ageRating": null,
@@ -822,15 +820,15 @@
         "developer": "Rockstar San Diego",
         "publisher": "Rockstar Games",
         "genres": [
+            "Western",
             "Action",
-            "Adventure",
-            "Open World"
+            "Adventure"
         ],
         "tags": [
-            "Western",
             "Shooter",
             "Story-Rich",
-            "Historical"
+            "Historical",
+            "Open World"
         ],
         "metacriticScore": 95,
         "ageRating": null,
@@ -855,14 +853,14 @@
         "publisher": "Bethesda Softworks",
         "genres": [
             "Shooter",
-            "Action",
-            "FPS"
+            "Action"
         ],
         "tags": [
             "Sci-Fi",
             "Demons",
             "Gore",
-            "Fast-Paced"
+            "FPS",
+            "Atmospheric"
         ],
         "metacriticScore": 88,
         "ageRating": null,
@@ -896,8 +894,11 @@
         "tags": [
             "Underwater",
             "Story Rich",
-            "Psychological Horror",
-            "Atmospheric"
+            "Horror",
+            "Atmospheric",
+            "Psychological",
+            "Single-player",
+            "Cyberpunk"
         ],
         "metacriticScore": 84,
         "ageRating": "Mature",
@@ -923,13 +924,16 @@
         "genres": [
             "Adventure",
             "Horror",
-            "Cyberpunk"
+            "Sci-Fi"
         ],
         "tags": [
             "Cyberpunk",
             "Story Rich",
             "Detective",
-            "Psychological Horror"
+            "Atmospheric",
+            "Psychological",
+            "Single-player",
+            "Cyberpunk"
         ],
         "metacriticScore": 83,
         "ageRating": "Mature",
@@ -957,13 +961,13 @@
         "genres": [
             "Action",
             "Adventure",
-            "Supernatural"
+            "RPG"
         ],
         "tags": [
             "Psychological",
             "Third-Person",
             "Mystery",
-            "Supernatural"
+            "Single-player"
         ],
         "metacriticScore": 85,
         "ageRating": "Mature",
@@ -991,14 +995,14 @@
         "publisher": "Focus Entertainment",
         "genres": [
             "Action",
-            "Sci-Fi",
-            "Third-Person Shooter"
+            "Sci-Fi"
         ],
         "tags": [
             "Sci-Fi",
             "Warhammer 40K",
-            "Action-Packed",
-            "Gore"
+            "Multiplayer",
+            "Gore",
+            "Third-Person"
         ],
         "metacriticScore": 84,
         "ageRating": "Mature",
@@ -1028,9 +1032,10 @@
         ],
         "tags": [
             "Story-Rich",
-            "Souls-like",
-            "Dark Fantasy",
-            "Challenging"
+            "Atmospheric",
+            "Fantasy",
+            "Difficult",
+            "Single-player"
         ],
         "metacriticScore": 83,
         "ageRating": "Mature",
@@ -1057,14 +1062,15 @@
         "publisher": "Bandai Namco",
         "genres": [
             "Action",
-            "Dark Fantasy",
+            "Soulslike",
             "RPG"
         ],
         "tags": [
             "Medieval",
-            "Dark Fantasy",
+            "Fantasy",
             "Difficult",
-            "Atmospheric"
+            "Atmospheric",
+            "Multiplayer"
         ],
         "metacriticScore": 89,
         "ageRating": "Mature",
@@ -1092,14 +1098,15 @@
         "publisher": "Bandai Namco",
         "genres": [
             "Action",
-            "Dark Fantasy",
+            "Soulslike",
             "RPG"
         ],
         "tags": [
             "Medieval",
-            "Dark Fantasy",
+            "Fantasy",
             "Difficult",
-            "Atmospheric"
+            "Atmospheric",
+            "Multiplayer"
         ],
         "metacriticScore": 89,
         "ageRating": "Mature",
@@ -1125,12 +1132,12 @@
         "genres": [
             "Tactical",
             "Strategy",
-            "Turn-Based"
+            "Sci-Fi"
         ],
         "tags": [
             "Sci-Fi",
             "Squad-Based",
-            "Turn-Based Combat",
+            "Turn-Based",
             "Gore"
         ],
         "metacriticScore": 82,
@@ -1157,12 +1164,13 @@
         "genres": [
             "Tactical",
             "Strategy",
-            "Turn-Based"
+            "Sci-Fi"
         ],
         "tags": [
             "Sci-Fi",
             "Aliens",
-            "Turn-Based Combat",
+            "Squad-Based",
+            "Turn-Based",
             "Difficult"
         ],
         "metacriticScore": 88,
@@ -1189,14 +1197,13 @@
         "publisher": "SEGA",
         "genres": [
             "Real-Time",
-            "Strategy",
-            "Grand Strategy"
+            "Strategy"
         ],
         "tags": [
             "Fantasy",
-            "War",
-            "Real-Time Battles",
-            "Turn-Based Strategy"
+            "Medieval",
+            "Turn-Based Strategy",
+            "Multiplayer"
         ],
         "metacriticScore": 86,
         "ageRating": "Teen",
@@ -1220,14 +1227,15 @@
         "publisher": "Bethesda Softworks",
         "genres": [
             "Action",
-            "First-Person Shooter",
-            "Stealth"
+            "Shooter"
         ],
         "tags": [
             "Story-Rich",
             "Nazi",
             "Alternate History",
-            "Single-Player"
+            "Single-Player",
+            "Stealth",
+            "FPS"        
         ],
         "metacriticScore": 87,
         "ageRating": "Mature",
@@ -1254,13 +1262,14 @@
         "genres": [
             "Action",
             "RPG",
-            "Open World"
+            "Sci-Fi"
         ],
         "tags": [
-            "Futuristic",
+            "Atmospheric",
             "Story-Rich",
             "Cyberpunk",
-            "First-Person"
+            "First-Person",
+            "Sandbox"
         ],
         "metacriticScore": 86,
         "ageRating": "Mature",

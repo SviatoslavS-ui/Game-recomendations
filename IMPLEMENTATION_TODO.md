@@ -542,6 +542,17 @@ Implementation of a web-based game recommendation system using Spring Boot with 
 - Implement real-time features with WebSocket
 - Add machine learning recommendations
 - Integrate with external gaming APIs
+- Refactor genre handling to use Genre enum throughout the application
+  - Update Game model to use Set<Genre> instead of Set<String>
+  - Modify frontend to properly handle enum values
+  - Update controllers and services for type safety
+  - Migrate existing string-based genre data to enum values
+
+- Refactor tags handling to use Tags enum throughout the application
+  - Update Game model to use Set<Tags> instead of Set<String>
+  - Modify frontend to properly handle enum values
+  - Update controllers and services for type safety
+  - Migrate existing string-based tag data to enum values
 
 ### Risk Mitigation
 - Start with MVP features and iterate

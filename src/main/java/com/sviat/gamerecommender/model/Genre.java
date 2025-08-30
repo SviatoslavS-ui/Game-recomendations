@@ -16,7 +16,14 @@ public enum Genre {
     INDIE("Indie"),
     CASUAL("Casual"),
     EDUCATIONAL("Educational"),
-    MUSIC("Music");
+    MUSIC("Music"),
+    CRIME("Crime"),
+    WESTERN("Western"),
+    SCI_FI("Sci-Fi"),
+    SURVIVAL("Survival"),
+    SOULSLIKE("Soulslike"),
+    TACTICAL("Tactical"),
+    REAL_TIME("Real-Time");
 
     private final String displayName;
 

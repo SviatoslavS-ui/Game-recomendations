@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Recommender - Recommendations</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/game-card.css}">
+    <link rel="stylesheet" th:href="@{/css/game-details-modal.css}">
+    <link rel="stylesheet" th:href="@{/css/about-modal.css}">
+    <link rel="stylesheet" th:href="@{/css/loading-overlay.css}">
+    <link rel="stylesheet" th:href="@{/css/section-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/recommendations.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" th:href="@{/icons/favicon.svg}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/svg-filters :: svgFilters}"></div>
+    <div class="app-container">
+        <div th:replace="~{fragments/sidebar :: sidebar(activePage='recommendations')}"></div>
+        <div th:replace="~{fragments/header :: header(pageTitle='Recommendations')}"></div>
+        <main class="main-content">
+            <div class="recommendations-container">
+                <!-- User Selection Section -->
+                <section class="selection-section noise noise-basic">
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                <path class="glow" d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            </svg>
+                        </span>
+                        Game Selection
+                    </h2>
+                    
+                    <!-- Genres Filter Section -->
+                    <div class="filter-section">
+                        <h3 class="filter-title">Genres</h3>
+                        <div class="filter-options">
+                            <button class="filter-button" data-filter="genre" data-value="Action">Action</button>
+                            <button class="filter-button" data-filter="genre" data-value="Adventure">Adventure</button>
+                            <button class="filter-button" data-filter="genre" data-value="Role-Playing">Role-Playing</button>
+                            <button class="filter-button" data-filter="genre" data-value="Strategy">Strategy</button>
+                            <button class="filter-button" data-filter="genre" data-value="Simulation">Simulation</button>
+                            <button class="filter-button" data-filter="genre" data-value="Sports">Sports</button>
+                            <button class="filter-button" data-filter="genre" data-value="Racing">Racing</button>
+                            <button class="filter-button" data-filter="genre" data-value="Puzzle">Puzzle</button>
+                            <button class="filter-button" data-filter="genre" data-value="Horror">Horror</button>
+                            <button class="filter-button" data-filter="genre" data-value="Shooter">Shooter</button>
+                            <button class="filter-button" data-filter="genre" data-value="Platformer">Platformer</button>
+                            <button class="filter-button" data-filter="genre" data-value="Fighting">Fighting</button>
+                            <button class="filter-button" data-filter="genre" data-value="Indie">Indie</button>
+                            <button class="filter-button" data-filter="genre" data-value="Casual">Casual</button>
+                            <button class="filter-button" data-filter="genre" data-value="Educational">Educational</button>
+                            <button class="filter-button" data-filter="genre" data-value="Music">Music</button>
+                            <button class="filter-button" data-filter="genre" data-value="Crime">Crime</button>
+                            <button class="filter-button" data-filter="genre" data-value="Western">Western</button>
+                            <button class="filter-button" data-filter="genre" data-value="Sci-Fi">Sci-Fi</button>
+                            <button class="filter-button" data-filter="genre" data-value="Survival">Survival</button>
+                            <button class="filter-button" data-filter="genre" data-value="Soulslike">Soulslike</button>
+                            <button class="filter-button" data-filter="genre" data-value="Tactical">Tactical</button>
+                            <button class="filter-button" data-filter="genre" data-value="Real-Time">Real-Time</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags Filter Section -->
+                    <div class="filter-section">
+                        <h3 class="filter-title">Tags</h3>
+                        <div class="filter-options">
+                            <button class="filter-button" data-filter="tag" data-value="Open World">Open World</button>
+                            <button class="filter-button" data-filter="tag" data-value="Story-Rich">Story Rich</button>
+                            <button class="filter-button" data-filter="tag" data-value="Multiplayer">Multiplayer</button>
+                            <button class="filter-button" data-filter="tag" data-value="Single-player">Singleplayer</button>
+                            <button class="filter-button" data-filter="tag" data-value="Atmospheric">Atmospheric</button>
+                            <button class="filter-button" data-filter="tag" data-value="Difficult">Difficult</button>
+                            <button class="filter-button" data-filter="tag" data-value="Indie">Indie</button>
+                            <button class="filter-button" data-filter="tag" data-value="Sci-Fi">Sci-Fi</button>
+                            <button class="filter-button" data-filter="tag" data-value="Fantasy">Fantasy</button>
+                            <button class="filter-button" data-filter="tag" data-value="Puzzle">Puzzle</button>
+                            <button class="filter-button" data-filter="tag" data-value="Mature">Mature</button>
+                            <button class="filter-button" data-filter="tag" data-value="Space">Space</button>
+                            <button class="filter-button" data-filter="tag" data-value="Innovative">Innovative</button>
+                            <button class="filter-button" data-filter="tag" data-value="Exploration">Exploration</button>
+                            <button class="filter-button" data-filter="tag" data-value="Skateboarding">Skateboarding</button>
+                            <button class="filter-button" data-filter="tag" data-value="Arcade">Arcade</button>
+                            <button class="filter-button" data-filter="tag" data-value="FPS">FPS</button>
+                            <button class="filter-button" data-filter="tag" data-value="Classic">Classic</button>
+                            <button class="filter-button" data-filter="tag" data-value="Family">Family</button>
+                            <button class="filter-button" data-filter="tag" data-value="Dystopian">Dystopian</button>
+                            <button class="filter-button" data-filter="tag" data-value="Cinematic">Cinematic</button>
+                            <button class="filter-button" data-filter="tag" data-value="Horror">Horror</button>
+                            <button class="filter-button" data-filter="tag" data-value="Third-person">Third-person</button>
+                            <button class="filter-button" data-filter="tag" data-value="Turn-based">Turn-based</button>
+                            <button class="filter-button" data-filter="tag" data-value="Compilation">Compilation</button>
+                            <button class="filter-button" data-filter="tag" data-value="Character Customization">Character Customization</button>
+                            <button class="filter-button" data-filter="tag" data-value="Dragons">Dragons</button>
+                            <button class="filter-button" data-filter="tag" data-value="Weapons">Weapons</button>
+                            <button class="filter-button" data-filter="tag" data-value="Sandbox">Sandbox</button>
+                            <button class="filter-button" data-filter="tag" data-value="Physics">Physics</button>
+                            <button class="filter-button" data-filter="tag" data-value="Squad-Based">Squad-Based</button>
+                            <button class="filter-button" data-filter="tag" data-value="Detective">Detective</button>
+                            <button class="filter-button" data-filter="tag" data-value="Underwater">Underwater</button>
+                            <button class="filter-button" data-filter="tag" data-value="Psychological">Psychological</button>
+                            <button class="filter-button" data-filter="tag" data-value="Medieval">Medieval</button>
+                            <button class="filter-button" data-filter="tag" data-value="Aliens">Aliens</button>
+                            <button class="filter-button" data-filter="tag" data-value="Turn-Based Strategy">Turn-Based Strategy</button>
+                            <button class="filter-button" data-filter="tag" data-value="Stealth">Stealth</button>
+                            <button class="filter-button" data-filter="tag" data-value="Nazi">Nazi</button>
+                            <button class="filter-button" data-filter="tag" data-value="Cyberpunk">Cyberpunk</button>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Get Recommendations Button -->
+                    <div class="recommendation-action">
+                        <button id="get-recommendations" class="cyberpunk-button glow">
+                            Get Recommendations
+                            <span class="button-border-horizontal"></span>
+                            <span class="button-border-vertical"></span>
+                        </button>
+                    </div>
+                    
+                    <!-- Loading Overlay -->
+                    <div id="loading-overlay" class="loading-overlay">
+                        <div class="spinner"></div>
+                        <p>Finding perfect games for you...</p>
+                    </div>
+                </section>
+                
+                <!-- Results Section -->
+                <section class="recommendation-section noise noise-basic">
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                <path class="glow" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </span>
+                        Recommendations
+                    </h2>
+                    
+                    <!-- Results Section (Initially Empty) -->
+                    <div class="game-sections">
+                        <div id="recommendation-results">
+                            <!-- Recommendation results will be populated here via server-side fragment -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
+    <div th:replace="~{fragments/about-modal :: aboutModal}"></div>
+    
+    <script th:src="@{/js/sidebar-navigation.js}"></script>
+    <script th:src="@{/js/game-card.js}"></script>
+    <script th:src="@{/js/game-details-modal.js}"></script>
+    <script th:src="@{/js/about-modal.js}"></script>
+    <script th:src="@{/js/recommendations.js}"></script>
+</body>
+
+</html>
