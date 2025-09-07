@@ -10,8 +10,8 @@
         
         <!-- Game cards categorized by match quality -->
         <div th:if="${recommendedGames != null && !recommendedGames.isEmpty()}">
-            <!-- Best Matches (Perfect Match) -->
-            <section th:if="${not #lists.isEmpty(recommendedGames)}" class="game-section noise noise-basic">
+            <!-- Perfect Matches - Games with highest match scores -->
+            <section th:if="${perfectMatches != null && !perfectMatches.isEmpty()}" class="game-section noise noise-basic">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -19,20 +19,19 @@
                             <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                         </svg>
                     </span>
-                    Best Matches
+                    Perfect Matches
                 </h2>
                 <div class="game-grid">
-                    <!-- First third of games (or at least one if available) -->
-                    <div th:each="game, gameStat : ${recommendedGames}" 
-                         th:if="${gameStat.index < #lists.size(recommendedGames) / 3 || (gameStat.index == 0 && #lists.size(recommendedGames) >= 1)}">
+                    <!-- Games with perfect match scores -->
+                    <div th:each="game : ${perfectMatches}">
                         <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Partial Matches -->
-            <section th:if="${#lists.size(recommendedGames) > 1}" class="game-section noise noise-basic">
+            <!-- Good Matches - Games with good match scores -->
+            <section th:if="${goodMatches != null && !goodMatches.isEmpty()}" class="game-section noise noise-basic">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -42,20 +41,19 @@
                             <path class="glow" d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
                         </svg>
                     </span>
-                    Partial Matches
+                    Good Matches
                 </h2>
                 <div class="game-grid">
-                    <!-- Middle third of games -->
-                    <div th:each="game, gameStat : ${recommendedGames}" 
-                         th:if="${gameStat.index >= #lists.size(recommendedGames) / 3 && gameStat.index < (#lists.size(recommendedGames) * 2 / 3)}">
+                    <!-- Games with good match scores -->
+                    <div th:each="game : ${goodMatches}">
                         <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Other Recommendations -->
-            <section th:if="${#lists.size(recommendedGames) > 2}" class="game-section noise noise-basic">
+            <!-- Other Recommendations - Games with lower match scores -->
+            <section th:if="${otherMatches != null && !otherMatches.isEmpty()}" class="game-section noise noise-basic">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -66,9 +64,22 @@
                     Other Recommendations
                 </h2>
                 <div class="game-grid">
-                    <!-- Last third of games -->
-                    <div th:each="game, gameStat : ${recommendedGames}" 
-                         th:if="${gameStat.index >= (#lists.size(recommendedGames) * 2 / 3)}">
+                    <!-- Games with lower match scores -->
+                    <div th:each="game : ${otherMatches}">
+                        <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Fallback section for backward compatibility -->
+            <section th:if="${(perfectMatches == null || perfectMatches.isEmpty()) && 
+                            (goodMatches == null || goodMatches.isEmpty()) && 
+                            (otherMatches == null || otherMatches.isEmpty()) && 
+                            !recommendedGames.isEmpty()}" class="game-section noise noise-basic">
+                <h2 class="section-title">Recommendations</h2>
+                <div class="game-grid">
+                    <div th:each="game : ${recommendedGames}">
                         <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
                         </div>
                     </div>

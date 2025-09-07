@@ -126,13 +126,13 @@ public class RecommendationTestData {
                 "RPG Action Game",
                 Set.of("RPG", "Action"),  // exact match for game's genres
                 Set.of(),                 // no tags
-                130                       // 100 * 1.3 genre weight for perfect match
+                200                       // 100 * 2.0 genre weight for perfect match
             ),
             Arguments.of(
                 "RPG Action Game",
                 Set.of("RPG"),         // partial match (1/1 of search genres)
                 Set.of(),                 // no tags
-                130                       // 100 * 1.3 genre weight for perfect match ratio
+                200                       // 100 * 2.0 genre weight for perfect match ratio
             ),
             Arguments.of(
                 "RPG Action Game",
@@ -144,13 +144,26 @@ public class RecommendationTestData {
                 "Masterpiece Game",
                 Set.of("Adventure"),   // exact match for game's genre
                 Set.of("Atmospheric"), // exact match for game's tag
-                230                       // (100 * 1.3) + (100 * 1.0) = 230
+                300                       // (100 * 2.0) + (100 * 1.0) = 300
             ),
             Arguments.of(
                 "RPG Action Strategy",
                 Set.of("RPG", "Strategy"), // perfect match ratio (2/2 of search genres)
                 Set.of("Story Rich"),  // exact match for game's tag
-                230                       // (100 * 1.3) + (100 * 1.0) = 230
+                300                       // (100 * 2.0) + (100 * 1.0) = 300
+            ),
+            // New test cases for partial matches with new constants
+            Arguments.of(
+                "RPG Action Game",
+                Set.of("RPG", "Action", "Strategy"),  // 2/3 match for search genres
+                Set.of(),                 // no tags
+                80                        // 60 * 2.0 * (2/3) = 80
+            ),
+            Arguments.of(
+                "RPG Action Game",
+                Set.of("RPG", "Action", "Strategy"),  // 2/3 match for search genres
+                Set.of("Open World", "Story Rich", "Multiplayer"),  // 2/3 match for search tags
+                120                       // (60 * 2.0 * 2/3) + (60 * 1.0 * 2/3) = 80 + 40 = 120
             )
         );
     }
@@ -165,35 +178,28 @@ public class RecommendationTestData {
         return Stream.of(
             // Format: test name, genres, tags, limit, expected game order
             Arguments.of(
-                "Genre weight > Tag weight",
+                "Genre and tag match with metacritic score ordering",
                 Set.of("RPG"),                  // Both games have RPG genre
-                Set.of("Open World"),           // Both games have Open World tag
+                Set.of("Open World"),           // Only RPG Action Game has Open World tag
                 2,
-                List.of("RPG Action Game", "RPG Action Strategy")
-                // Both have perfect genre match ratio (1/1) and perfect tag match ratio (1/1)
-                // Both have same total score, so sorted by metacritic score
-                // RPG Action Game: 85, RPG Action Strategy: 92
+                List.of("RPG Action Game")
+                // Only RPG Action Game matches both genre and tag
             ),
             Arguments.of(
-                "Perfect genre match > Perfect tag match",
+                "Perfect genre and tag match",
                 Set.of("Adventure"),            // Perfect match for Masterpiece Game's genre
-                Set.of("Story Rich"),           // Perfect match for RPG Action Strategy's tag
+                Set.of("Atmospheric"),          // Perfect match for Masterpiece Game's tag
                 2,
-                List.of("Masterpiece Game", "RPG Action Strategy")
-                // Masterpiece Game: genre score 130, no tag score = 130 total
-                // RPG Action Strategy: no genre score, tag score 100 = 100 total
-                // 130 > 100, so Masterpiece Game comes first
+                List.of("Masterpiece Game")
+                // Only Masterpiece Game matches both criteria
             ),
             Arguments.of(
-                "Multiple genre matches vs single tag match",
-                Set.of("RPG", "Action"),        // Perfect matches for RPG Action Game
-                Set.of("Story Rich"),           // Perfect match for RPG Action Strategy's tag
+                "Multiple genres with tag match",
+                Set.of("RPG", "Strategy"),      // Both games have RPG genre
+                Set.of("Story Rich"),           // Only RPG Action Strategy has Story Rich tag
                 2,
-                List.of("RPG Action Strategy", "RPG Action Game")
-                // RPG Action Strategy: has RPG genre (1/2 match ratio) and Story Rich tag (perfect match)
-                // RPG Action Game: has RPG and Action genres (2/2 match ratio) but no tag match
-                // Both have same total score, so sorted by metacritic score
-                // RPG Action Strategy: 92, RPG Action Game: 85
+                List.of("RPG Action Strategy")
+                // Only RPG Action Strategy matches both criteria
             )
         );
     }
@@ -263,101 +269,6 @@ public class RecommendationTestData {
         );
     }
     
-    /**
-     * Test data for multi-filter recommendation tests.
-     * Tests various combinations of genre and tag filters with different limits.
-     * 
-     * @return Stream of test cases for multi-filter recommendations
-     */
-    public static Stream<Arguments> multiFilterTestCases() {
-        return Stream.of(
-            // Format: genres, tags, limit, expectedGameTitles
-            Arguments.of(
-                Set.of("RPG", "Action"),  // genres
-                Set.of("Open World"),        // tags
-                5,                              // limit
-                List.of(
-                    "RPG Action Game",       // Matches all criteria
-                    "RPG Action Strategy",   // Better genre match with weighted scoring
-                    "Masterpiece Game",      // Next best match by score
-                    "Pure Action"
-                )
-            ),
-            Arguments.of(
-                Set.of("RPG"),               // genres
-                Set.of("Story Rich"),        // tags
-                5,                              // limit
-                List.of(
-                    "RPG Action Strategy",   // Matches all criteria with higher metacritic score
-                    "RPG Action Game",       // Matches all criteria with lower metacritic score
-                    "Masterpiece Game"       // Next best match
-                )
-            ),
-            Arguments.of(
-                Set.of("Adventure"),         // genres
-                Set.of("Atmospheric"),       // tags
-                5,                              // limit
-                List.of(
-                    "Masterpiece Game"       // Matches all criteria
-                )
-            ),
-            Arguments.of(
-                Set.of("RPG"),               // genres
-                Set.of("Open World", "Multiplayer"), 
-                5,                            
-                List.of(
-                    "RPG Action Game",       // Matches genre + one tag
-                    "RPG Action Strategy",   // Next best match
-                    "Masterpiece Game",      // Next best match
-                    "Cross Platform Hit"     // Next best match
-                )
-            ),
-            Arguments.of(
-                null,                           // no genre filter
-                Set.of("Multiplayer"),       // tags
-                5,                              // limit
-                List.of(
-                    "Cross Platform Hit",    // Highest score matching tag
-                    "Masterpiece Game",      // Next best match
-                    "RPG Action Strategy",   // Next best match
-                    "Console Exclusive",     // Next best match
-                    "Pure Strategy"          // Next best match
-                )
-            ),
-            Arguments.of(
-                Set.of("Sports"),            // genres
-                null,                           // no tag filter
-                5,                              // limit
-                List.of(
-                    "Cross Platform Hit",    // Only game matching genre
-                    "Masterpiece Game",      // Next best match
-                    "RPG Action Strategy",   // Next best match
-                    "Console Exclusive",     // Next best match
-                    "Pure Strategy"          // Next best match
-                )
-            ),
-            Arguments.of(
-                Set.of("RPG", "Strategy"),// multiple genres
-                Set.of("Story Rich"),        // tags
-                5,                              // limit
-                List.of(
-                    "RPG Action Strategy",   // Matches all criteria (2 genres + tag)
-                    "RPG Action Game",       // Next best match
-                    "Masterpiece Game",      // Next best match
-                    "Pure Strategy"          // Next best match
-                )
-            ),
-            Arguments.of(
-                Set.of("NonExistentGenre"),  // non-existent genre
-                Set.of("Open World"),        // tags
-                5,                              // limit
-                List.of(
-                    "Masterpiece Game",      // Matches by tag only
-                    "RPG Action Game"        // Matches by tag only
-                )
-            )
-        );
-    }
     
     /**
      * Test data for basic genre recommendation tests.

@@ -45,7 +45,7 @@
                         <div class="filter-options">
                             <button class="filter-button" data-filter="genre" data-value="Action">Action</button>
                             <button class="filter-button" data-filter="genre" data-value="Adventure">Adventure</button>
-                            <button class="filter-button" data-filter="genre" data-value="Role-Playing">Role-Playing</button>
+                            <button class="filter-button" data-filter="genre" data-value="RPG">Role-Playing</button>
                             <button class="filter-button" data-filter="genre" data-value="Strategy">Strategy</button>
                             <button class="filter-button" data-filter="genre" data-value="Simulation">Simulation</button>
                             <button class="filter-button" data-filter="genre" data-value="Sports">Sports</button>
@@ -65,7 +65,7 @@
                             <button class="filter-button" data-filter="genre" data-value="Survival">Survival</button>
                             <button class="filter-button" data-filter="genre" data-value="Soulslike">Soulslike</button>
                             <button class="filter-button" data-filter="genre" data-value="Tactical">Tactical</button>
-                            <button class="filter-button" data-filter="genre" data-value="Real-Time">Real-Time</button>
+                            <button class="filter-button" data-filter="genre" data-value="Real-Time Tactics">Real-Time Tactics</button>
                         </div>
                     </div>
                     
@@ -112,6 +112,8 @@
                             <button class="filter-button" data-filter="tag" data-value="Turn-Based Strategy">Turn-Based Strategy</button>
                             <button class="filter-button" data-filter="tag" data-value="Stealth">Stealth</button>
                             <button class="filter-button" data-filter="tag" data-value="Nazi">Nazi</button>
+                            <button class="filter-button" data-filter="tag" data-value="Gore">Gore</button>
+                            <button class="filter-button" data-filter="tag" data-value="Demons">Demons</button>
                             <button class="filter-button" data-filter="tag" data-value="Cyberpunk">Cyberpunk</button>
                         </div>
                     </div>
@@ -158,6 +160,7 @@
     <div th:replace="~{fragments/game-details-modal :: gameDetailsModal}"></div>
     <div th:replace="~{fragments/about-modal :: aboutModal}"></div>
     
+    <script th:src="@{/js/utils.js}"></script>
     <script th:src="@{/js/sidebar-navigation.js}"></script>
     <script th:src="@{/js/game-card.js}"></script>
     <script th:src="@{/js/game-details-modal.js}"></script>

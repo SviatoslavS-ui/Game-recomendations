@@ -4,15 +4,12 @@
  * Uses server-side rendering for game cards
  */
 
-const RECOMMENDATIONS_DEBUG = true;
-
-function debug(message, data) {
-    if (RECOMMENDATIONS_DEBUG) {
-        console.log(`[Recommendations Debug] ${message}`, data || '');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+// Use IIFE to create a local scope and prevent global variable conflicts
+(function() {
+    // Create a module-specific debug function
+    const debug = createDebugger('Recommendations');
+    
+    document.addEventListener('DOMContentLoaded', () => {
     debug('Recommendations page loaded');
     // Selected filters storage
     const selectedFilters = {
@@ -35,52 +32,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle filter button clicks
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filterType = button.dataset.filter;
-            const filterValue = button.dataset.value;
-
-            button.classList.toggle('active');
-
-            // Use filter value directly - no mapping needed
-            const formattedValue = filterValue;
-            
-            // Update selected filters
-            if (button.classList.contains('active')) {
-                // Add filter if not already in the array
-                if (!selectedFilters[filterType].includes(formattedValue)) {
-                    selectedFilters[filterType].push(formattedValue);
-                    debug(`Added ${filterType} filter:`, formattedValue);
-                }
-            } else {
-                // Remove filter
-                const index = selectedFilters[filterType].indexOf(formattedValue);
-                if (index > -1) {
-                    selectedFilters[filterType].splice(index, 1);
-                    debug(`Removed ${filterType} filter:`, formattedValue);
-                }
-            }
-            
-            debug('Current selected filters:', JSON.parse(JSON.stringify(selectedFilters)));
-        });
+        button.addEventListener('click', handleFilterButtonClick.bind(null, button, selectedFilters));
     });
+    
+    /**
+     * Handle filter button click events
+     * @param {HTMLElement} button - The clicked filter button
+     * @param {Object} selectedFilters - The current filter state
+     */
+    function handleFilterButtonClick(button, selectedFilters) {
+        const filterType = button.dataset.filter;
+        const filterValue = button.dataset.value;
+
+        button.classList.toggle('active');
+        
+        // Update selected filters
+        if (button.classList.contains('active')) {
+            // Add filter if not already in the array
+            if (!selectedFilters[filterType].includes(filterValue)) {
+                selectedFilters[filterType].push(filterValue);
+                debug(`Added ${filterType} filter:`, filterValue);
+            }
+        } else {
+            // Remove filter
+            const index = selectedFilters[filterType].indexOf(filterValue);
+            if (index > -1) {
+                selectedFilters[filterType].splice(index, 1);
+                debug('Removed filter:', filterType, filterValue);
+            }
+        }
+        
+        debug('Selected filters updated:', {...selectedFilters});
+    }
 
     // Handle get recommendations button click
-    getRecommendationsButton.addEventListener('click', async () => {
+    getRecommendationsButton.addEventListener('click', () => fetchRecommendations(selectedFilters));
+    
+    /**
+     * Fetch recommendations from the server based on selected filters
+     * @param {Object} filters - The selected genre and tag filters
+     * @returns {Promise<void>}
+     */
+    async function fetchRecommendations(filters) {
         debug('Get recommendations button clicked');
-        debug('Sending filters to server:', JSON.parse(JSON.stringify(selectedFilters)));
+        debug('Sending filters to server:', {...filters});
+        
         try {
             // Show loading state
-            getRecommendationsButton.textContent = 'Finding Games...';
-            getRecommendationsButton.disabled = true;
-            if (loadingOverlay) loadingOverlay.classList.add('active');
+            setLoadingState(true);
             
             // Make API request to get recommendations
-            const response = await fetch('/recommendations/results', {
+            const response = await fetch(APP_CONFIG.ENDPOINTS.RECOMMENDATIONS, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(selectedFilters)
+                body: JSON.stringify(filters)
             });
 
             if (!response.ok) {
@@ -92,9 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             debug('Received HTML fragment from server', { length: htmlFragment.length });
             
             // Update results container with server-rendered HTML
-            resultsContainer.innerHTML = htmlFragment;
-            resultsContainer.style.display = 'grid';
-            debug('Updated results container with new HTML');
+            updateResultsContainer(htmlFragment);
             
             // Add click handlers to the newly added game cards
             attachGameCardHandlers();
@@ -102,22 +107,47 @@ document.addEventListener('DOMContentLoaded', () => {
             
         } catch (error) {
             console.error('Failed to get recommendations:', error);
-            debug('Error getting recommendations:', error.message);
-            // Show error message to user
-            resultsContainer.innerHTML = `
-                <div class="no-results error-message">
-                    <p>Failed to get recommendations. Please try again.</p>
-                    <p class="error-details">${error.message}</p>
-                </div>
-            `;
-            resultsContainer.style.display = 'block';
+            debug('Error fetching recommendations:', error);
+            showErrorMessage(error.message);
         } finally {
             // Reset button state
-            getRecommendationsButton.textContent = 'Get Recommendations';
-            getRecommendationsButton.disabled = false;
-            if (loadingOverlay) loadingOverlay.classList.remove('active');
+            setLoadingState(false);
         }
-    });
+    }
+    
+    /**
+     * Set the loading state of the UI
+     * @param {boolean} isLoading - Whether the UI should show loading state
+     */
+    function setLoadingState(isLoading) {
+        getRecommendationsButton.textContent = isLoading ? 'Finding Games...' : 'Get Recommendations';
+        getRecommendationsButton.disabled = isLoading;
+        loadingOverlay?.classList.toggle('active', isLoading);
+    }
+    
+    /**
+     * Update the results container with new HTML content
+     * @param {string} htmlContent - The HTML content to display
+     */
+    function updateResultsContainer(htmlContent) {
+        resultsContainer.innerHTML = htmlContent;
+        resultsContainer.style.display = 'grid';
+        debug('Updated results container with new HTML');
+    }
+    
+    /**
+     * Show an error message in the results container
+     * @param {string} errorMessage - The error message to display
+     */
+    function showErrorMessage(errorMessage) {
+        resultsContainer.innerHTML = `
+            <div class="no-results error-message">
+                <p>Failed to get recommendations. Please try again.</p>
+                <p class="error-details">${errorMessage}</p>
+            </div>
+        `;
+        resultsContainer.style.display = 'block';
+    }
 
     /**
      * Attach click handlers to game cards
@@ -127,21 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
         debug('Found game cards to attach handlers to:', gameCards.length);
         
         gameCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const gameId = card.getAttribute('data-game-id');
-                const gameTitle = card.querySelector('.game-title')?.textContent || 'Unknown';
-                debug('Game card clicked:', { id: gameId, title: gameTitle });
-                
-                if (gameId && typeof openGameDetailsModal === 'function') {
-                    debug('Opening game details modal for:', gameId);
-                    openGameDetailsModal(gameId);
-                } else {
-                    debug('Cannot open modal:', { 
-                        hasGameId: !!gameId, 
-                        hasModalFunction: typeof openGameDetailsModal === 'function' 
-                    });
-                }
-            });
+            card.addEventListener('click', () => handleGameCardClick(card));
         });
     }
+    
+    /**
+     * Handle game card click events
+     * @param {HTMLElement} card - The clicked game card
+     */
+    function handleGameCardClick(card) {
+        const gameId = card.getAttribute('data-game-id');
+        const gameTitle = card.querySelector('.game-title')?.textContent || 'Unknown';
+        debug('Game card clicked:', { id: gameId, title: gameTitle });
+        
+        if (gameId && typeof openGameDetailsModal === 'function') {
+            debug('Opening game details modal for:', gameId);
+            openGameDetailsModal(gameId);
+        } else {
+            debug('Cannot open modal:', { 
+                hasGameId: !!gameId, 
+                hasModalFunction: typeof openGameDetailsModal === 'function' 
+            });
+        };
+    }
 });
+})();

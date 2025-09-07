@@ -1,18 +1,17 @@
 /**
  * Game Details Modal JavaScript
+ * Handles displaying game details in a modal popup
 **/
 
-const DEBUG = false;
+// Use IIFE to create a local scope and prevent global variable conflicts
+(function() {
+    // Game details cache to avoid redundant API calls
+    const gameDetailsCache = {};
 
-const gameDetailsCache = {};
+    // Create a module-specific debug function
+    const debug = createDebugger('Modal');
 
-function debug(message, data) {
-    if (DEBUG) {
-        console.log(`[Modal Debug] ${message}`, data || '');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     debug('Modal element exists:', !!document.getElementById('gameDetailsModal'));
     debug('Overlay element exists:', !!document.getElementById('modalOverlay'));
     debug('Close button exists:', !!document.getElementById('modalCloseBtn'));
@@ -37,7 +36,7 @@ function setupEventListeners() {
         }
     });
 
-    debug('Event listeners set up');
+    debug('Setting up event listeners');
 }
 
 function closeGameDetailsModal() {
@@ -78,7 +77,8 @@ function loadGameDetails(gameId) {
 
     // Fetch from API
     debug('Fetching game details from API for:', gameId);
-    return fetch(`/api/games/${gameId}/details`)
+    const endpoint = APP_CONFIG.ENDPOINTS.GAME_DETAILS.replace('{id}', gameId);
+    return fetch(endpoint)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error: ${response.status}`);
@@ -93,7 +93,7 @@ function loadGameDetails(gameId) {
             return data;
         })
         .catch(error => {
-            console.error('Error fetching game details:', error);
+            debug('Error fetching game details:', error);
             // Show error in modal
             document.getElementById('gameDetailsContent').innerHTML =
                 `<div class="error-message">Error loading game details: ${error.message}</div>`;
@@ -136,7 +136,7 @@ function displayGameDetails(gameData) {
     if (mainImage && gameData.imageUrl) {
         mainImage.src = gameData.imageUrl;
         mainImage.alt = gameData.title;
-        debug('Setting game image:', gameData.imageUrl);
+        debug('Displaying game details:', gameData.title);
     } else {
         debug('Image not available:', mainImage ? 'Element exists' : 'Element missing', gameData.imageUrl ? 'URL exists' : 'URL missing');
     }
@@ -212,6 +212,7 @@ function populateList(containerId, items) {
     });
 }
 
-// Make functions globally accessible
-window.openGameDetailsModal = openGameDetailsModal;
-window.closeGameDetailsModal = closeGameDetailsModal;
+    // Make functions globally accessible
+    window.openGameDetailsModal = openGameDetailsModal;
+    window.closeGameDetailsModal = closeGameDetailsModal;
+})();

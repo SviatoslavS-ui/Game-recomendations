@@ -97,14 +97,27 @@ public class RecommendationEngine {
         final Set<String> effectiveGenres = (genres != null) ? genres : Set.of();
         final Set<String> effectiveTags = (tags != null) ? tags : Set.of();
         
+        // Remove any empty strings from the filter sets
+        final Set<String> cleanGenres = effectiveGenres.stream()
+                .filter(genre -> !genre.isEmpty())
+                .collect(Collectors.toSet());
+        final Set<String> cleanTags = effectiveTags.stream()
+                .filter(tag -> !tag.isEmpty())
+                .collect(Collectors.toSet());
+        
+        // If no criteria provided, return empty collection
+        if (cleanGenres.isEmpty() && cleanTags.isEmpty()) {
+            return List.of(); // Return empty list when no search criteria provided
+        }
+        
         // Get all games
         List<Game> allGames = new ArrayList<>(gameDatabase.getAllGames());
         
         // Create a comparator that sorts by match quality
         Comparator<Game> byMatchQuality = (game1, game2) -> {
             // Calculate match scores for both games
-            int score1 = calculateMatchScore(game1, effectiveGenres, effectiveTags);
-            int score2 = calculateMatchScore(game2, effectiveGenres, effectiveTags);
+            int score1 = calculateMatchScore(game1, cleanGenres, cleanTags);
+            int score2 = calculateMatchScore(game2, cleanGenres, cleanTags);
             
             // First sort by match score (descending)
             int scoreComparison = Integer.compare(score2, score1);
@@ -116,20 +129,18 @@ public class RecommendationEngine {
             return Integer.compare(game2.getMetacriticScore(), game1.getMetacriticScore());
         };
         
-        // Filter and sort games
-        return allGames.stream()
-                // Keep only games that match at least one criterion
-                .filter(game -> {
-                    boolean matchesGenre = effectiveGenres.isEmpty() || 
-                            !java.util.Collections.disjoint(game.getGenres(), effectiveGenres);
-                    boolean matchesTag = effectiveTags.isEmpty() || 
-                            game.getTags().stream().anyMatch(effectiveTags::contains);
-                    
-                    // Game must match at least one criterion if filters are provided
-                    return (effectiveGenres.isEmpty() && effectiveTags.isEmpty()) || 
-                           matchesGenre || matchesTag;
-                })
-                // Sort by match quality
+        // Filter games that match any criteria using score-based filtering
+        List<Game> matchingGames = allGames.stream()
+                .filter(game -> calculateMatchScore(game, cleanGenres, cleanTags) > 0)
+                .collect(Collectors.toList());
+        
+        // If no matches found, return empty collection
+        if (matchingGames.isEmpty()) {
+            return List.of(); 
+        }
+        
+        // Sort by match quality
+        return matchingGames.stream()
                 .sorted(byMatchQuality)
                 .limit(limit)
                 .collect(Collectors.toList());
@@ -137,8 +148,8 @@ public class RecommendationEngine {
 
     // Constants for scoring algorithm
     private static final int PERFECT_MATCH_SCORE = 100;
-    private static final int PARTIAL_MATCH_BASE_SCORE = 50;
-    private static final double GENRE_WEIGHT = 1.3;  // Genres weighted more than tags
+    private static final int PARTIAL_MATCH_BASE_SCORE = 60;
+    private static final double GENRE_WEIGHT = 2.0;  // Genres weighted more than tags
     private static final double TAG_WEIGHT = 1.0;
 
     /**
@@ -151,7 +162,7 @@ public class RecommendationEngine {
      * @param tags Set of tags to match
      * @return A score representing how well the game matches the criteria
      */
-    private int calculateMatchScore(Game game, Set<String> genres, Set<String> tags) {
+    public int calculateMatchScore(Game game, Set<String> genres, Set<String> tags) {
         double score = 0.0;
         
         // Calculate genre match score (how many genres match)

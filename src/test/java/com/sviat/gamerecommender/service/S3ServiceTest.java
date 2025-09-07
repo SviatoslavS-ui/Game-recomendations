@@ -154,7 +154,8 @@ public class S3ServiceTest {
     @DisplayName("Upload game images and HTML details from local directory (run manually)")
     public void uploadGameImagesFromLocalDirectory() throws IOException {
         // Path to the local images directory
-        String localImagesPath = "C:\\Users\\svyat\\Pictures\\Screenshots\\cards";
+        // String localImagesPath = "C:\\Users\\svyat\\Pictures\\Screenshots\\cards";
+        String localImagesPath = "C:\\Users\\svyat\\OneDrive\\Pictures\\Screenshots 1\\cards";
         Path imagesDirectory = Paths.get(localImagesPath);
 
         // Path to the HTML details directory
