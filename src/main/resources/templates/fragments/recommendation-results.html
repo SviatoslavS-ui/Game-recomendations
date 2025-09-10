@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <body>
     <!-- Fragment for recommendation results -->
     <div th:fragment="recommendationResults" class="recommendation-results-container">
@@ -7,16 +8,19 @@
         <div th:if="${recommendedGames == null || recommendedGames.isEmpty()}" class="no-results">
             <p>No games match your selected criteria. Try different filters.</p>
         </div>
-        
+
         <!-- Game cards categorized by match quality -->
         <div th:if="${recommendedGames != null && !recommendedGames.isEmpty()}">
             <!-- Perfect Matches - Games with highest match scores -->
-            <section th:if="${perfectMatches != null && !perfectMatches.isEmpty()}" class="game-section noise noise-basic">
+            <section th:if="${perfectMatches != null && !perfectMatches.isEmpty()}"
+                class="game-section noise noise-basic" style="background-color: rgba(0,245,245,0.15);">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path class="glow"
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                         </svg>
                     </span>
                     Perfect Matches
@@ -29,16 +33,21 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Good Matches - Games with good match scores -->
-            <section th:if="${goodMatches != null && !goodMatches.isEmpty()}" class="game-section noise noise-basic">
+            <section th:if="${goodMatches != null && !goodMatches.isEmpty()}" class="game-section noise noise-basic"
+                style="background-color: rgba(245,200,0,0.15);">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                            <path d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
-                            <path class="glow" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-                            <path class="glow" d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                            <path
+                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            <path
+                                d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
+                            <path class="glow"
+                                d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                            <path class="glow"
+                                d="M11 6.5L8.5 10.5L4 11.5L7 14.5L6.5 19L11 17L15.5 19L15 14.5L18 11.5L13.5 10.5L11 6.5Z" />
                         </svg>
                     </span>
                     Good Matches
@@ -51,14 +60,16 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Other Recommendations - Games with lower match scores -->
             <section th:if="${otherMatches != null && !otherMatches.isEmpty()}" class="game-section noise noise-basic">
                 <h2 class="section-title">
                     <span class="section-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                            <path class="glow" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            <path class="glow"
+                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                         </svg>
                     </span>
                     Other Recommendations
@@ -71,7 +82,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Fallback section for backward compatibility -->
             <section th:if="${(perfectMatches == null || perfectMatches.isEmpty()) && 
                             (goodMatches == null || goodMatches.isEmpty()) && 
@@ -88,4 +99,5 @@
         </div>
     </div>
 </body>
+
 </html>

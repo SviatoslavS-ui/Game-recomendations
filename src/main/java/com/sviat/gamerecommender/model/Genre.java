@@ -4,26 +4,24 @@ public enum Genre {
     ACTION("Action"),
     ADVENTURE("Adventure"),
     RPG("Role-Playing"),
+    MMORPG("Massively-Multiplayer Role-Playing"),
     STRATEGY("Strategy"),
+    TURN_BASED_STRATEGY("Turn-Based Strategy"),
+    REAL_TIME_STRATEGY("Real-Time Strategy"),
     SIMULATION("Simulation"),
     SPORTS("Sports"),
     RACING("Racing"),
-    PUZZLE("Puzzle"),
     HORROR("Horror"),
     SHOOTER("Shooter"),
     PLATFORMER("Platformer"),
     FIGHTING("Fighting"),
     INDIE("Indie"),
-    CASUAL("Casual"),
-    EDUCATIONAL("Educational"),
-    MUSIC("Music"),
     CRIME("Crime"),
     WESTERN("Western"),
-    SCI_FI("Sci-Fi"),
     SURVIVAL("Survival"),
     SOULSLIKE("Soulslike"),
     TACTICAL("Tactical"),
-    REAL_TIME("Real-Time");
+    SLASHER("Slasher");
 
     private final String displayName;
 

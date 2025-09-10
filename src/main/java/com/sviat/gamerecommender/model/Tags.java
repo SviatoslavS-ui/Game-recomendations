@@ -7,6 +7,7 @@ package com.sviat.gamerecommender.model;
 public enum Tags {
     OPEN_WORLD("Open World"),
     STORY_RICH("Story-Rich"),
+    PvE_AND_PVP("PvE & PvP"),
     MULTIPLAYER("Multiplayer"),
     SINGLEPLAYER("Single-player"),
     ATMOSPHERIC("Atmospheric"),
@@ -16,8 +17,9 @@ public enum Tags {
     FANTASY("Fantasy"),
     PUZZLE("Puzzle"),
     MATURE("Mature"),
+    MYSTERY("Mystery"),
     SPACE("Space"),
-    INNOVATIVE("Innovative"),
+    ISOMETRIC("Isometric"),
     EXPLORATION("Exploration"),
     SKATEBOARDING("Skateboarding"),
     ARCADE("Arcade"),
@@ -29,22 +31,23 @@ public enum Tags {
     HORROR("Horror"),
     THIRD_PERSON("Third-person"),
     TURN_BASED("Turn-based"),
-    COMPILATION("Compilation"),
     CHARACTER_CUSTOMIZATION("Character Customization"),
-    DRAGONS("Dragons"),
+    DUNGEONS_AND_DRAGONS("Dungeons & Dragons"),
     WEAPONS("Weapons"),
     SANDBOX("Sandbox"),
     PHYSICS("Physics"),
+    REAL_TIME_COMBAT("Real-Time Combat"),
     SQUAD_BASED("Squad-Based"),
     DETECTIVE("Detective"),
     UNDERWATER("Underwater"),
     PSYCHOLOGICAL("Psychological"),
     MEDIEVAL("Medieval"),
+    HISTORICAL("Historical"),
     ALIENS("Aliens"),
-    TURN_BASED_STRATEGY("Turn-Based Strategy"),
     STEALTH("Stealth"),
     NAZI("Nazi"),
-    CYBERPUNK("Cyberpunk");
+    CYBERPUNK("Cyberpunk"),
+    STEAMPUNK("Steampunk");
 
     private final String displayName;
 
