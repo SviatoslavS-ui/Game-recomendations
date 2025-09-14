@@ -49,12 +49,12 @@ public class RecommendationController {
 
         // 4. Apply multi-filter recommendation logic
         List<Game> recommendedGames = recommendationEngine.getMultiFilterRecommendations(
-            genres, tags, 15);
+                genres, tags, 15);
 
         // 5. Categorize games by match score using the existing calculateMatchScore
         // method
         Map<String, List<Game>> categorizedGames = categorizeGamesByScore(
-            recommendedGames, genres, tags);
+                recommendedGames, genres, tags);
 
         // 6. Add categorized games to the model
         model.addAttribute("perfectMatches", categorizedGames.get("perfectMatches"));
@@ -86,8 +86,8 @@ public class RecommendationController {
         List<Game> otherMatches = new ArrayList<>();
 
         // Define score thresholds based on our scoring algorithm
-        final int PERFECT_MATCH_THRESHOLD = 240;  // 2/2 genres (200) + partial tag match (40) = 240
-        final int GOOD_MATCH_THRESHOLD = 120;     // 2/3 genres (80) + partial tag match (40) = 120
+        final int PERFECT_MATCH_THRESHOLD = 240; // 2/2 genres (200) + partial tag match (40) = 240
+        final int GOOD_MATCH_THRESHOLD = 120; // 2/3 genres (80) + partial tag match (40) = 120
 
         // Categorize by match score for all games
         for (Game game : games) {
@@ -107,5 +107,17 @@ public class RecommendationController {
         result.put("otherMatches", otherMatches);
 
         return result;
+    }
+
+    /**
+     * Get 3 similar games based on genre and tag filters
+     * 
+     * @param game the game to find related games for
+     * @return list of related games
+     */
+    @GetMapping("/{gameId}/related")
+    @ResponseBody
+    public List<Map<String, String>> getRelatedGames(@PathVariable String gameId) {
+        return recommendationEngine.getRelatedGames(gameId, 3);
     }
 }

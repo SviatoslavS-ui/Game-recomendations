@@ -6,14 +6,15 @@
 const APP_CONFIG = {
     ENDPOINTS: {
         RECOMMENDATIONS: '/recommendations/results',
-        GAME_DETAILS: '/api/games/{id}/details'
+        GAME_DETAILS: '/api/games/{id}/details',
+        RELATED_GAMES: '/recommendations/{id}/related'
     }
 };
 
 // Debug configuration
 const DEBUG_CONFIG = {
     RECOMMENDATIONS: false,
-    MODAL: false,
+    MODAL: true,
     GENERAL: true
 };
 

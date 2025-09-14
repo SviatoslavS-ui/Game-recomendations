@@ -4,7 +4,7 @@ public enum Genre {
     ACTION("Action"),
     ADVENTURE("Adventure"),
     RPG("Role-Playing"),
-    MMORPG("Massively-Multiplayer Role-Playing"),
+    MMORPG("MMORPG"),
     STRATEGY("Strategy"),
     TURN_BASED_STRATEGY("Turn-Based Strategy"),
     REAL_TIME_STRATEGY("Real-Time Strategy"),

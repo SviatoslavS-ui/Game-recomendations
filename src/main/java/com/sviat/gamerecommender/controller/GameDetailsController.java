@@ -66,5 +66,5 @@ public class GameDetailsController {
         response.put("releaseDate", game.getReleaseDate());
         
         return ResponseEntity.ok(response);
-    }
+    }    
 }
