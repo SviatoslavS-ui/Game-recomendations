@@ -11,6 +11,7 @@ public enum Tags {
     MULTIPLAYER("Multiplayer"),
     SINGLEPLAYER("Single-player"),
     ATMOSPHERIC("Atmospheric"),
+    POST_APOCALYPTIC("Post-apocalyptic"),
     DIFFICULT("Difficult"),
     INDIE("Indie"),
     SCI_FI("Sci-Fi"),

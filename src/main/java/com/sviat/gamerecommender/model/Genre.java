@@ -3,7 +3,7 @@ package com.sviat.gamerecommender.model;
 public enum Genre {
     ACTION("Action"),
     ADVENTURE("Adventure"),
-    RPG("Role-Playing"),
+    RPG("RPG"),
     MMORPG("MMORPG"),
     STRATEGY("Strategy"),
     TURN_BASED_STRATEGY("Turn-Based Strategy"),

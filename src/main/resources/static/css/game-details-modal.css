@@ -15,7 +15,8 @@
     --danger-color: #ff3333;
     --metacritic-color: var(--cyberpunk-cyan);
     --user-score-color: var(--cyberpunk-magenta);
-    --score-label-color: #888888;
+    --score-label-color: #8B93FF;
+    --secondary-purple: #6B73FF;
 }
 
 /* Core Modal Structure */
@@ -355,10 +356,10 @@
 
 #relatedGamesContainer h3 {
     font-size: 1.5em; /* 2x bigger */
-    color: var(--cyberpunk-cyan);
+    color: var(--secondary-purple);
     text-align: center; /* Center text */
-    margin-bottom: 1rem;
-    text-shadow: var(--glow-cyan-sm), var(--glow-cyan-md);
+    margin-bottom: 1.5rem;
+    /* text-shadow: var(--glow-cyan-sm), var(--glow-cyan-md); */
 }
 
 .related-games-list {
