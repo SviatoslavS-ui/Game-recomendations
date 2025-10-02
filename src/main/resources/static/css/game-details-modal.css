@@ -341,25 +341,97 @@
     color: var(--modal-text-light);
 }
 
-/* Animation */
+/* Animations */
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
 
-/* Related Games Styling */
+@keyframes glow {
+    0% { text-shadow: var(--glow-cyan-sm), var(--glow-cyan-md), var(--glow-cyan-lg); }
+    100% { text-shadow: var(--glow-cyan-lg), 0 0 15px var(--cyberpunk-cyan), 0 0 20px var(--cyberpunk-cyan); }
+}
+
+@keyframes borderPulse {
+    0% { border-color: rgba(0, 255, 255, 0.3); box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
+    50% { border-color: rgba(0, 255, 255, 0.8); box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); }
+    100% { border-color: rgba(0, 255, 255, 0.3); box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(500%); }
+}
+
+/* Related Games Styling - Cyberpunk Edition */
 #relatedGamesContainer {
     position: relative;
     width: 50%;
     margin-left: 3rem;
     margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--cyberpunk-cyan);
+    border-radius: var(--border-radius-md);
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1), 0 0 15px rgba(0, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: borderPulse 4s infinite ease-in-out;
+}
+
+/* Scanline effect */
+#relatedGamesContainer .scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(0, 255, 255, 0.2), 
+                transparent);
+    opacity: 0.3;
+    z-index: 2;
+    animation: scanline 4s linear infinite;
+    pointer-events: none;
+}
+
+/* Cyberpunk diagonal line decoration */
+#relatedGamesContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyberpunk-cyan), transparent);
+    transform: rotate(-2deg);
+    opacity: 0.7;
+}
+
+#relatedGamesContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyberpunk-cyan), transparent);
+    transform: rotate(2deg);
+    opacity: 0.7;
 }
 
 #relatedGamesContainer h3 {
-    font-size: 1.5em; /* 2x bigger */
-    color: var(--secondary-purple);
-    text-align: center; /* Center text */
+    font-size: 1.5em;
+    font-family: var(--cyberpunk-font-primary);
+    color: var(--cyberpunk-cyan);
+    text-align: center;
     margin-bottom: 1.5rem;
-    /* text-shadow: var(--glow-cyan-sm), var(--glow-cyan-md); */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: var(--glow-cyan-sm),
+                var(--glow-cyan-md),
+                var(--glow-cyan-lg);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .related-games-list {
@@ -375,20 +447,43 @@
 .related-game-item {
     font-family: var(--cyberpunk-font-secondary);
     color: var(--cyberpunk-cyan);
-    padding: 6px 12px;
+    padding: 8px 15px;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 3px solid var(--cyberpunk-cyan);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
     transition: all 0.3s ease;
     cursor: pointer;
+    margin-bottom: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.related-game-item::before {
+    content: '>';
+    margin-right: 8px;
+    font-weight: bold;
+    color: var(--cyberpunk-cyan);
+    text-shadow: var(--glow-cyan-sm);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-5px);
 }
 
 .related-game-item:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-color: var(--cyberpunk-cyan);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left-color: var(--cyberpunk-cyan);
+    border-bottom-color: var(--cyberpunk-cyan);
     text-shadow: 0 0 5px var(--cyberpunk-cyan), 0 0 10px var(--cyberpunk-cyan);
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-    transform: translateY(-2px);
+    transform: translateX(5px);
+    padding-left: 12px;
+}
+
+.related-game-item:hover::before {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .related-games-message {
@@ -425,12 +520,14 @@
     }
     
     #relatedGamesContainer {
-        width: 70%;
-        margin-left: 3rem;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.2rem;
     }
     
     #relatedGamesContainer h3 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
     
     /* Header changes */
@@ -471,12 +568,22 @@
     }
     
     #relatedGamesContainer {
-        width: 90%;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
     }
     
     #relatedGamesContainer h3 {
-        font-size: 1.3em;
+        font-size: 1.2em;
+    }
+    
+    .related-game-item {
+        padding: 6px 10px;
+        margin-bottom: 6px;
+    }
+    
+    .related-game-item:hover {
+        transform: translateX(3px);
     }
 }
