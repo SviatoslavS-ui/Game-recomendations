@@ -1,7 +1,6 @@
-/* ===== RECOMMENDATIONS PAGE STYLES ===== */
+/* Recommendations Page Styles */
 @import "variables.css";
 
-/* ===== CYBERPUNK THEME COLORS ===== */
 :root {
   --neon-cyan: #05d9e8;
   --neon-pink: #ff2a6d;
@@ -10,6 +9,11 @@
   --neon-cyan-glow: 0 0 0.625rem rgba(5, 217, 232, 0.4);
   --neon-cyan-glow-strong: 0 0 1.25rem rgba(5, 217, 232, 0.8);
   --neon-pink-glow: 0 0 0.3125rem rgba(255, 42, 109, 0.7);
+  --neon-pink-glow-strong: 0 0 1.25rem rgba(255, 42, 109, 0.8);
+  --button-bg: rgba(0, 0, 0, 0.6);
+  --button-bg-hover: rgba(0, 0, 0, 0.8);
+  --button-bg-active: rgba(0, 0, 0, 0.9);
+  --filter-button-bg: #545454;
 }
 
 .recommendations-container {
@@ -20,9 +24,7 @@
   gap: var(--space-10);
 }
 
-/* ===== REUSABLE COMPONENTS ===== */
-
-/* Card Component */
+/* Base Components */
 .cyberpunk-card {
   background-color: var(--bg-card);
   border-radius: var(--border-radius-lg);
@@ -34,7 +36,6 @@
   margin-bottom: var(--space-6);
 }
 
-/* Button Base Styles */
 .button-base {
   position: relative;
   display: inline-flex;
@@ -52,7 +53,7 @@
   overflow: hidden;
 }
 
-/* ===== RECOMMENDATION RESULTS ===== */
+/* Sections & Containers */
 #recommendation-results {
   width: 100%;
   display: none;
@@ -62,9 +63,8 @@
   width: 100%;
 }
 
-/* ===== RECOMMENDATION SECTION ===== */
-.recommendation-section {
-  /* Apply cyberpunk-card styles directly */
+.recommendation-section,
+.selection-section {
   background-color: var(--bg-card);
   border-radius: var(--border-radius-lg);
   padding: var(--space-6);
@@ -75,7 +75,6 @@
   margin-bottom: var(--space-6);
 }
 
-/* ===== GAME SECTIONS ===== */
 .game-sections {
   display: flex;
   flex-direction: column;
@@ -86,30 +85,16 @@
   margin-bottom: var(--space-10);
 }
 
-.game-section .section-title {
+.game-section .section-title,
+.selection-section .section-title {
   color: var(--text-primary);
-}
-
-/* Selection section styling */
-/* ===== SELECTION SECTION ===== */
-.selection-section {
-  /* Apply cyberpunk-card styles directly */
-  background-color: var(--bg-card);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-6);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-primary);
-  box-shadow: var(--shadow-lg);
-  margin-bottom: var(--space-6);
 }
 
 .selection-section .section-title {
-  color: var(--text-primary);
   margin-bottom: var(--space-6);
 }
 
-/* ===== GRID LAYOUT ===== */
+/* Grid Layout */
 .grid-row {
   display: grid;
   grid-template-columns: 600px 1fr;
@@ -145,7 +130,7 @@
   border-color: var(--neon-cyan);
 }
 
-/* ===== FILTER SECTIONS ===== */
+/* Filter Components */
 .filter-section {
   margin-bottom: 0;
   padding: var(--space-4);
@@ -186,9 +171,7 @@
   gap: var(--space-2);
 }
 
-/* ===== FILTER BUTTONS ===== */
 .filter-button {
-  /* Inherit button-base properties */
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -198,14 +181,11 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: none;
   outline: none;
   transition: all 0.3s ease;
   border-radius: 4px;
   overflow: hidden;
-  
-  /* Filter button specific styles */
-  background-color: #545454;
+  background-color: var(--filter-button-bg);
   color: var(--neon-cyan);
   border: 0.0625rem solid var(--neon-cyan);
   padding: 0.5rem 1rem;
@@ -225,226 +205,134 @@
   box-shadow: var(--neon-cyan-glow-strong);
 }
 
-/* Get Recommendations Button */
+/* Recommendation Button */
 .recommendation-action {
   margin-top: var(--space-8);
   margin-bottom: var(--space-4);
   text-align: center;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== CYBERPUNK BUTTON ===== */
 .cyberpunk-button {
-  /* Inherit button-base properties */
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 500;
+  font-family: var(--cyberpunk-font-primary, 'Orbitron'), sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border: none;
+  letter-spacing: 2px;
   outline: none;
   transition: all 0.3s ease;
   overflow: hidden;
-  
-  /* Cyberpunk button specific styles */
-  background-color: var(--neon-pink);
-  color: var(black);
-  border: 0.125rem solid var(--dark-bg);
-  border-radius: 0.25rem;
-  padding: var(--space-3) var(--space-6);
-  font-family: 'Rajdhani', 'Orbitron', var(--font-display);
+  background-color: var(--button-bg);
+  color: var(--cyberpunk-cyan);
+  border: 2px solid var(--cyberpunk-cyan);
+  border-radius: 4px;
+  padding: 15px 30px;
   font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.1875rem;
-  text-shadow: var(--neon-pink-glow);
-  box-shadow: var(--neon-cyan-glow), inset 0 0 0.625rem rgba(5, 217, 232, 0.2);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 0.5rem), calc(100% - 0.5rem) 100%, 0 100%);
+  text-shadow: 0 0 5px var(--cyberpunk-cyan), 0 0 10px var(--cyberpunk-cyan);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  animation: borderPulse 4s infinite ease-in-out;
 }
 
 .cyberpunk-button:hover {
-  /* background-color: rgba(5, 217, 232, 0.1); /* Slight cyan background */
-  /* color: #fff; */
-  /* border-color: var(--neon-pink); */
-  box-shadow: var(--neon-cyan-glow-strong), inset 0 0 0.9375rem rgba(5, 217, 232, 0.3);
-  text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.8);
-  transform: scale(1.1);
+  background-color: var(--button-bg-hover);
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 42, 109, 0.5), inset 0 0 15px rgba(255, 42, 109, 0.2);
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+  transform: translateY(-3px);
 }
 
-/* Prevent appearance change on click */
 .cyberpunk-button:active {
-  /* Maintain the same appearance as the normal state */
-  background-color: var(--neon-pink);
-  color: var(black);
-  border: 0.125rem solid var(--dark-bg);
-  /* Prevent the default browser behavior */
+  background-color: var(--button-bg-active);
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.3), inset 0 0 8px rgba(255, 42, 109, 0.2);
+  transform: translateY(-1px);
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Prevent the ::before content from changing on active state */
-.cyberpunk-button.glow:active::before {
-  /* Keep the same appearance as normal state */
-  opacity: 0.8;
-  color: var(--neon-cyan-glow);
-  /* Ensure it stays in the same position */
-  transform: translate(-0.125rem, 0);
-}
-
 .cyberpunk-button.glow {
-  animation: button-glow 2s infinite alternate;
-  position: relative;
+  animation: textColorShift 6s infinite ease-in-out;
 }
 
-.cyberpunk-button.glow::before {
-  content: 'GET RECOMMENDATIONS';
+.cyberpunk-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+  transform: rotate(-2deg);
+  opacity: 0.7;
+}
+
+.cyberpunk-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyberpunk-cyan), transparent);
+  transform: rotate(2deg);
+  opacity: 0.7;
+}
+
+.cyberpunk-button .scanline {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: transparent;
-  opacity: 0.8;
-  color: var(--neon-cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.1875rem;
-  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-  transform: translate(-0.125rem, 0);
-  animation: glitch-anim 3s infinite alternate;
+  height: 5px;
+  background: linear-gradient(to bottom, 
+              transparent, 
+              rgba(255, 42, 109, 0.2), 
+              transparent);
+  opacity: 0.3;
+  z-index: 2;
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
 }
 
-/* Simplified glitch animation */
-@keyframes glitch-anim {
-  0%, 100% {
-    opacity: 0.8;
-    transform: translate(-0.125rem, 0);
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-  }
-  25% {
-    transform: translate(0.125rem, 0);
-    opacity: 0.7;
-    clip-path: polygon(0 15%, 100% 15%, 100% 45%, 0 45%);
-  }
-  50% {
-    transform: translate(-0.0625rem, 0);
-    opacity: 0.8;
-    clip-path: polygon(0 10%, 100% 10%, 100% 35%, 0 35%);
-  }
-  75% {
-    transform: translate(0.0625rem, 0);
-    opacity: 0.9;
-    clip-path: polygon(0 5%, 100% 5%, 100% 25%, 0 25%);
-  }
+/* Animations */
+@keyframes borderPulse {
+  0% { border-color: var(--cyberpunk-cyan); box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
+  50% { border-color: var(--neon-pink); box-shadow: 0 0 15px rgba(255, 42, 109, 0.4); }
+  100% { border-color: var(--cyberpunk-cyan); box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
 }
 
-/* Button glow animation */
-@keyframes button-glow {
-  0% {
-    box-shadow: var(--neon-cyan-glow), inset 0 0 0.3125rem rgba(5, 217, 232, 0.2);
-    text-shadow: var(--neon-pink-glow);
-    border-color: var(--neon-cyan);
-  }
-  50% {
-    text-shadow: 0 0 0.625rem rgba(255, 42, 109, 0.9), 0 0 0.9375rem rgba(255, 42, 109, 0.5);
-  }
-  100% {
-    box-shadow: var(--neon-cyan-glow-strong), 0 0 1.875rem rgba(5, 217, 232, 0.4), inset 0 0 0.9375rem rgba(5, 217, 232, 0.3);
-    text-shadow: 0 0 0.3125rem rgba(255, 42, 109, 0.9), 0 0 0.5rem rgba(255, 42, 109, 0.5);
-    border-color: var(--neon-green); /* Slight color shift for animation */
-  }
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(500%); }
 }
 
-/* ===== BUTTON BORDERS ===== */
-.button-border-horizontal, .button-border-vertical {
-  position: absolute;
-  background: var(--neon-cyan);
-  box-shadow: var(--neon-cyan-glow);
-  opacity: 0.8;
+@keyframes textColorShift {
+  0% { color: var(--cyberpunk-cyan); text-shadow: 0 0 5px var(--cyberpunk-cyan), 0 0 10px var(--cyberpunk-cyan); }
+  50% { color: var(--neon-pink); text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink); }
+  100% { color: var(--cyberpunk-cyan); text-shadow: 0 0 5px var(--cyberpunk-cyan), 0 0 10px var(--cyberpunk-cyan); }
 }
 
-.button-border-horizontal {
-  left: 0;
-  right: 0;
-  height: 0.125rem;
-}
-
-.button-border-horizontal:first-of-type {
-  top: 0;
-}
-
-.button-border-horizontal:last-of-type {
-  bottom: 0;
-}
-
-.button-border-vertical {
-  top: 0;
-  bottom: 0;
-  width: 0.125rem;
-}
-
-.button-border-vertical:first-of-type {
-  left: 0;
-}
-.button-border-vertical:last-of-type {
-  right: 0;
-}
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (max-width: 48rem) {
-  .grid-row,
-  .grid-row-reverse {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-
-  .grid-image {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .character-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-  }
-
-  .filter-options {
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .filter-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .cyberpunk-button {
-    width: 100%;
-  }
-}
-
-/* Tablet adjustments */
+/* Responsive Styles */
 @media (max-width: 80rem) {
-  .grid-row {
-    grid-template-columns: 500px 1fr;
-  }
+  .grid-row { grid-template-columns: 500px 1fr; }
+  .grid-row-reverse { grid-template-columns: 1fr 500px; }
+  .grid-image { width: 500px; height: 500px; }
+}
 
-  .grid-row-reverse {
-    grid-template-columns: 1fr 500px;
-  }
-
-  .grid-image {
-    width: 500px;
-    height: 500px;
-  }
+@media (max-width: 48rem) {
+  .grid-row, .grid-row-reverse { grid-template-columns: 1fr; gap: var(--space-4); }
+  .grid-image { width: 100%; height: auto; max-width: 500px; margin: 0 auto; }
+  .character-image { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+  .filter-options { flex-direction: column; gap: var(--space-1); }
+  .filter-button { width: 100%; text-align: center; }
+  .cyberpunk-button { width: 100%; }
 }

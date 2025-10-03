@@ -139,15 +139,20 @@
         }
 
         /**
-         * Scroll to the recommendation results section
+         * Scroll to the recommendation results section with an offset of 50px
+         * to ensure the title is visible
          */
         function scrollToRecommendations() {
             const recommendationSection = document.querySelector('.recommendation-section');
             if (recommendationSection) {
-                debug('Scrolling to recommendation section');
-                recommendationSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                debug('Scrolling to recommendation section with offset');
+                const rect = recommendationSection.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const targetPosition = scrollTop + rect.top - 100; // 50px offset
+                // Scroll to the calculated position
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         }

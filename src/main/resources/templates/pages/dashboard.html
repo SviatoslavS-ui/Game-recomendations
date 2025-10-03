@@ -24,7 +24,24 @@
         <div th:replace="~{fragments/header :: header(pageTitle='Dashboard')}"></div>
 
         <main class="main-content">
-            <div class="game-sections">                
+            <div class="game-sections">
+                <section class="game-section noise noise-basic">
+                    <h2 class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
+                                <path class="glow" d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
+                            </svg>
+                        </span>
+                        New Releases
+                    </h2>
+                    <div class="game-grid">
+                        <div th:each="game : ${newReleases}">
+                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
+                            </div>
+                        </div>
+                    </div>
+                </section>              
                 <section class="game-section noise noise-basic">
                     <h2 class="section-title">
                         <span class="section-icon">
@@ -42,23 +59,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="game-section noise noise-basic">
-                    <h2 class="section-title">
-                        <span class="section-icon">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
-                                <path class="glow" d="M20 4V16H23L19 21L15 16H18V4H20M9 4H11V12H9V4M5 4H7V8H5V4M1 4H3V20H1V4M5 12H7V20H5V12M9 16H11V20H9V16M13 10H15V20H13V10Z" />
-                            </svg>
-                        </span>
-                        New Releases
-                    </h2>
-                    <div class="game-grid">
-                        <div th:each="game : ${newReleases}">
-                            <div th:replace="~{fragments/game-card :: gameCard(game=${game})}">
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
                 <section class="game-section noise noise-basic">
                     <h2 class="section-title">
                         <span class="section-icon">
