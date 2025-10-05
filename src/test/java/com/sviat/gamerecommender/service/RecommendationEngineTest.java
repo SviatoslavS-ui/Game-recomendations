@@ -73,7 +73,7 @@ public class RecommendationEngineTest extends BaseServiceTest {
         }
 
         @Test
-        @Tag("Manual")
+        @Tag("manual")
         void testRecomendationForParticularDataSet() {
                 // Arrange
                 gameDatabase.loadGamesFromFile("src/main/resources/data/games.json");

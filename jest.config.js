@@ -11,10 +11,7 @@ module.exports = {
   ],
   
   // An array of file extensions your modules use
-  moduleFileExtensions: ['js', 'json'],
-  
-  // Setup files to run before each test
-  setupFilesAfterEnv: ['<rootDir>/src/test/javascript/setup/setupTests.js'],
+  moduleFileExtensions: ['js', 'json'], 
   
   // Mock files for specific imports
   moduleNameMapper: {
@@ -26,6 +23,21 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/main/resources/static/js/**/*.js'
   ],
+  
+  // Transform files
+  transform: {
+    '^.+\\.js$': 'babel-jest'
+  },
+  
+  // Don't transform node_modules
+  transformIgnorePatterns: [
+    '/node_modules/'
+  ],
+  
+  // Test environment setup
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons']
+  },
   
   // Verbose output
   verbose: true

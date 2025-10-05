@@ -75,7 +75,6 @@
         document.getElementById('modalOverlay').classList.remove('hidden');
         document.getElementById('gameDetailsModal').classList.remove('hidden');
 
-        // Show loading state
         showLoadingState();
 
         document.body.style.overflow = 'hidden';
@@ -104,9 +103,7 @@
                 return response.json();
             })
             .then(data => {
-                // Cache the data
                 gameDetailsCache[gameId] = data;
-                // Display the data
                 displayGameDetails(data);
                 return data;
             })
@@ -121,16 +118,26 @@
     }
 
     function displayGameDetails(gameData) {
+        // Guard clause for null/undefined gameData
+        if (!gameData) {
+            debug('No game data provided');
+            document.getElementById('gameDetailsContent').innerHTML = 
+                '<div class="error-message">Error: No game data available</div>';
+            return;
+        }
+        
         // Set text content for various elements
         setElementText('gameTitle', gameData.title);
         setElementText('gameDeveloper', gameData.developer);
         setElementText('gamePublisher', gameData.publisher);
         setElementText('gameReleaseDate', gameData.releaseDate);
 
-        // Apply color classes based on score values
+        // Always set text content for scores, but only apply styling if score exists
+        setElementText('metacriticScore', gameData.metacriticScore);
+        setElementText('userScore', gameData.userScore);
+        
         const metacriticScoreEl = document.getElementById('metacriticScore');
         if (metacriticScoreEl && gameData.metacriticScore) {
-            setElementText('metacriticScore', gameData.metacriticScore);
             const score = parseInt(gameData.metacriticScore);
             metacriticScoreEl.className = 'score-value ' +
                 (score >= 80 ? 'score-high' : (score >= 50 ? 'score-medium' : 'score-low'));
@@ -138,7 +145,6 @@
 
         const userScoreEl = document.getElementById('userScore');
         if (userScoreEl && gameData.userScore) {
-            setElementText('userScore', gameData.userScore);
             const score = parseFloat(gameData.userScore); // Keep original 0-9.9 scale
             userScoreEl.className = 'score-value ' +
                 (score >= 8.0 ? 'score-high' : (score >= 5.0 ? 'score-medium' : 'score-low'));
@@ -205,6 +211,7 @@
             getRelatedGames(gameData)
                 .then(relatedGames => {
                     if (relatedGames && relatedGames.length > 0) {
+                        // Related games are already filtered to top 3 by rating in getRelatedGames
                         relatedGames.forEach(game => {
                             const listItem = document.createElement('li');
                             listItem.className = 'related-game-item';
@@ -214,7 +221,6 @@
                             listItem.addEventListener('click', () => {
                                 debug('Related game clicked:', game.title);
 
-                                // Show loading state
                                 showLoadingState();
 
                                 // Load full game details from API to get HTML content
@@ -267,7 +273,12 @@
             container.appendChild(li);
         });
     }
-
+    
+    /**
+     * Get related games for a specific game and return only the top 3 by rating
+     * @param {Object} game - The game object to find related games for
+     * @returns {Promise<Array>} - Promise resolving to array of top 3 related games
+     */
     function getRelatedGames(game) {
         const endpoint = APP_CONFIG.ENDPOINTS.RELATED_GAMES.replace('{id}', game.id);
 
@@ -277,9 +288,14 @@
                     throw new Error(`Error: ${response.status}`);
                 }
                 return response.json();
+            })
+            .then(games => {
+                // Filter to top 3 games by rating
+                return [...games]
+                    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+                    .slice(0, 3);
             });
     }
-
 
     // Make functions globally accessible
     window.openGameDetailsModal = openGameDetailsModal;

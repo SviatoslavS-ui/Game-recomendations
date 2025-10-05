@@ -43,6 +43,10 @@ This system provides game recommendations based on various criteria such as genr
     - Async data loading with promise-based architecture
     - Loading states and error handling
     - Responsive design with smooth transitions
+    - Robust null/incomplete data handling
+    - Related games display with rating-based sorting
+    - API endpoint constants for maintainability
+    - Caching mechanism for repeated requests
 
 ### Core Services
 - **Game Management**
@@ -99,6 +103,9 @@ src/
 │       │   │   ├── svg-filters.css   # SVG noise filter utilities
 │       │   │   └── game-card.css     # Game card components
 │       │   ├── js/
+│       │   │   ├── utils.js           # Utility functions and debug logger
+│       │   │   ├── game-details-modal.js # Modal implementation
+│       │   │   └── game-card.js       # Game card interactions
 │       │   └── images/
 │       ├── templates/                # Thymeleaf templates
        │   ├── fragments/            # Reusable components
@@ -117,16 +124,9 @@ src/
     │       ├── S3ServiceTest.java
     │       └── TestGameData.java
     └── javascript/                  # Frontend tests
-        ├── setup/
-        │   └── setupTests.js        # Jest configuration
-        ├── mocks/
-        │   ├── gameMocks.js         # Test data
-        │   └── modalHtmlMock.js     # DOM fixtures
-        └── unit/modal/              # Modal test suites
-            ├── modalIntegration.test.js
-            ├── dataHandling.test.js
-            ├── modalControl.test.js
-            └── eventListeners.test.js
+        ├── integration-modal.test.js # Parameterized integration tests
+        ├── modal-basic.test.js      # Basic modal functionality tests
+        └── babel.config.js          # Babel configuration for Jest
 
 ## Technical Details
 
@@ -176,11 +176,17 @@ AWS_S3_BUCKET=your_bucket_name
 ## Testing
 The project includes comprehensive test coverage with:
 
-### Frontend Testing (46 Tests - 100% Pass Rate)
-- **Modal Integration Tests** (15 tests) - Complete modal lifecycle testing
-- **Data Handling Tests** (21 tests) - Function-level testing for all modal utilities  
-- **Modal Control Tests** (5 tests) - DOM manipulation and state management
-- **Event Listeners Tests** (5 tests) - User interaction and event handling
+### Frontend Testing (100% Pass Rate)
+- **Modal Integration Tests** - Complete modal lifecycle testing
+  - Parameterized test approach for related games
+  - Edge case testing (empty/single/multiple related games)
+  - API endpoint constants integration
+  - Null/incomplete data handling
+- **Basic Modal Tests** - Core functionality verification
+- **Advanced Testing Patterns**
+  - Parameterized testing for reusable test cases
+  - Test case generation from data objects
+  - Comprehensive edge case coverage
 
 ### Backend Testing
 - **Recommendation Engine Test Suite (43 Tests)**
@@ -204,9 +210,12 @@ The project includes comprehensive test coverage with:
 ### Test Infrastructure
 - Jest test runner with JSDOM environment
 - Mock data and HTML fixtures
+- Parameterized testing pattern for reusable test cases
+- Test case generation from data objects
 - Async/await testing patterns
 - Promise-based function testing
 - Error handling and edge case coverage
+- API endpoint constants integration
 
 ### Running Tests
 ```bash
@@ -214,8 +223,11 @@ The project includes comprehensive test coverage with:
 npm test
 
 # Run specific test suite
-npx jest src/test/javascript/unit/modal/modalIntegration.test.js
+npx jest src/test/javascript/integration-modal.test.js
 
 # Run tests with verbose output
 npm test -- --verbose
+
+# Run tests with coverage report
+npm test -- --coverage
 ```
