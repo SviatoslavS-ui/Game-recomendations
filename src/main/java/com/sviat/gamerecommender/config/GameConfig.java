@@ -11,7 +11,7 @@ import com.sviat.gamerecommender.service.RecommendationEngine;
 @Configuration
 public class GameConfig {
     
-    @Value("${game.data.path:src/main/resources/data/games.json}")
+    @Value("${game.data.path:data/games.json}")
     private String gameDataPath;
     
     @Bean
