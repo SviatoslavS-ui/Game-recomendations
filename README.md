@@ -1,10 +1,36 @@
 # Game Recommendation System
 
-A Spring Boot web application that provides personalized game recommendations with a modern, Docker-inspired UI. The system features AWS S3 integration for image storage and processing, along with a responsive grid-based layout for optimal user experience.
+A Spring Boot web application that provides personalized game recommendations with a modern, cyberpunk-themed UI. The system features AWS S3 integration for image storage and processing, along with a responsive grid-based layout for optimal user experience.
 
 ## Project Overview
 
 This system provides game recommendations based on various criteria such as genres, platforms, developers, and metacritic scores. It features a responsive web interface with image handling capabilities, powered by AWS S3 for cloud storage and Thumbnailator for image processing.
+
+## Architecture Overview
+
+- **Server (Spring Boot 3)**
+  - MVC controllers render Thymeleaf pages
+  - REST controllers expose JSON under `/api/**` for dynamic UI (modal/details, search, filters)
+  - Services: `GameDatabase` (loads `classpath:data/games.json`), `RecommendationEngine`, optional `S3Service`
+
+- **View layer (Thymeleaf)**
+  - Pages in `templates/pages` use a base layout and reusable fragments
+  - Fragments in `templates/fragments`: `header`, `sidebar`, `game-card`, `game-details-modal`, `svg-filters`
+  - Composition via `th:replace` for consistent shell and component reuse
+
+- **Client (Modern JS/CSS)**
+  - JS modules in `static/js` (e.g., `api.js`, `game-details-modal.js`, `game-card.js`, `utils.js`)
+  - Async `fetch` to `/api/games` and `/api/games/{id}`; modal content loads on demand
+  - CSS tokens in `variables.css`; component styles in `sidebar.css`, `header.css`, `game-card.css`, `svg-filters.css`
+
+- **Key endpoints**
+  - `GET /api/games?genre=&q=&page=&size=`
+  - `GET /api/games/{id}`
+  - `GET /api/recommendations?genres=&tags=&limit=`
+
+- **Deployment**
+  - Procfile boots the fat JAR on port 5000: `--server.port=5000`
+  - GitHub Actions builds `deploy.zip` (Procfile + JAR) and deploys to Elastic Beanstalk
 
 ## Key Features
 
@@ -79,7 +105,7 @@ src/
 │   │   └── com/sviat/gamerecommender/
 │   │       ├── config/               # Configuration classes
 │   │       │   ├── S3Config.java     # AWS S3 configuration
-│   │       │   └── GameConfig.java   # Application config-n
+│   │       │   └── GameConfig.java   # Application config
 │   │       │
 │   │       ├── controller/           # Web controllers
 │   │       │   └── HomeController.java
@@ -108,15 +134,15 @@ src/
 │       │   │   └── game-card.js       # Game card interactions
 │       │   └── images/
 │       ├── templates/                # Thymeleaf templates
-       │   ├── fragments/            # Reusable components
-       │   │   ├── header.html       # Cyberpunk header fragment
-       │   │   ├── sidebar.html      # Navigation sidebar fragment
-       │   │   ├── svg-filters.html  # SVG noise filter definitions
-       │   │   └── game-card.html    # Game card fragment
-       │   └── pages/                # Main page templates
-       │       ├── dashboard.html    # Dashboard page
-       │       └── games.html        # All games page
-       └── application.properties    # App configuration
+│       │   ├── fragments/            # Reusable components
+│       │   │   ├── header.html       # Cyberpunk header fragment
+│       │   │   ├── sidebar.html      # Navigation sidebar fragment
+│       │   │   ├── svg-filters.html  # SVG noise filter definitions
+│       │   │   └── game-card.html    # Game card fragment
+│       │   └── pages/                # Main page templates
+│       │       ├── dashboard.html    # Dashboard page
+│       │       └── games.html        # All games page
+│       └── application.properties    # App configuration
 │
 └── test/                            # Test files
     ├── java/
@@ -127,6 +153,7 @@ src/
         ├── integration-modal.test.js # Parameterized integration tests
         ├── modal-basic.test.js      # Basic modal functionality tests
         └── babel.config.js          # Babel configuration for Jest
+```
 
 ## Technical Details
 
@@ -171,7 +198,7 @@ AWS_S3_BUCKET=your_bucket_name
    ```bash
    mvn spring-boot:run
    ```
-5. Open `http://localhost:8080` in your browser
+5. Open `http://localhost:5000` in your browser
 
 ## Testing
 The project includes comprehensive test coverage with:
