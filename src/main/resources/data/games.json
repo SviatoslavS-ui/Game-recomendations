@@ -1078,17 +1078,17 @@
         "publisher": "Xbox Game Studios",
         "genres": [
             "Tactical",
-            "Turn-Based Strategy",
-            "Strategy"
+            "Strategy",
+            "Turn-Based Strategy"
         ],
         "tags": [
             "Sci-Fi",
             "Squad-Based",
-            "Gore",
-            "Turn-Based",
+            "Story-Rich",
             "Single-player",
             "Cinematic",
-            "Story-Rich"            
+            "Gore",
+            "Turn-Based"
         ],
         "metacriticScore": 82,
         "ageRating": "Mature",
@@ -1120,11 +1120,11 @@
             "Sci-Fi",
             "Aliens",
             "Squad-Based",
+            "Single-player",
+            "Dystopian",
             "Difficult",
             "Turn-Based",
-            "Atmospheric",
-            "Single-player",
-            "Dystopian"
+            "Atmospheric"
         ],
         "metacriticScore": 88,
         "ageRating": "Teen",
@@ -1767,6 +1767,126 @@
         ],
         "price": 19.99,
         "playtimeHours": 6,
+        "multiplayer": false
+    },
+    {
+        "id": "far-cry-5",
+        "title": "Far Cry 5",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/far-cry-5/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/far-cry-5/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/far-cry-5/thumbnail.jpg",
+        "developer": "Ubisoft Montreal",
+        "publisher": "Ubisoft",
+        "genres": [
+            "Shooter",
+            "Action",
+            "Adventure"
+        ],
+        "tags": [
+            "Story-Rich",
+            "Single-player",
+            "Dystopian",
+            "Character Customization",
+            "FPS",
+            "Mature",
+            "Open World",
+            "Real-Time Combat",
+            "Sandbox"
+        ],
+        "metacriticScore": 78,
+        "ageRating": "Mature",
+        "userScore": 7.5,
+        "releaseDate": "2018-03-27",
+        "platforms": [
+            "PlayStation 4",
+            "PC",
+            "Xbox One",
+            "Stadia"
+        ],
+        "price": 59.99,
+        "playtimeHours": 25,
+        "multiplayer": false
+    },
+    {
+        "id": "plague-tale-innocence",
+        "title": "A Plague Tale: Innocence",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/plague-tale-innocence/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/plague-tale-innocence/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/plague-tale-innocence/thumbnail.jpg",
+        "developer": "Asobo Studio",
+        "publisher": "Focus Home Interactive",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Survival"
+        ],
+        "tags": [
+            "Story-Rich",
+            "Medieval",
+            "Single-player",
+            "Horror",
+            "Cinematic",
+            "Stealth",
+            "Mature",
+            "Historical",
+            "Atmospheric"
+        ],
+        "metacriticScore": 82,
+        "ageRating": "Mature",
+        "userScore": 8.3,
+        "releaseDate": "2019-05-14",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC",
+            "Nintendo Switch",
+            "Xbox One"
+        ],
+        "price": 39.99,
+        "playtimeHours": 15,
+        "multiplayer": false
+    },
+    {
+        "id": "hunt-showdown",
+        "title": "Hunt: Showdown",
+        "description": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/hunt-showdown/details.html",
+        "imageUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/hunt-showdown/original.jpg",
+        "thumbnailUrl": "https://sviat-bucket-2025.s3.eu-north-1.amazonaws.com/games/hunt-showdown/thumbnail.jpg",
+        "developer": "Crytek",
+        "publisher": "Crytek",
+        "genres": [
+            "Shooter",
+            "Action",
+            "Horror",
+            "Survival",
+            "Western"
+        ],
+        "tags": [
+            "PvE & PvP",
+            "Multiplayer",
+            "Horror",
+            "Stealth",
+            "Difficult",
+            "FPS",
+            "Mature",
+            "Real-Time Combat",
+            "Historical",
+            "Atmospheric"
+        ],
+        "metacriticScore": 81,
+        "ageRating": "Mature",
+        "userScore": 8.0,
+        "releaseDate": "2019-08-27",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X/S",
+            "PC",
+            "Xbox One"
+        ],
+        "price": 39.99,
+        "playtimeHours": 30,
         "multiplayer": false
     }
 ]
