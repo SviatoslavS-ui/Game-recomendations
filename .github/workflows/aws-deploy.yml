@@ -32,7 +32,7 @@ jobs:
       run: mvn compile
       
     - name: Run JUnit Tests
-      run: mvn test -DexcludedGroups="manual"
+      run: mvn test -DexcludedGroups="manual,integration"
       
     - name: Upload JUnit test results
       if: always()

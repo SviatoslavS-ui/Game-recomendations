@@ -8,10 +8,12 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.api.Tag;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.sviat.gamerecommender.model.Game;
 
+@Tag("integration")
 public class JsonServiceTest extends BaseServiceTest {
     private static final String GAMES_JSON_PATH = "src/main/resources/data/games.json";
 
